@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ post.title }} - Community Forum{% endblock %}
+
+{% block extra_css %}
+<style>
+    .post-header {
+        background-color: #f8f9fa;
+        padding: 30px 0;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+    
+    .post-content {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+    
+    .post-meta {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e1e1e1;
+    }
+    
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        background-color: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .comment-section {
+        margin-top: 30px;
+    }
+    
+    .comment {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .comment-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .comment-author {
+        font-weight: bold;
+    }
+    
+    .comment-timestamp {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-left: 10px;
+    }
+    
+    .comment-content {
+        margin-bottom: 10px;
+    }
+    
+    .comment-actions {
+        font-size: 0.85rem;
+    }
+    
+    .reply-form {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .nested-comment {
+        margin-left: 40px;
+        border-left: 2px solid #e1e1e1;
+        padding-left: 15px;
+    }
+    
+    .like-btn {
+        background: none;
+        border: none;
+        color: #6c757d;
+        cursor: pointer;
+        padding: 0;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .like-btn i {
+        margin-right: 5px;
+    }
+    
+    .like-btn:hover {
+        color: #dc3545;
+    }
+    
+    .liked {
+        color: #dc3545;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row post-header">
+        <div class="col-md-8">
+            <h1>{{ post.title }}</h1>
+            <div class="d-flex align-items-center">
+                <a href="{{ url_for('forum_category', category_id=post.category.id) }}" class="badge bg-primary">{{ post.category.name }}</a>
+                <span class="ms-2">• {{ post.views }} views • {{ post.comments.count() }} comments</span>
+            </div>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('forum_category', category_id=post.category.id) }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Back to {{ post.category.name }}
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-9">
+            <div class="post-content">
+                <div class="post-meta d-flex align-items-center">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold">{{ post.author.username }}</div>
+                        <div>Posted on {{ post.created_at.strftime('%B %d, %Y at %I:%M %p') }}</div>
+                    </div>
+                </div>
+                
+                <div class="post-body">
+                    {{ post.content|safe }}
+                </div>
+                
+                <div class="mt-4">
+                    <button class="like-btn" id="likePostBtn" data-post-id="{{ post.id }}">
+                        <i class="far fa-heart"></i> <span id="likeCount">{{ post.likes }}</span> Likes
+                    </button>
+                </div>
+            </div>
+            
+            <div class="comment-section">
+                <h3>{{ post.comments.count() }} Comments</h3>
+                
+                <form action="{{ url_for('add_comment', post_id=post.id) }}" method="POST" class="mb-4">
+                    <div class="mb-3">
+                        <textarea class="form-control" id="commentContent" name="content" rows="3" placeholder="Share your thoughts..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+                
+                <div id="comments">
+                    {% for comment in post.comments %}
+                        {% if not comment.parent_id %}
+                        <div class="comment" id="comment-{{ comment.id }}">
+                            <div class="comment-header">
+                                <span class="comment-author">{{ comment.author.username }}</span>
+                                <span class="comment-timestamp">{{ comment.created_at.strftime('%B %d, %Y at %I:%M %p') }}</span>
+                            </div>
+                            <div class="comment-content">
+                                {{ comment.content }}
+                            </div>
+                            <div class="comment-actions">
+                                <button class="like-btn" data-comment-id="{{ comment.id }}">
+                                    <i class="far fa-heart"></i> <span class="comment-like-count">{{ comment.likes }}</span>
+                                </button>
+                                <button class="btn btn-sm btn-link reply-btn" data-comment-id="{{ comment.id }}">Reply</button>
+                            </div>
+                            
+                            <div class="reply-form" id="reply-form-{{ comment.id }}">
+                                <form action="{{ url_for('add_comment', post_id=post.id) }}" method="POST">
+                                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                    <div class="mb-3">
+                                        <textarea class="form-control" name="content" rows="2" placeholder="Write a reply..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm btn-primary">Post Reply</button>
+                                    <button type="button" class="btn btn-sm btn-link cancel-reply" data-comment-id="{{ comment.id }}">Cancel</button>
+                                </form>
+                            </div>
+                            
+                            {% for reply in comment.replies %}
+                            <div class="comment nested-comment" id="comment-{{ reply.id }}">
+                                <div class="comment-header">
+                                    <span class="comment-author">{{ reply.author.username }}</span>
+                                    <span class="comment-timestamp">{{ reply.created_at.strftime('%B %d, %Y at %I:%M %p') }}</span>
+                                </div>
+                                <div class="comment-content">
+                                    {{ reply.content }}
+                                </div>
+                                <div class="comment-actions">
+                                    <button class="like-btn" data-comment-id="{{ reply.id }}">
+                                        <i class="far fa-heart"></i> <span class="comment-like-count">{{ reply.likes }}</span>
+                                    </button>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Forum Guidelines</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Be respectful to others</li>
+                        <li>Stay on topic</li>
+                        <li>No self-promotion</li>
+                        <li>Respect privacy</li>
+                        <li>Don't share medical advice</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5>Related Topics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action">Understanding menstrual cycles</a>
+                        <a href="#" class="list-group-item list-group-item-action">Fertility tracking methods</a>
+                        <a href="#" class="list-group-item list-group-item-action">Managing PMS symptoms</a>
+                        <a href="#" class="list-group-item list-group-item-action">Hormone health tips</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Reply functionality
+        document.querySelectorAll('.reply-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.getAttribute('data-comment-id');
+                document.getElementById(`reply-form-${commentId}`).style.display = 'block';
+            });
+        });
+        
+        document.querySelectorAll('.cancel-reply').forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.getAttribute('data-comment-id');
+                document.getElementById(`reply-form-${commentId}`).style.display = 'none';
+            });
+        });
+        
+        // Like functionality - this would normally use AJAX to update likes in the database
+        document.querySelectorAll('.like-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                const countSpan = this.querySelector('span');
+                
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.classList.add('liked');
+                    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.classList.remove('liked');
+                    countSpan.textContent = parseInt(countSpan.textContent) - 1;
+                }
+            });
+        });
+    });
+</script>
+ <%- body %>

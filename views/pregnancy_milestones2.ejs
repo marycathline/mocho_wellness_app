@@ -1,0 +1,377 @@
+{% extends "layout.html" %}
+
+{% block title %}Pregnancy Milestones Tracker | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Pregnancy Milestones Tracker</h1>
+      <p class="lead mb-4">Track your pregnancy journey week by week, record important milestones, and prepare for your baby's arrival.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Enter Your Due Date</h5>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-6">
+              <label for="due-date-input" class="form-label">Expected Due Date</label>
+              <input type="date" class="form-control" id="due-date-input" value="2023-12-31">
+            </div>
+            <div class="col-md-6">
+              <button id="update-due-date-btn" class="btn btn-primary mt-4">Update Due Date</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Pregnancy Calendar</h5>
+          <div id="pregnancy-milestone-calendar" class="calendar-container"></div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Pregnancy Milestones by Trimester</h5>
+          
+          <ul class="nav nav-tabs" id="pregnancyTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="first-trimester-tab" data-bs-toggle="tab" data-bs-target="#first-trimester" type="button" role="tab" aria-controls="first-trimester" aria-selected="true">First Trimester</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="second-trimester-tab" data-bs-toggle="tab" data-bs-target="#second-trimester" type="button" role="tab" aria-controls="second-trimester" aria-selected="false">Second Trimester</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="third-trimester-tab" data-bs-toggle="tab" data-bs-target="#third-trimester" type="button" role="tab" aria-controls="third-trimester" aria-selected="false">Third Trimester</button>
+            </li>
+          </ul>
+          
+          <div class="tab-content mt-3" id="pregnancyTabContent">
+            <div class="tab-pane fade show active" id="first-trimester" role="tabpanel" aria-labelledby="first-trimester-tab">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Week</th>
+                      <th>Baby's Development</th>
+                      <th>Your Body</th>
+                      <th>Important To-Dos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Week 4</td>
+                      <td>Implantation occurs; your baby is the size of a poppy seed</td>
+                      <td>You may miss your period; early pregnancy symptoms may begin</td>
+                      <td>Take a pregnancy test; start prenatal vitamins</td>
+                    </tr>
+                    <tr>
+                      <td>Week 6</td>
+                      <td>Heart begins to beat; neural tube forms</td>
+                      <td>Morning sickness may begin; breast tenderness</td>
+                      <td>Schedule first prenatal appointment</td>
+                    </tr>
+                    <tr>
+                      <td>Week 8</td>
+                      <td>All essential organs begin to form; tiny tail disappears</td>
+                      <td>Hormonal changes; fatigue; possible food aversions</td>
+                      <td>First ultrasound may be performed</td>
+                    </tr>
+                    <tr>
+                      <td>Week 10</td>
+                      <td>Fingers and toes are formed; baby can make tiny movements</td>
+                      <td>Uterus size of a grapefruit; may notice skin changes</td>
+                      <td>Consider genetic screening options</td>
+                    </tr>
+                    <tr>
+                      <td>Week 12</td>
+                      <td>Baby's reflexes develop; can swallow and kick</td>
+                      <td>Uterus rises from pelvis; may feel less fatigued</td>
+                      <td>Consider announcing pregnancy; NT scan may be performed</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="tab-pane fade" id="second-trimester" role="tabpanel" aria-labelledby="second-trimester-tab">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Week</th>
+                      <th>Baby's Development</th>
+                      <th>Your Body</th>
+                      <th>Important To-Dos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Week 16</td>
+                      <td>Baby's facial muscles developing; can make facial expressions</td>
+                      <td>May feel baby's first movements; "pregnancy glow"</td>
+                      <td>Schedule anatomy scan; consider starting a pregnancy journal</td>
+                    </tr>
+                    <tr>
+                      <td>Week 20</td>
+                      <td>Baby is about 10 inches long; can hear your voice</td>
+                      <td>Anatomy scan usually performed; baby bump clearly visible</td>
+                      <td>Learn about preterm labor signs; plan maternity leave</td>
+                    </tr>
+                    <tr>
+                      <td>Week 24</td>
+                      <td>Lungs developing; regular sleep patterns begin</td>
+                      <td>Weight gain increasing; possible back pain</td>
+                      <td>Start researching childbirth classes; consider baby registry</td>
+                    </tr>
+                    <tr>
+                      <td>Week 26</td>
+                      <td>Eyes open; brain developing rapidly</td>
+                      <td>Braxton Hicks contractions may begin; stretch marks may appear</td>
+                      <td>Take glucose screening test; plan baby's sleeping arrangements</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="tab-pane fade" id="third-trimester" role="tabpanel" aria-labelledby="third-trimester-tab">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Week</th>
+                      <th>Baby's Development</th>
+                      <th>Your Body</th>
+                      <th>Important To-Dos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Week 28</td>
+                      <td>Baby can blink eyes; brain developing rapidly</td>
+                      <td>More frequent prenatal visits begin; heartburn may increase</td>
+                      <td>Pre-register at hospital; take childbirth classes</td>
+                    </tr>
+                    <tr>
+                      <td>Week 32</td>
+                      <td>Practices breathing; gaining about 1/2 pound per week</td>
+                      <td>Shortness of breath; difficulty sleeping; swelling</td>
+                      <td>Prepare hospital bag; finalize birth plan; install car seat</td>
+                    </tr>
+                    <tr>
+                      <td>Week 36</td>
+                      <td>Head may descend into pelvis (engagement)</td>
+                      <td>Weekly check-ups begin; possible lightening</td>
+                      <td>GBS test; finalize maternity leave; wash baby clothes</td>
+                    </tr>
+                    <tr>
+                      <td>Week 38-40</td>
+                      <td>Full term; average weight 7-8 pounds</td>
+                      <td>Cervical changes; nesting instinct; signs of labor</td>
+                      <td>Rest; watch for labor signs; contact provider when labor begins</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Track Pregnancy Symptoms & Notes</h5>
+          
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="symptomDate" class="form-label">Date</label>
+              <input type="date" class="form-control" id="symptomDate">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="currentWeek" class="form-label">Pregnancy Week</label>
+              <input type="number" class="form-control" id="currentWeek" placeholder="Example: 16">
+            </div>
+            
+            <div class="col-12">
+              <label class="form-label">Common Pregnancy Symptoms</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomNausea">
+                    <label class="form-check-label" for="symptomNausea">Nausea/Morning Sickness</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomFatigue">
+                    <label class="form-check-label" for="symptomFatigue">Fatigue</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomHeartburn">
+                    <label class="form-check-label" for="symptomHeartburn">Heartburn</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomSwelling">
+                    <label class="form-check-label" for="symptomSwelling">Swelling</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomBackPain">
+                    <label class="form-check-label" for="symptomBackPain">Back Pain</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomBraxton">
+                    <label class="form-check-label" for="symptomBraxton">Braxton Hicks</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomMovement">
+                    <label class="form-check-label" for="symptomMovement">Baby Movement</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomInsomnia">
+                    <label class="form-check-label" for="symptomInsomnia">Insomnia</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="symptomCravings">
+                    <label class="form-check-label" for="symptomCravings">Food Cravings</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="weightChange" class="form-label">Weight Change</label>
+              <div class="input-group">
+                <input type="number" step="0.1" class="form-control" id="weightChange" placeholder="Example: 0.5">
+                <span class="input-group-text">lbs</span>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="bloodPressure" class="form-label">Blood Pressure</label>
+              <input type="text" class="form-control" id="bloodPressure" placeholder="Example: 120/80">
+            </div>
+            
+            <div class="col-12">
+              <label for="pregnancyNotes" class="form-label">Notes & Observations</label>
+              <textarea class="form-control" id="pregnancyNotes" rows="3" placeholder="Record your feelings, symptoms, or questions for your doctor..."></textarea>
+            </div>
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Save Pregnancy Journal Entry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Your Pregnancy Status</h5>
+          <div class="cycle-stats text-center">
+            <div class="mb-3">
+              <small class="text-muted">Current Week</small>
+              <h2>24 Weeks</h2>
+              <p>Second Trimester</p>
+            </div>
+            <div class="mb-3">
+              <small class="text-muted">Due Date</small>
+              <h4>December 31, 2023</h4>
+            </div>
+            <div class="progress" style="height: 20px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60% Complete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <img src="https://pixabay.com/get/g0301ff45e83dfd0e22cb4999cefef101cfc78fa1c8b191cf8bcb7da2c21cacf25ed8c9d4c864c730ad5cb8a3c78e12590797252575c72bc4917bf3810f81bdfb_1280.jpg" class="card-img-top" alt="Pregnancy milestones">
+        <div class="card-body">
+          <h5 class="card-title">Baby This Week</h5>
+          <p>At 24 weeks, your baby is about the size of a corn on the cob (11.8 inches, 1.3 pounds).</p>
+          <ul class="mb-0">
+            <li>Facial features are formed, including eyebrows and eyelashes</li>
+            <li>Lungs are developing rapidly</li>
+            <li>Baby is developing a regular sleep-wake cycle</li>
+            <li>The inner ear is fully developed, meaning baby can sense balance</li>
+            <li>Baby may respond to loud sounds by an increase in pulse or startling</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Upcoming Appointments</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">Prenatal Checkup</h6>
+                <small class="text-muted">Dr. Sarah Johnson</small>
+              </div>
+              <span>July 15, 2023</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">Glucose Test</h6>
+                <small class="text-muted">Lab Services</small>
+              </div>
+              <span>July 28, 2023</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">Childbirth Class</h6>
+                <small class="text-muted">Community Center</small>
+              </div>
+              <span>August 5, 2023</span>
+            </li>
+          </ul>
+          <button class="btn btn-outline-primary w-100 mt-3">Add Appointment</button>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Pregnancy Tips</h5>
+          
+          <div class="cycle-tip mb-3">
+            <h6>Second Trimester Nutrition</h6>
+            <p>Focus on foods rich in calcium, iron, and omega-3 fatty acids to support your growing baby's bone and brain development.</p>
+          </div>
+          
+          <div class="cycle-tip mb-3">
+            <h6>Managing Back Pain</h6>
+            <p>Use proper posture, wear supportive shoes, avoid heavy lifting, and try prenatal yoga to alleviate pregnancy-related back pain.</p>
+          </div>
+          
+          <div class="cycle-tip">
+            <h6>Start Kick Counting</h6>
+            <p>Around week 28, begin monitoring your baby's movements. Contact your healthcare provider if you notice a significant reduction in activity.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Related Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="{{ url_for('antenatal_postnatal') }}">Antenatal & Postnatal Care</a></li>
+            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition During Pregnancy</a></li>
+            <li class="list-group-item"><a href="{{ url_for('postpartum_care') }}">Preparing for Postpartum</a></li>
+            <li class="list-group-item"><a href="{{ url_for('mental_health') }}">Mental Health During Pregnancy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+ <%- body %>

@@ -1,0 +1,761 @@
+<%- include ('layout') %>
+
+<% title= "Family Planning & Contraception | Women's Health & Wellness" %>
+
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h1 class="text-center mb-4">Family Planning & Contraception</h1>
+    <p class="text-center mb-5">Understanding your options for preventing or planning pregnancy.</p>
+    
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2>What is Family Planning?</h2>
+        <p>Family planning involves making informed decisions about whether and when to have children. It includes contraception to prevent pregnancy and fertility awareness to help achieve pregnancy when desired.</p>
+        <p>Effective family planning allows individuals and couples to:</p>
+        <ul>
+          <li>Take control of their reproductive health</li>
+          <li>Plan pregnancies according to their life circumstances</li>
+          <li>Space children for optimal maternal and child health</li>
+          <li>Prevent unintended pregnancies</li>
+          <li>Reduce the need for unsafe abortions</li>
+          <li>Lower the risk of pregnancy complications</li>
+        </ul>
+        <p>Every woman has unique needs and preferences when it comes to family planning. Understanding all available options helps you make the best choice for your situation.</p>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://pixabay.com/get/g54701297c185f98fa1fad3c6a3c805026a0ca80ed0142eaf0a1b85fafd37098350adc5a6c641f02a66dfd645cf2a76269c8b0f7eb979d3e96648cd08d49cac3b_1280.jpg" alt="Family Planning Discussion" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Contraception Methods</h2>
+    <p class="text-center mb-5">Contraception effectiveness is typically measured by both "perfect use" (when used exactly as directed) and "typical use" (accounting for human error).</p>
+    
+    <ul class="nav nav-pills mb-4 justify-content-center" id="contraception-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="hormonal-tab" data-bs-toggle="pill" data-bs-target="#hormonal" type="button" role="tab" aria-controls="hormonal" aria-selected="true">Hormonal Methods</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="longacting-tab" data-bs-toggle="pill" data-bs-target="#longacting" type="button" role="tab" aria-controls="longacting" aria-selected="false">Long-Acting Methods</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="barrier-tab" data-bs-toggle="pill" data-bs-target="#barrier" type="button" role="tab" aria-controls="barrier" aria-selected="false">Barrier Methods</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="natural-tab" data-bs-toggle="pill" data-bs-target="#natural" type="button" role="tab" aria-controls="natural" aria-selected="false">Natural Methods</button>
+      </li>
+    </ul>
+    
+    <div class="tab-content" id="contraceptionTabContent">
+      <!-- Hormonal Methods -->
+      <div class="tab-pane fade show active" id="hormonal" role="tabpanel" aria-labelledby="hormonal-tab">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Combined Hormonal Pill</h4>
+                <p><strong>Effectiveness:</strong> 91-99%</p>
+                <p><strong>How it works:</strong> Contains estrogen and progestin to prevent ovulation, thicken cervical mucus, and thin the uterine lining.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Highly effective when used correctly</li>
+                  <li>Can reduce menstrual pain and heavy bleeding</li>
+                  <li>May improve acne</li>
+                  <li>Reduces risk of ovarian and endometrial cancers</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Must be taken daily at the same time</li>
+                  <li>Can have side effects like nausea, headaches</li>
+                  <li>Slightly increased risk of blood clots</li>
+                  <li>Not suitable for women with certain health conditions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Mini-Pill (Progestin-Only)</h4>
+                <p><strong>Effectiveness:</strong> 91-99%</p>
+                <p><strong>How it works:</strong> Contains only progestin to thicken cervical mucus and thin the uterine lining. May suppress ovulation in some women.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Option for women who can't take estrogen</li>
+                  <li>Can be used while breastfeeding</li>
+                  <li>Fewer side effects than combined pills</li>
+                  <li>May reduce or eliminate periods</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Must be taken at exact same time daily</li>
+                  <li>May cause irregular bleeding</li>
+                  <li>Slightly less effective than combined pills</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Patch</h4>
+                <p><strong>Effectiveness:</strong> 91-99%</p>
+                <p><strong>How it works:</strong> Adhesive patch that releases estrogen and progestin through the skin.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Weekly application rather than daily</li>
+                  <li>Not affected by vomiting or diarrhea</li>
+                  <li>Similar benefits to combined pill</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>May cause skin irritation</li>
+                  <li>More visible than other methods</li>
+                  <li>Similar risks to combined pill</li>
+                  <li>May be less effective for women over 198 pounds</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Vaginal Ring</h4>
+                <p><strong>Effectiveness:</strong> 91-99%</p>
+                <p><strong>How it works:</strong> Flexible ring inserted into the vagina that releases estrogen and progestin.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Monthly insertion rather than daily use</li>
+                  <li>Lower hormone dose than pills</li>
+                  <li>Not affected by vomiting or diarrhea</li>
+                  <li>Can be removed for up to 3 hours without reducing effectiveness</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires comfort with vaginal insertion</li>
+                  <li>May cause vaginal irritation</li>
+                  <li>Similar risks to combined pill</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Injectable (Depo-Provera)</h4>
+                <p><strong>Effectiveness:</strong> 94-99%</p>
+                <p><strong>How it works:</strong> Progestin injection that prevents ovulation and thickens cervical mucus.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Each injection works for 12 weeks</li>
+                  <li>Private - no visible sign of use</li>
+                  <li>Can reduce or eliminate periods</li>
+                  <li>Can be used while breastfeeding</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires clinic visit every 12 weeks</li>
+                  <li>May cause weight gain, mood changes</li>
+                  <li>Return to fertility may be delayed after stopping</li>
+                  <li>May decrease bone density with long-term use</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Long-Acting Methods -->
+      <div class="tab-pane fade" id="longacting" role="tabpanel" aria-labelledby="longacting-tab">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Hormonal IUD (Intrauterine Device)</h4>
+                <p><strong>Effectiveness:</strong> Over 99%</p>
+                <p><strong>How it works:</strong> T-shaped device inserted into the uterus that releases progestin. Thickens cervical mucus, thins uterine lining, and may prevent ovulation.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Highly effective for 3-8 years (depending on type)</li>
+                  <li>No need to remember daily/weekly/monthly method</li>
+                  <li>Reduces menstrual bleeding and cramping (many women have no periods)</li>
+                  <li>Quickly reversible - fertility returns rapidly after removal</li>
+                  <li>Lower hormone dose than pills with fewer systemic effects</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires insertion procedure by healthcare provider</li>
+                  <li>May cause irregular bleeding in first 3-6 months</li>
+                  <li>Small risk of expulsion (device coming out)</li>
+                  <li>Very small risk of uterine perforation during insertion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Copper IUD</h4>
+                <p><strong>Effectiveness:</strong> Over 99%</p>
+                <p><strong>How it works:</strong> T-shaped copper device inserted into the uterus. The copper creates an environment toxic to sperm and prevents fertilization.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Effective for up to 10-12 years</li>
+                  <li>No hormones - good for women who can't or don't want to use hormonal methods</li>
+                  <li>Can be used as emergency contraception if inserted within 5 days of unprotected sex</li>
+                  <li>Doesn't affect future fertility</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>May cause heavier, longer periods and more cramping</li>
+                  <li>Requires insertion procedure by healthcare provider</li>
+                  <li>Same risks of expulsion or perforation as hormonal IUD</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Contraceptive Implant</h4>
+                <p><strong>Effectiveness:</strong> Over 99%</p>
+                <p><strong>How it works:</strong> Small rod inserted under the skin of the upper arm that releases progestin to prevent ovulation and thicken cervical mucus.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Effective for up to 3-5 years (depending on type)</li>
+                  <li>No need to remember daily/weekly/monthly method</li>
+                  <li>Not affected by other medications</li>
+                  <li>Can be used while breastfeeding</li>
+                  <li>Quickly reversible - fertility returns rapidly after removal</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires minor procedure for insertion and removal</li>
+                  <li>May cause irregular bleeding patterns</li>
+                  <li>Can cause local bruising or soreness at insertion site</li>
+                  <li>May cause hormonal side effects in some women</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Sterilization</h4>
+                <p><strong>Effectiveness:</strong> Over 99%</p>
+                <p><strong>How it works:</strong> Surgical procedure that blocks the fallopian tubes, preventing sperm from reaching the egg.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Permanent method - one-time procedure</li>
+                  <li>No hormones or ongoing maintenance</li>
+                  <li>No effect on menstrual cycle or hormone levels</li>
+                  <li>Most procedures can be done as outpatient surgery</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Considered permanent - reversal is difficult, expensive, and not always successful</li>
+                  <li>Surgical procedure with associated risks</li>
+                  <li>Does not protect against STIs</li>
+                  <li>Not recommended for those who may want children in the future</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Barrier Methods -->
+      <div class="tab-pane fade" id="barrier" role="tabpanel" aria-labelledby="barrier-tab">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Male Condom</h4>
+                <p><strong>Effectiveness:</strong> 82-98%</p>
+                <p><strong>How it works:</strong> Thin sheath placed over the erect penis to prevent sperm from entering the vagina.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Provides protection against many STIs</li>
+                  <li>Readily available without prescription</li>
+                  <li>Inexpensive</li>
+                  <li>No hormonal side effects</li>
+                  <li>Can be used with other contraceptive methods for added protection</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Must be used correctly every time</li>
+                  <li>Can break or slip off</li>
+                  <li>May reduce sensation</li>
+                  <li>Must be put on during sexual activity</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Female Condom</h4>
+                <p><strong>Effectiveness:</strong> 79-95%</p>
+                <p><strong>How it works:</strong> Pouch inserted into the vagina to prevent sperm from entering the uterus.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Can be inserted up to 8 hours before sex</li>
+                  <li>Provides protection against many STIs</li>
+                  <li>Can be used during menstruation</li>
+                  <li>No hormonal side effects</li>
+                  <li>Woman-controlled method</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>More expensive than male condoms</li>
+                  <li>May be noisy during use</li>
+                  <li>Less widely available than male condoms</li>
+                  <li>Requires practice for proper insertion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Diaphragm</h4>
+                <p><strong>Effectiveness:</strong> 88-94%</p>
+                <p><strong>How it works:</strong> Shallow cup inserted into the vagina to cover the cervix. Must be used with spermicide.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Can be inserted up to 2 hours before sex</li>
+                  <li>Reusable for up to 2 years</li>
+                  <li>No hormonal side effects</li>
+                  <li>Can't be felt by either partner when properly placed</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires fitting by a healthcare provider</li>
+                  <li>Must remain in place for 6 hours after sex</li>
+                  <li>Increased risk of UTIs in some women</li>
+                  <li>Doesn't protect against STIs</li>
+                  <li>Requires proper insertion technique</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Cervical Cap</h4>
+                <p><strong>Effectiveness:</strong> 71-86% (varies based on previous pregnancies)</p>
+                <p><strong>How it works:</strong> Small silicone cup that fits tightly over the cervix. Must be used with spermicide.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Can be inserted up to 40 hours before sex</li>
+                  <li>Reusable for up to 2 years</li>
+                  <li>No hormonal side effects</li>
+                  <li>Smaller than a diaphragm</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Less effective for women who have given birth</li>
+                  <li>Requires fitting by a healthcare provider</li>
+                  <li>More difficult to insert correctly than diaphragm</li>
+                  <li>Doesn't protect against STIs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Spermicide</h4>
+                <p><strong>Effectiveness:</strong> 72-82%</p>
+                <p><strong>How it works:</strong> Chemical that destroys sperm, available as creams, films, foams, gels, and suppositories.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Available without prescription</li>
+                  <li>Can be used with other barrier methods</li>
+                  <li>No hormonal side effects</li>
+                  <li>Easy to use</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Lower effectiveness when used alone</li>
+                  <li>Must be applied shortly before sex</li>
+                  <li>May cause irritation or allergic reactions</li>
+                  <li>May increase risk of UTIs</li>
+                  <li>Doesn't protect against STIs (may increase risk of HIV transmission)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Natural Methods -->
+      <div class="tab-pane fade" id="natural" role="tabpanel" aria-labelledby="natural-tab">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Fertility Awareness Methods</h4>
+                <p><strong>Effectiveness:</strong> 76-99% (varies widely based on method and consistency)</p>
+                <p><strong>How it works:</strong> Tracking fertility signs to identify fertile days and avoiding intercourse or using barriers during this time.</p>
+                <h5>Types include:</h5>
+                <ul>
+                  <li><strong>Calendar method:</strong> Tracking cycle length to predict ovulation</li>
+                  <li><strong>Temperature method:</strong> Monitoring basal body temperature</li>
+                  <li><strong>Cervical mucus method:</strong> Observing changes in vaginal discharge</li>
+                  <li><strong>Symptothermal method:</strong> Combining temperature and mucus observations</li>
+                </ul>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>No devices or hormones</li>
+                  <li>No cost after initial education</li>
+                  <li>Approved by most religions</li>
+                  <li>Increases body awareness</li>
+                  <li>Can be used to help achieve pregnancy when desired</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires extensive education and daily monitoring</li>
+                  <li>Requires consistent record-keeping</li>
+                  <li>Less effective than many other methods</li>
+                  <li>Requires periods of abstinence or use of barriers</li>
+                  <li>Can be affected by illness, stress, travel, or irregular cycles</li>
+                  <li>Doesn't protect against STIs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Withdrawal (Pull-Out Method)</h4>
+                <p><strong>Effectiveness:</strong> 78-96%</p>
+                <p><strong>How it works:</strong> The penis is withdrawn from the vagina before ejaculation.</p>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>Always available</li>
+                  <li>No cost</li>
+                  <li>No physical side effects</li>
+                  <li>No devices or preparations</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Requires significant self-control</li>
+                  <li>Pre-ejaculate fluid may contain sperm</li>
+                  <li>Timing can be difficult</li>
+                  <li>Much less effective than many other methods</li>
+                  <li>Doesn't protect against STIs</li>
+                  <li>May interfere with sexual pleasure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Lactational Amenorrhea Method (LAM)</h4>
+                <p><strong>Effectiveness:</strong> 98% (when criteria strictly met)</p>
+                <p><strong>How it works:</strong> Using breastfeeding as temporary birth control during the first 6 months after childbirth.</p>
+                <h5>For LAM to be effective, ALL of these conditions must be met:</h5>
+                <ul>
+                  <li>Baby is less than 6 months old</li>
+                  <li>Your periods have not returned since childbirth</li>
+                  <li>Baby is exclusively or almost exclusively breastfed (no formula supplements)</li>
+                  <li>Baby nurses frequently, day and night (no long intervals between feedings)</li>
+                </ul>
+                <h5>Pros:</h5>
+                <ul>
+                  <li>No cost</li>
+                  <li>No devices or hormones beyond what's naturally produced</li>
+                  <li>Promotes breastfeeding, which benefits baby's health</li>
+                  <li>Highly effective when all criteria are met</li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul>
+                  <li>Only temporary (max 6 months)</li>
+                  <li>Effectiveness decreases if any criteria are not met</li>
+                  <li>Requires strict breastfeeding schedule</li>
+                  <li>Doesn't protect against STIs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="section-title">Emergency Contraception</h2>
+    
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">What is Emergency Contraception?</h4>
+            <p>Emergency contraception (EC) is used to prevent pregnancy after unprotected sex or when a birth control method fails (like a condom breaking). It is not an abortion pill and will not terminate an existing pregnancy.</p>
+            <div class="alert alert-info">
+              <strong>Important:</strong> Emergency contraception works best when used as soon as possible after unprotected sex. It is not intended for regular use.
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Emergency Contraceptive Pills</h4>
+                <h5>Types:</h5>
+                <ul>
+                  <li><strong>Progestin-only EC (Plan B One-Step, Next Choice):</strong>
+                    <ul>
+                      <li>Most effective when taken within 72 hours</li>
+                      <li>Available without prescription regardless of age</li>
+                      <li>May be less effective for women over 165 pounds</li>
+                    </ul>
+                  </li>
+                  <li><strong>Ulipristal acetate (ella):</strong>
+                    <ul>
+                      <li>Effective up to 5 days after unprotected sex</li>
+                      <li>More effective than progestin-only EC</li>
+                      <li>Requires prescription</li>
+                    </ul>
+                  </li>
+                </ul>
+                <h5>How they work:</h5>
+                <p>Primarily by delaying or preventing ovulation. They do not disrupt an implanted pregnancy.</p>
+                <h5>Side effects:</h5>
+                <p>May include nausea, headache, fatigue, abdominal pain, and changes to the next menstrual period.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Copper IUD as Emergency Contraception</h4>
+                <p>The copper IUD can be inserted up to 5 days after unprotected sex to prevent pregnancy.</p>
+                <h5>Effectiveness:</h5>
+                <p>Over 99% effective at preventing pregnancy after unprotected sex.</p>
+                <h5>Advantages:</h5>
+                <ul>
+                  <li>Most effective form of emergency contraception</li>
+                  <li>Continues to provide highly effective contraception for up to 10-12 years</li>
+                  <li>Good option for women who want long-term contraception</li>
+                </ul>
+                <h5>Disadvantages:</h5>
+                <ul>
+                  <li>Requires insertion by a healthcare provider</li>
+                  <li>May be difficult to get an appointment quickly</li>
+                  <li>More expensive upfront (though may be covered by insurance)</li>
+                  <li>May cause heavier periods and cramping</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Planning for Pregnancy</h2>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">Preconception Health</h4>
+            <p>Taking steps to optimize your health before becoming pregnant can improve your chances of conception and having a healthy pregnancy.</p>
+            <h5>Recommended steps before trying to conceive:</h5>
+            <ul>
+              <li><strong>Schedule a preconception visit</strong> with your healthcare provider to:
+                <ul>
+                  <li>Review medical history and medications</li>
+                  <li>Check for infections, immunity to rubella and varicella</li>
+                  <li>Discuss management of any chronic conditions</li>
+                  <li>Get recommendations specific to your health needs</li>
+                </ul>
+              </li>
+              <li><strong>Start taking prenatal vitamins</strong> with at least 400 mcg of folic acid at least one month before trying to conceive</li>
+              <li><strong>Maintain a healthy weight</strong> through balanced nutrition and regular exercise</li>
+              <li><strong>Avoid alcohol, tobacco, and recreational drugs</strong></li>
+              <li><strong>Limit caffeine</strong> to less than 200 mg per day (about one 12 oz cup of coffee)</li>
+              <li><strong>Review environmental exposures</strong> at home and work</li>
+              <li><strong>Get chronic conditions under control</strong> (diabetes, hypertension, thyroid disorders, etc.)</li>
+              <li><strong>Update vaccinations</strong> as needed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">Optimizing Fertility</h4>
+            <p>Understanding your cycle and timing intercourse can help maximize your chances of conception.</p>
+            <h5>Fertility tracking methods:</h5>
+            <ul>
+              <li><strong>Calendar tracking:</strong> Identifying your fertile window (typically days 11-21 of a 28-day cycle)</li>
+              <li><strong>Basal body temperature (BBT) monitoring:</strong> Tracking slight temperature increase after ovulation</li>
+              <li><strong>Cervical mucus monitoring:</strong> Observing changes in vaginal discharge (clear, stretchy mucus indicates fertility)</li>
+              <li><strong>Ovulation prediction kits:</strong> Detecting luteinizing hormone surge that precedes ovulation</li>
+              <li><strong>Fertility apps:</strong> Using technology to track and predict fertile days</li>
+            </ul>
+            <h5>Timing recommendations:</h5>
+            <p>For most couples trying to conceive, having intercourse every 1-2 days during the fertile window (typically the 6 days ending with ovulation) maximizes chances of pregnancy.</p>
+            <h5>When to seek help:</h5>
+            <ul>
+              <li>If you're under 35 and have been trying to conceive for one year</li>
+              <li>If you're 35-40 and have been trying for six months</li>
+              <li>If you're over 40 and have been trying for three months</li>
+              <li>If you have irregular cycles or known fertility issues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    
+    <div class="accordion" id="familyPlanningFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How do I choose the right contraceptive method for me?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#familyPlanningFAQ">
+          <div class="accordion-body">
+            Choosing the right contraceptive depends on several factors, including:
+            <ul>
+              <li><strong>Effectiveness:</strong> How important is it to you to avoid pregnancy right now?</li>
+              <li><strong>Convenience:</strong> Are you comfortable with a method that requires daily attention, or do you prefer something you don't have to think about often?</li>
+              <li><strong>Health factors:</strong> Some methods aren't recommended for women with certain medical conditions (like smokers over 35, women with a history of blood clots, etc.)</li>
+              <li><strong>Side effects:</strong> Different methods have different potential side effects that may be more or less tolerable for you</li>
+              <li><strong>Future pregnancy plans:</strong> How soon might you want to become pregnant?</li>
+              <li><strong>STI protection:</strong> Do you need protection against sexually transmitted infections?</li>
+              <li><strong>Personal preferences:</strong> Religious or personal beliefs may influence your choices</li>
+            </ul>
+            Discussing these factors with a healthcare provider can help you identify the method that best meets your needs. Many women try several methods before finding the one that works best for them.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Do hormonal contraceptives affect future fertility?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#familyPlanningFAQ">
+          <div class="accordion-body">
+            <p>No, hormonal contraceptives do not affect long-term fertility. After stopping hormonal birth control, your fertility will return, though the timing varies by method:</p>
+            <ul>
+              <li><strong>Pills, patches, rings:</strong> Fertility typically returns within 1-3 months</li>
+              <li><strong>Hormonal IUD:</strong> Fertility usually returns immediately after removal</li>
+              <li><strong>Implant:</strong> Fertility typically returns quickly after removal</li>
+              <li><strong>Injection (Depo-Provera):</strong> Fertility may take longer to return, sometimes 10 months or more</li>
+            </ul>
+            <p>If you don't get your period back within 3-6 months after stopping most methods (or up to a year after stopping the injection), consult with your healthcare provider.</p>
+            <p>Some women become pregnant immediately after stopping hormonal contraception, so if you're not ready for pregnancy, use another method right away.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How effective is the withdrawal method?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#familyPlanningFAQ">
+          <div class="accordion-body">
+            <p>The withdrawal method (pulling out) is significantly less effective than many other contraceptive methods:</p>
+            <ul>
+              <li><strong>Perfect use:</strong> About 96% effective (4 pregnancies per 100 women per year)</li>
+              <li><strong>Typical use:</strong> About 78% effective (22 pregnancies per 100 women per year)</li>
+            </ul>
+            <p>Several factors reduce its effectiveness:</p>
+            <ul>
+              <li>Pre-ejaculate fluid may contain sperm</li>
+              <li>Requires significant self-control and experience</li>
+              <li>Timing can be difficult</li>
+              <li>No protection against STIs</li>
+            </ul>
+            <p>If you're highly motivated to avoid pregnancy, withdrawal should be combined with another method like condoms or you should consider a more effective option.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            How long should we try to conceive before seeking help?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#familyPlanningFAQ">
+          <div class="accordion-body">
+            <p>The recommended timelines for seeking fertility help are based on age:</p>
+            <ul>
+              <li><strong>Under 35 years old:</strong> After one year of regular, unprotected intercourse without conception</li>
+              <li><strong>35-40 years old:</strong> After six months of trying</li>
+              <li><strong>Over 40 years old:</strong> After three months of trying</li>
+            </ul>
+            <p>However, you should seek help sooner if you have:</p>
+            <ul>
+              <li>Irregular or absent periods</li>
+              <li>Known fertility issues (like PCOS or endometriosis)</li>
+              <li>History of pelvic inflammatory disease, pelvic surgery, or sexually transmitted infections</li>
+              <li>Multiple miscarriages</li>
+              <li>Known male factor issues</li>
+            </ul>
+            <p>Remember that for a healthy couple in their 20s or early 30s, the chance of conception in any given month is about 15-25%. Most couples will conceive within a year if they have regular intercourse during the fertile window.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container text-center">
+    <h2 class="mb-4">Find Your Perfect Method</h2>
+    <p class="lead mb-4">Track your cycle and better understand your body's patterns to support your family planning goals.</p>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <a href="<%= url_for('menstrual_cycle') %>" class="btn btn-primary btn-lg d-block mb-3">Track Your Cycle</a>
+      </div>
+      <div class="col-md-6">
+        <a href="<%= url_for('ovulation_fertility') %>" class="btn btn-primary btn-lg d-block mb-3">Monitor Your Fertility</a>
+      </div>
+        
+    </div>
+  </div>
+</section>
+ <%- body %>

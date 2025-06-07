@@ -1,0 +1,119 @@
+<% layout('layout') %>
+
+<% title = "Book an Appointment | Women's Health Hub"%>
+
+<% /* EJS setup for CSRF and doctor list */ %>
+<% /* 'doctors' and 'csrfToken' should be passed from your Express route */ %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">Book an Appointment</h3>
+        </div>
+        <div class="card-body">
+          <form action="/appointments/book" method="post" class="needs-validation" novalidate>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        
+            
+            <div class="mb-3">
+              <label for="doctor" class="form-label">Select Doctor</label>
+              <select class="form-select" id="doctor" name="doctor_id" required>
+                <option value="" selected disabled>Choose a doctor...</option>
+                <% doctors.forEach(function(doctor) { %>
+                  <option value="<%= doctor.id %>">Dr. <%= doctor.username %></option>
+                <% }); %>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a doctor.
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="appointment-date" class="form-label">Appointment Date and Time</label>
+              <input type="datetime-local" class="form-control" id="appointment-date" name="appointment_date" required>
+              <div class="invalid-feedback">
+                Please select a valid date and time.
+              </div>
+              <small class="form-text text-muted">Select a date and time for your appointment.</small>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Appointment Type</label>
+              <div class="d-flex gap-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="appointment_type" id="video-consultation" value="video" checked>
+                  <label class="form-check-label" for="video-consultation">
+                    <i class="fas fa-video me-1"></i> Video
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="appointment_type" id="audio-consultation" value="audio">
+                  <label class="form-check-label" for="audio-consultation">
+                    <i class="fas fa-phone me-1"></i> Audio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="appointment_type" id="text-consultation" value="text">
+                  <label class="form-check-label" for="text-consultation">
+                    <i class="fas fa-comment-alt me-1"></i> Text
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="notes" class="form-label">Reason for Visit</label>
+              <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Briefly describe your symptoms or reason for consultation"></textarea>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-calendar-check me-2"></i> Book Appointment
+              </button>
+              <a href="/doctor/consultation" class="btn btn-outline-secondary">Cancel</a>
+      
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Form validation
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  
+  // Set minimum date to today
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const dateTimeControl = document.querySelector('#appointment-date');
+    
+    // Format date as yyyy-MM-ddThh:mm
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const hours = String(today.getHours()).padStart(2, '0');
+    const minutes = String(today.getMinutes()).padStart(2, '0');
+    
+    const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+    dateTimeControl.min = formattedDateTime;
+  });
+</script>
+ <%- body %>

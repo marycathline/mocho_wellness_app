@@ -1,0 +1,280 @@
+{% extends "layout.html" %}
+
+{% block title %}Ovulation & Fertility Tracker | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Ovulation & Fertility Tracker</h1>
+      <p class="lead mb-4">Track your fertile window, ovulation days, and fertility signs to maximize your chances of conception or for natural family planning.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Your Fertility Calendar</h5>
+          <div id="ovulation-fertility-calendar" class="calendar-container"></div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Track Your Fertility Signs</h5>
+          
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="trackingDate" class="form-label">Date</label>
+              <input type="date" class="form-control" id="trackingDate">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="bbtTemperature" class="form-label">Basal Body Temperature (°F)</label>
+              <input type="number" step="0.01" class="form-control" id="bbtTemperature" placeholder="98.6">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="cervicalMucus" class="form-label">Cervical Mucus</label>
+              <select class="form-select" id="cervicalMucus">
+                <option selected disabled value="">Choose...</option>
+                <option value="dry">Dry (infertile)</option>
+                <option value="sticky">Sticky/Tacky (less fertile)</option>
+                <option value="creamy">Creamy (becoming fertile)</option>
+                <option value="watery">Watery (fertile)</option>
+                <option value="eggwhite">Egg white (most fertile)</option>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="cervicalPosition" class="form-label">Cervical Position</label>
+              <select class="form-select" id="cervicalPosition">
+                <option selected disabled value="">Choose...</option>
+                <option value="low">Low, firm, closed (less fertile)</option>
+                <option value="mid">Medium position</option>
+                <option value="high">High, soft, open (fertile)</option>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="ovulationTest" class="form-label">Ovulation Test Result</label>
+              <select class="form-select" id="ovulationTest">
+                <option selected disabled value="">Choose...</option>
+                <option value="negative">Negative</option>
+                <option value="high">High (getting close)</option>
+                <option value="peak">Peak (ovulating)</option>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="libido" class="form-label">Libido</label>
+              <select class="form-select" id="libido">
+                <option selected disabled value="">Choose...</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            
+            <div class="col-12">
+              <label for="fertilityNotes" class="form-label">Notes</label>
+              <textarea class="form-control" id="fertilityNotes" rows="3" placeholder="Record any other fertility signs or symptoms..."></textarea>
+            </div>
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Save Fertility Data</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Understanding Fertility Signs</h5>
+          
+          <div class="accordion" id="fertilityAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingBBT">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBBT" aria-expanded="true" aria-controls="collapseBBT">
+                  Basal Body Temperature (BBT)
+                </button>
+              </h2>
+              <div id="collapseBBT" class="accordion-collapse collapse show" aria-labelledby="headingBBT" data-bs-parent="#fertilityAccordion">
+                <div class="accordion-body">
+                  <p>Your basal body temperature is your body's temperature at complete rest. After ovulation, your BBT typically rises by 0.4-1.0°F due to increased progesterone production.</p>
+                  <h6>How to track BBT:</h6>
+                  <ul>
+                    <li>Take your temperature immediately upon waking, before any activity</li>
+                    <li>Use a special basal thermometer (accurate to 1/10th of a degree)</li>
+                    <li>Measure at the same time each day</li>
+                    <li>Record your temperature on a chart or in an app</li>
+                  </ul>
+                  <p>A sustained temperature rise for at least 3 days confirms that ovulation has occurred.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingCervicalMucus">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCervicalMucus" aria-expanded="false" aria-controls="collapseCervicalMucus">
+                  Cervical Mucus
+                </button>
+              </h2>
+              <div id="collapseCervicalMucus" class="accordion-collapse collapse" aria-labelledby="headingCervicalMucus" data-bs-parent="#fertilityAccordion">
+                <div class="accordion-body">
+                  <p>Cervical mucus changes throughout your cycle in response to hormone fluctuations. These changes help identify your fertile window.</p>
+                  <h6>Cervical mucus patterns:</h6>
+                  <ul>
+                    <li><strong>Dry/None:</strong> Often occurs after menstruation and indicates low fertility</li>
+                    <li><strong>Sticky:</strong> Thick, tacky, and white or yellowish - low fertility</li>
+                    <li><strong>Creamy:</strong> Lotion-like consistency, white or yellow-white - medium fertility</li>
+                    <li><strong>Watery:</strong> Clear, slippery, and stretchy like raw egg white - high fertility</li>
+                    <li><strong>Egg white:</strong> Most fertile type, clear, stretchy (can stretch 2+ inches between fingers)</li>
+                  </ul>
+                  <p>Egg white cervical mucus typically appears 1-5 days before ovulation and indicates your most fertile time.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOvulationTests">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOvulationTests" aria-expanded="false" aria-controls="collapseOvulationTests">
+                  Ovulation Predictor Kits (OPKs)
+                </button>
+              </h2>
+              <div id="collapseOvulationTests" class="accordion-collapse collapse" aria-labelledby="headingOvulationTests" data-bs-parent="#fertilityAccordion">
+                <div class="accordion-body">
+                  <p>Ovulation predictor kits detect the surge of luteinizing hormone (LH) that occurs 24-36 hours before ovulation.</p>
+                  <h6>How to use OPKs:</h6>
+                  <ul>
+                    <li>Begin testing a few days before your expected ovulation</li>
+                    <li>Test at the same time each day (afternoon is often recommended)</li>
+                    <li>Reduce liquid intake 2 hours before testing</li>
+                    <li>A positive result means your LH is surging and ovulation is likely to occur within 24-36 hours</li>
+                  </ul>
+                  <p>Digital OPKs may show "peak fertility" when the LH surge is detected, while traditional tests show a test line that is as dark or darker than the control line.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingCervicalPosition">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCervicalPosition" aria-expanded="false" aria-controls="collapseCervicalPosition">
+                  Cervical Position
+                </button>
+              </h2>
+              <div id="collapseCervicalPosition" class="accordion-collapse collapse" aria-labelledby="headingCervicalPosition" data-bs-parent="#fertilityAccordion">
+                <div class="accordion-body">
+                  <p>The position, texture, and openness of your cervix changes throughout your cycle and can indicate fertility status.</p>
+                  <h6>Cervical changes:</h6>
+                  <ul>
+                    <li><strong>Low, firm, closed:</strong> Less fertile time (after ovulation and before menstruation)</li>
+                    <li><strong>High, soft, open:</strong> Fertile time (around ovulation)</li>
+                  </ul>
+                  <p>To check cervical position, wash hands thoroughly, then insert one or two fingers into the vagina to feel for the cervix. Consistency in checking at the same time each day is important.</p>
+                  <p class="text-warning"><em>Note: This method requires practice and may not be suitable for everyone.</em></p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSecondaryFertilitySigns">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecondaryFertilitySigns" aria-expanded="false" aria-controls="collapseSecondaryFertilitySigns">
+                  Secondary Fertility Signs
+                </button>
+              </h2>
+              <div id="collapseSecondaryFertilitySigns" class="accordion-collapse collapse" aria-labelledby="headingSecondaryFertilitySigns" data-bs-parent="#fertilityAccordion">
+                <div class="accordion-body">
+                  <p>Some women notice other bodily changes around ovulation that can serve as secondary fertility indicators:</p>
+                  <ul>
+                    <li><strong>Mittelschmerz:</strong> One-sided lower abdominal pain/cramping when an egg is released</li>
+                    <li><strong>Increased libido:</strong> Many women experience heightened sex drive around ovulation</li>
+                    <li><strong>Breast tenderness:</strong> Sensitivity or tenderness in breasts</li>
+                    <li><strong>Heightened senses:</strong> Increased sense of smell, taste, or vision</li>
+                    <li><strong>Spotting:</strong> Light spotting can occur when the egg bursts from the follicle</li>
+                    <li><strong>Bloating:</strong> Some women experience water retention</li>
+                  </ul>
+                  <p>These signs alone aren't reliable for fertility tracking but can provide additional confirmation when used alongside primary fertility signs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Your Fertility Stats</h5>
+          <div class="cycle-stats">
+            <div class="row mb-3">
+              <div class="col-12 mb-3">
+                <small class="text-muted">Next Predicted Ovulation</small>
+                <h4>July 19, 2023</h4>
+              </div>
+              <div class="col-12">
+                <small class="text-muted">Fertile Window</small>
+                <h4>July 16-22, 2023</h4>
+              </div>
+            </div>
+            <div class="progress mb-2" style="height: 25px;">
+              <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Menstruation</div>
+              <div class="progress-bar bg-info" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Follicular</div>
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 5%;" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">Ovulation</div>
+              <div class="progress-bar bg-success" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Luteal</div>
+            </div>
+            <small class="text-muted">Current phase: Follicular (Pre-Ovulation)</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Fertility Reminder</h5>
+          <div class="alert alert-info" role="alert">
+            <h6 class="alert-heading">Your Fertility Window Is Coming!</h6>
+            <p>Your predicted fertile window starts in 3 days. This is the optimal time for conception if you're trying to get pregnant.</p>
+            <p class="mb-0">Remember to track your BBT and cervical mucus daily for most accurate predictions.</p>
+          </div>
+          <button class="btn btn-outline-primary w-100">Set Fertility Reminders</button>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Fertility Tips</h5>
+          
+          <div class="cycle-tip mb-3">
+            <h6>Optimizing Conception Chances</h6>
+            <p>Have intercourse every 1-2 days during your fertile window, especially the 2-3 days before ovulation, for the highest chances of conception.</p>
+          </div>
+          
+          <div class="cycle-tip mb-3">
+            <h6>Understanding Sperm Viability</h6>
+            <p>Sperm can survive up to 5 days in fertile cervical fluid, which is why the days before ovulation are optimal for conception.</p>
+          </div>
+          
+          <div class="cycle-tip">
+            <h6>Balancing Timing & Enjoyment</h6>
+            <p>While timing is important, excessive stress about perfect timing can negatively impact fertility. Try to maintain a balance between tracking and spontaneity.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Related Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="{{ url_for('menstrual_cycle') }}">Menstrual Cycle Tracking</a></li>
+            <li class="list-group-item"><a href="{{ url_for('family_planning') }}">Family Planning & Contraception</a></li>
+            <li class="list-group-item"><a href="{{ url_for('pregnancy_milestones') }}">Pregnancy Milestones</a></li>
+            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition for Fertility</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+ <%- body %>

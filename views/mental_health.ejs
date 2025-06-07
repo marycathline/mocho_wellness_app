@@ -1,0 +1,838 @@
+{% extends "layout.html" %}
+
+{% block title %}Mental Health | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Women's Mental Health</h1>
+      <p class="lead mb-4">Mental health is an essential component of overall wellness. Women face unique mental health challenges due to biological, hormonal, and societal factors. Learn about these challenges and effective strategies for maintaining and improving your mental well-being.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Women's Mental Health: Understanding the Landscape</h5>
+          
+          <p>Women experience certain mental health conditions at different rates than men and may have unique symptoms or triggers. Understanding these differences is key to better mental health care.</p>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h6 class="mb-3"><i class="fas fa-chart-bar text-primary me-2"></i> Key Statistics</h6>
+              <ul>
+                <li>Women are nearly twice as likely as men to be diagnosed with depression</li>
+                <li>Anxiety disorders affect women at approximately twice the rate of men</li>
+                <li>Eating disorders are significantly more common in women</li>
+                <li>PTSD affects twice as many women as men</li>
+                <li>1 in 7 women experience postpartum depression</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6 class="mb-3"><i class="fas fa-brain text-primary me-2"></i> Contributing Factors</h6>
+              <ul>
+                <li><strong>Biological:</strong> Hormonal fluctuations throughout the menstrual cycle, pregnancy, and menopause</li>
+                <li><strong>Psychological:</strong> Tendency to internalize stress, perfectionism</li>
+                <li><strong>Social:</strong> Gender-based violence, caregiving responsibilities, workplace discrimination</li>
+                <li><strong>Economic:</strong> Income inequality, financial insecurity</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i> <strong>Did you know?</strong> Women's brain chemistry and hormonal influences can affect how they experience mental health conditions and respond to treatments. Research is increasingly focusing on gender-specific approaches to mental health care.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Common Mental Health Concerns for Women</h5>
+          
+          <div class="accordion" id="mentalHealthAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingDepression">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDepression" aria-expanded="true" aria-controls="collapseDepression">
+                  <i class="fas fa-cloud-rain me-2 text-primary"></i> Depression
+                </button>
+              </h2>
+              <div id="collapseDepression" class="accordion-collapse collapse show" aria-labelledby="headingDepression" data-bs-parent="#mentalHealthAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>Depression is more than just feeling sad. It's a persistent feeling of sadness, loss of interest, and impaired functioning that affects daily life.</p>
+                      
+                      <h6 class="mt-3">Women-Specific Considerations:</h6>
+                      <ul>
+                        <li>Hormonal changes during puberty, before menstruation, during and after pregnancy, and around menopause can trigger or worsen depression</li>
+                        <li>Women may experience depression differently, with more symptoms like fatigue, irritability, sleep problems, anxiety, and comfort eating</li>
+                        <li>Social factors like relationship stress, work-life balance challenges, and caregiving responsibilities contribute to depression risk</li>
+                      </ul>
+                      
+                      <h6 class="mt-3">Treatment Options:</h6>
+                      <ul>
+                        <li>Psychotherapy (talk therapy) like cognitive-behavioral therapy (CBT)</li>
+                        <li>Medication (antidepressants)</li>
+                        <li>Lifestyle changes (exercise, nutrition, sleep hygiene)</li>
+                        <li>Support groups</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="alert alert-warning h-100">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i> Warning Signs:</h6>
+                        <ul>
+                          <li>Persistent sadness or empty mood</li>
+                          <li>Loss of interest in activities once enjoyed</li>
+                          <li>Changes in appetite or weight</li>
+                          <li>Sleep disturbances</li>
+                          <li>Fatigue or energy loss</li>
+                          <li>Feelings of worthlessness or guilt</li>
+                          <li>Difficulty concentrating</li>
+                          <li>Thoughts of death or suicide*</li>
+                        </ul>
+                        <p class="small mb-0">*If you or someone you know is having thoughts of suicide, call or text 988 to reach the Suicide and Crisis Lifeline.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingAnxiety">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnxiety" aria-expanded="false" aria-controls="collapseAnxiety">
+                  <i class="fas fa-bolt me-2 text-primary"></i> Anxiety Disorders
+                </button>
+              </h2>
+              <div id="collapseAnxiety" class="accordion-collapse collapse" aria-labelledby="headingAnxiety" data-bs-parent="#mentalHealthAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>Anxiety disorders involve excessive worry, fear, or nervousness that interferes with daily activities. They include generalized anxiety disorder, panic disorder, social anxiety, and specific phobias.</p>
+                      
+                      <h6 class="mt-3">Women-Specific Considerations:</h6>
+                      <ul>
+                        <li>Fluctuations in estrogen and progesterone can influence anxiety levels</li>
+                        <li>Women's tendency to ruminate (repetitively focus on negative thoughts) may contribute to higher anxiety rates</li>
+                        <li>Anxiety often co-occurs with depression in women</li>
+                      </ul>
+                      
+                      <h6 class="mt-3">Treatment Options:</h6>
+                      <ul>
+                        <li>Cognitive-behavioral therapy (CBT)</li>
+                        <li>Medication (SSRIs, SNRIs, benzodiazepines)</li>
+                        <li>Mindfulness and meditation</li>
+                        <li>Relaxation techniques</li>
+                        <li>Regular physical activity</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h6 class="card-title">Quick Anxiety Relief Techniques</h6>
+                          <ol class="mb-0">
+                            <li><strong>5-4-3-2-1 Grounding:</strong> Identify 5 things you see, 4 things you feel, 3 things you hear, 2 things you smell, and 1 thing you taste</li>
+                            <li><strong>Box Breathing:</strong> Inhale for 4 counts, hold for 4, exhale for 4, hold for 4</li>
+                            <li><strong>Progressive Muscle Relaxation:</strong> Tense and then release each muscle group</li>
+                            <li><strong>Thought Challenging:</strong> Question anxious thoughts by asking for evidence</li>
+                            <li><strong>Mindful Observation:</strong> Focus intently on one object for 1 minute</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingReproductive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReproductive" aria-expanded="false" aria-controls="collapseReproductive">
+                  <i class="fas fa-venus me-2 text-primary"></i> Reproductive-Related Mental Health
+                </button>
+              </h2>
+              <div id="collapseReproductive" class="accordion-collapse collapse" aria-labelledby="headingReproductive" data-bs-parent="#mentalHealthAccordion">
+                <div class="accordion-body">
+                  <p>Women's reproductive events can significantly impact mental health, requiring specific awareness and interventions.</p>
+                  
+                  <div class="table-responsive mb-3">
+                    <table class="table table-bordered">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Condition</th>
+                          <th>Description</th>
+                          <th>Management Approaches</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Premenstrual Dysphoric Disorder (PMDD)</strong></td>
+                          <td>A severe form of PMS with significant mood symptoms occurring before menstruation</td>
+                          <td>
+                            <ul class="mb-0">
+                              <li>SSRIs (continuous or luteal phase)</li>
+                              <li>Hormonal treatments</li>
+                              <li>Lifestyle modifications</li>
+                              <li>Stress management techniques</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Perinatal Depression</strong></td>
+                          <td>Depression during pregnancy or within the first year after birth</td>
+                          <td>
+                            <ul class="mb-0">
+                              <li>Therapy (IPT, CBT)</li>
+                              <li>Support groups</li>
+                              <li>Carefully selected medications</li>
+                              <li>Social support mobilization</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Postpartum Anxiety</strong></td>
+                          <td>Excessive worry, racing thoughts, and physical symptoms after childbirth</td>
+                          <td>
+                            <ul class="mb-0">
+                              <li>CBT or other therapy</li>
+                              <li>Mindfulness practices</li>
+                              <li>Medication when appropriate</li>
+                              <li>Sleep support</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Perimenopause/Menopause-Related Mood Changes</strong></td>
+                          <td>Mood fluctuations during the transition to menopause</td>
+                          <td>
+                            <ul class="mb-0">
+                              <li>Hormone therapy (if appropriate)</li>
+                              <li>Antidepressants</li>
+                              <li>Lifestyle modifications</li>
+                              <li>Stress reduction techniques</li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> <strong>Did you know?</strong> Tracking mood changes alongside your menstrual cycle can help identify patterns and inform treatment approaches for conditions like PMDD.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTrauma">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTrauma" aria-expanded="false" aria-controls="collapseTrauma">
+                  <i class="fas fa-heart-broken me-2 text-primary"></i> Trauma & PTSD
+                </button>
+              </h2>
+              <div id="collapseTrauma" class="accordion-collapse collapse" aria-labelledby="headingTrauma" data-bs-parent="#mentalHealthAccordion">
+                <div class="accordion-body">
+                  <p>Post-traumatic stress disorder (PTSD) develops in some people after experiencing or witnessing a traumatic event. Women are more likely than men to develop PTSD, partly due to higher rates of sexual trauma and intimate partner violence.</p>
+                  
+                  <h6 class="mt-3">Common Symptoms:</h6>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <ul>
+                        <li>Intrusive memories or flashbacks</li>
+                        <li>Nightmares about the traumatic event</li>
+                        <li>Severe emotional distress or physical reactions to reminders</li>
+                        <li>Avoidance of trauma-related thoughts or feelings</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul>
+                        <li>Negative thoughts about yourself or others</li>
+                        <li>Feeling emotionally numb or detached</li>
+                        <li>Being easily startled or frightened</li>
+                        <li>Difficulty sleeping or concentrating</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <h6 class="mt-3">Effective Treatments:</h6>
+                  <ul>
+                    <li><strong>Trauma-focused cognitive behavioral therapy (TF-CBT)</strong></li>
+                    <li><strong>Eye movement desensitization and reprocessing (EMDR)</strong></li>
+                    <li><strong>Prolonged exposure therapy</strong></li>
+                    <li><strong>Medication</strong> (SSRIs, prazosin for nightmares)</li>
+                  </ul>
+                  
+                  <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i> <strong>Important:</strong> Recovery from trauma is possible. Trauma-informed care recognizes the widespread impact of trauma and paths to recovery, and seeks to actively avoid re-traumatization.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEating">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEating" aria-expanded="false" aria-controls="collapseEating">
+                  <i class="fas fa-utensils me-2 text-primary"></i> Eating Disorders
+                </button>
+              </h2>
+              <div id="collapseEating" class="accordion-collapse collapse" aria-labelledby="headingEating" data-bs-parent="#mentalHealthAccordion">
+                <div class="accordion-body">
+                  <p>Eating disorders are serious mental health conditions characterized by disturbed eating behaviors and related thoughts and emotions. They affect people of all genders but are more commonly diagnosed in women.</p>
+                  
+                  <h6 class="mt-3">Common Types:</h6>
+                  <ul>
+                    <li><strong>Anorexia Nervosa:</strong> Restriction of food intake leading to significantly low body weight, intense fear of gaining weight</li>
+                    <li><strong>Bulimia Nervosa:</strong> Cycles of binge eating followed by compensatory behaviors like purging or excessive exercise</li>
+                    <li><strong>Binge Eating Disorder:</strong> Recurrent episodes of eating large amounts of food with a feeling of lack of control</li>
+                    <li><strong>Other Specified Feeding or Eating Disorders (OSFED):</strong> Eating disorders that don't meet the full criteria for other disorders but are still serious</li>
+                  </ul>
+                  
+                  <h6 class="mt-3">Warning Signs:</h6>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <ul>
+                        <li>Dramatic weight loss or gain</li>
+                        <li>Preoccupation with weight, food, and dieting</li>
+                        <li>Frequently skipping meals or refusing to eat</li>
+                        <li>Evidence of binge eating or purging</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul>
+                        <li>Excessive exercise regimen</li>
+                        <li>Withdrawal from social activities</li>
+                        <li>Expressing negative body image</li>
+                        <li>Use of dietary supplements or laxatives</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <h6 class="mt-3">Treatment Approaches:</h6>
+                  <ul>
+                    <li>Medical stabilization (if needed)</li>
+                    <li>Nutritional counseling and rehabilitation</li>
+                    <li>Psychotherapy (CBT, DBT, family-based treatment)</li>
+                    <li>Medication for co-occurring conditions</li>
+                    <li>Support groups</li>
+                  </ul>
+                  
+                  <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle me-2"></i> <strong>Urgent:</strong> Eating disorders have the highest mortality rate of any mental illness. Early intervention is critical. If you or someone you know is struggling with an eating disorder, seek professional help immediately.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Building Mental Wellness</h5>
+          
+          <p>Mental health exists on a spectrum, and everyone can benefit from practices that support psychological well-being. Here are evidence-based strategies to build and maintain mental wellness:</p>
+          
+          <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-walking fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Physical Activity</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Regular exercise reduces symptoms of depression and anxiety, improves sleep, and boosts mood through the release of endorphins. Aim for at least 30 minutes of moderate activity most days.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-brain fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Mindfulness Practices</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Meditation, mindful breathing, and present-moment awareness reduce stress, improve focus, and help manage negative thoughts. Even 5-10 minutes daily can make a difference.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-users fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Social Connection</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Maintaining meaningful relationships provides emotional support, reduces isolation, and buffers against stress. Prioritize quality over quantity in your social connections.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-bed fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Sleep Hygiene</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Quality sleep is essential for emotional regulation and cognitive function. Establish a consistent sleep schedule, create a restful environment, and limit screen time before bed.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-apple-alt fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Nutrition</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Emerging research shows connections between diet and mental health. Focus on balanced meals with adequate protein, complex carbohydrates, healthy fats, and plenty of fruits and vegetables.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3">
+                    <div class="flex-shrink-0 me-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-heartbeat fa-lg"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 class="card-title mb-0">Self-Compassion</h6>
+                    </div>
+                  </div>
+                  <p class="card-text">Treating yourself with the same kindness you would offer a good friend reduces anxiety and depression. Practice self-compassion by acknowledging your struggles without harsh self-judgment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="alert alert-success">
+            <i class="fas fa-lightbulb me-2"></i> <strong>Pro Tip:</strong> Even small changes can have a significant impact on mental well-being. Start with one area that feels most manageable and build from there.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">When and How to Seek Help</h5>
+          
+          <p>Many women hesitate to seek mental health support due to stigma, time constraints, or cost concerns. However, early intervention often leads to better outcomes.</p>
+          
+          <h6 class="mt-4"><i class="fas fa-clipboard-list text-primary me-2"></i> Signs It's Time to Seek Professional Help:</h6>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <ul>
+                <li>Persistent feelings of sadness or anxiety</li>
+                <li>Inability to function in daily life</li>
+                <li>Significant changes in sleep or appetite</li>
+                <li>Withdrawal from activities and relationships</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Excessive worry or fear</li>
+                <li>Mood swings that disrupt your life</li>
+                <li>Thoughts of harming yourself or others</li>
+                <li>Increasing use of substances to cope</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h6><i class="fas fa-user-md text-primary me-2"></i> Types of Mental Health Providers:</h6>
+          <div class="table-responsive mb-4">
+            <table class="table table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>Provider Type</th>
+                  <th>Credentials</th>
+                  <th>Services</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Psychiatrist</td>
+                  <td>MD or DO</td>
+                  <td>Diagnosis, medication management, sometimes therapy</td>
+                </tr>
+                <tr>
+                  <td>Psychologist</td>
+                  <td>PhD, PsyD, or EdD</td>
+                  <td>Psychological testing, therapy, treatment planning</td>
+                </tr>
+                <tr>
+                  <td>Licensed Professional Counselor (LPC)</td>
+                  <td>Master's degree, state license</td>
+                  <td>Individual and group therapy, counseling</td>
+                </tr>
+                <tr>
+                  <td>Licensed Clinical Social Worker (LCSW)</td>
+                  <td>Master's in Social Work, license</td>
+                  <td>Therapy, case management, resource connection</td>
+                </tr>
+                <tr>
+                  <td>Psychiatric Nurse Practitioner</td>
+                  <td>Master's or Doctorate in Nursing</td>
+                  <td>Assessment, diagnosis, medication management</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <h6><i class="fas fa-map-marker-alt text-primary me-2"></i> Where to Find Help:</h6>
+          <ul>
+            <li><strong>Primary care provider:</strong> Can provide initial assessment and referrals</li>
+            <li><strong>Employee Assistance Programs (EAPs):</strong> Many workplaces offer free, confidential counseling</li>
+            <li><strong>Health insurance directory:</strong> Search for in-network providers</li>
+            <li><strong>Community mental health centers:</strong> Often offer sliding scale fees</li>
+            <li><strong>National helplines:</strong> Provide crisis support and referrals</li>
+            <li><strong>Telehealth services:</strong> Offer convenient access to therapy</li>
+          </ul>
+          
+          <div class="alert alert-danger mt-4">
+            <div class="row align-items-center">
+              <div class="col-md-2 text-center mb-3 mb-md-0">
+                <i class="fas fa-phone-alt fa-3x"></i>
+              </div>
+              <div class="col-md-10">
+                <h5 class="alert-heading">Crisis Resources</h5>
+                <p class="mb-1"><strong>988 Suicide and Crisis Lifeline:</strong> Call or text 988</p>
+                <p class="mb-1"><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+                <p class="mb-0"><strong>Emergency Services:</strong> Call 911 or go to your nearest emergency room if you're in immediate danger</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Mental Health Self-Assessment</h5>
+          <p>This brief questionnaire can help you gauge your current mental well-being. This is not a diagnostic tool but can help you decide if you should seek professional support.</p>
+          
+          <form>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <p class="fw-bold mb-2">Over the past 2 weeks, how often have you been bothered by the following problems?</p>
+            
+            <div class="mb-3">
+              <label class="form-label">1. Little interest or pleasure in doing things</label>
+              <select class="form-select" id="phq-1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">2. Feeling down, depressed, or hopeless</label>
+              <select class="form-select" id="phq-2">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">3. Trouble falling or staying asleep, or sleeping too much</label>
+              <select class="form-select" id="phq-3">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">4. Feeling tired or having little energy</label>
+              <select class="form-select" id="phq-4">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">5. Feeling nervous, anxious, or on edge</label>
+              <select class="form-select" id="gad-1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">6. Not being able to stop or control worrying</label>
+              <select class="form-select" id="gad-2">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-primary" id="calculate-score">
+                <i class="fas fa-calculator me-2"></i> Calculate Score
+              </button>
+              <p id="score-result" class="mt-2 text-center d-none"></p>
+            </div>
+          </form>
+          
+          <div class="alert alert-info mt-3">
+            <i class="fas fa-info-circle me-2"></i> This is an abbreviated version of common screening tools (PHQ and GAD). It does not replace professional evaluation. If you're concerned about your mental health, please consult a healthcare provider.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Mood Tracker</h5>
+          <p>Track your mood patterns to better understand factors that influence your mental well-being.</p>
+          
+          <form class="mb-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="mb-3">
+              <label for="mood-date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="mood-date">
+            </div>
+            
+            <div class="mb-3">
+              <label for="mood-rating" class="form-label">Overall Mood</label>
+              <div class="range">
+                <input type="range" class="form-range" min="1" max="10" step="1" id="mood-rating">
+                <div class="d-flex justify-content-between">
+                  <span>1</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                  <small>Very Low</small>
+                  <small>Neutral</small>
+                  <small>Very High</small>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Energy Level</label>
+              <div class="range">
+                <input type="range" class="form-range" min="1" max="10" step="1" id="energy-rating">
+                <div class="d-flex justify-content-between">
+                  <span>1</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                  <small>Very Low</small>
+                  <small>Moderate</small>
+                  <small>Very High</small>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Anxiety Level</label>
+              <div class="range">
+                <input type="range" class="form-range" min="1" max="10" step="1" id="anxiety-rating">
+                <div class="d-flex justify-content-between">
+                  <span>1</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                  <small>Very Low</small>
+                  <small>Moderate</small>
+                  <small>Very High</small>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="mood-factors" class="form-label">Factors Affecting Mood Today</label>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-sleep">
+                    <label class="form-check-label" for="factor-sleep">
+                      Sleep
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-exercise">
+                    <label class="form-check-label" for="factor-exercise">
+                      Exercise
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-nutrition">
+                    <label class="form-check-label" for="factor-nutrition">
+                      Nutrition
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-stress">
+                    <label class="form-check-label" for="factor-stress">
+                      Stress
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-social">
+                    <label class="form-check-label" for="factor-social">
+                      Social Interaction
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="factor-hormonal">
+                    <label class="form-check-label" for="factor-hormonal">
+                      Hormonal
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="mood-notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="mood-notes" rows="2" placeholder="Additional observations about your mood today..."></textarea>
+            </div>
+            
+            <div class="d-grid">
+              <button type="button" class="btn btn-primary" id="save-mood">
+                <i class="fas fa-save me-2"></i> Save Mood Entry
+              </button>
+            </div>
+          </form>
+          
+          <div class="alert alert-info small">
+            <i class="fas fa-info-circle me-2"></i> This is a demo feature. In the future, you'll be able to save and analyze your mood patterns over time.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Mental Health Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://www.nimh.nih.gov/health/topics/women-and-mental-health" target="_blank">National Institute of Mental Health: Women and Mental Health</a></li>
+            <li class="list-group-item"><a href="https://www.womenshealth.gov/mental-health" target="_blank">Office on Women's Health: Mental Health</a></li>
+            <li class="list-group-item"><a href="https://www.nami.org/Your-Journey/Identity-and-Cultural-Dimensions/Women" target="_blank">National Alliance on Mental Illness: Women</a></li>
+            <li class="list-group-item"><a href="https://www.apa.org/topics/women-girls" target="_blank">American Psychological Association: Women and Girls</a></li>
+            <li class="list-group-item"><a href="https://www.psychologytoday.com/us/therapists" target="_blank">Psychology Today: Find a Therapist</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set today's date in the mood tracker
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    
+    const formattedDate = `${year}-${month}-${day}`;
+    document.getElementById('mood-date').value = formattedDate;
+    
+    // Add event listener for save button
+    document.getElementById('save-mood').addEventListener('click', function() {
+      // This is just a placeholder for future functionality
+      alert('This feature will be available soon! Your mood data would be saved.');
+    });
+    
+    // Add event listener for calculate score button
+    document.getElementById('calculate-score').addEventListener('click', function() {
+      // Get values from form
+      const phq1 = parseInt(document.getElementById('phq-1').value) || 0;
+      const phq2 = parseInt(document.getElementById('phq-2').value) || 0;
+      const phq3 = parseInt(document.getElementById('phq-3').value) || 0;
+      const phq4 = parseInt(document.getElementById('phq-4').value) || 0;
+      const gad1 = parseInt(document.getElementById('gad-1').value) || 0;
+      const gad2 = parseInt(document.getElementById('gad-2').value) || 0;
+      
+      // Calculate scores
+      const phqScore = phq1 + phq2 + phq3 + phq4;
+      const gadScore = gad1 + gad2;
+      
+      // Display result
+      const resultElement = document.getElementById('score-result');
+      resultElement.classList.remove('d-none', 'text-success', 'text-warning', 'text-danger');
+      
+      let phqMessage, gadMessage, phqClass, gadClass;
+      
+      // PHQ-4 depression subscale interpretation
+      if (phqScore <= 2) {
+        phqMessage = "Depression: Minimal";
+        phqClass = "text-success";
+      } else if (phqScore <= 5) {
+        phqMessage = "Depression: Mild";
+        phqClass = "text-warning";
+      } else {
+        phqMessage = "Depression: Moderate-Severe";
+        phqClass = "text-danger";
+      }
+      
+      // GAD-2 anxiety subscale interpretation
+      if (gadScore <= 1) {
+        gadMessage = "Anxiety: Minimal";
+        gadClass = "text-success";
+      } else if (gadScore <= 3) {
+        gadMessage = "Anxiety: Mild";
+        gadClass = "text-warning";
+      } else {
+        gadMessage = "Anxiety: Moderate-Severe";
+        gadClass = "text-danger";
+      }
+      
+      resultElement.innerHTML = `<span class="${phqClass}">${phqMessage}</span><br><span class="${gadClass}">${gadMessage}</span><br><small>This is not a clinical diagnosis. If you scored in the moderate-severe range, consider speaking with a healthcare provider.</small>`;
+      resultElement.classList.remove('d-none');
+    });
+  });
+</script>
+ <%- body %>

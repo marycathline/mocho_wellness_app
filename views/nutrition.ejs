@@ -1,0 +1,691 @@
+{% extends "layout.html" %}
+
+{% block title %}Nutrition for Women | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Nutrition for Women's Health</h1>
+      <p class="lead mb-4">Proper nutrition is a cornerstone of women's health throughout the lifespan. Discover how to nourish your body with foods that support hormonal balance, bone health, energy levels, and overall wellbeing.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Essential Nutrients for Women</h5>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-bone fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Calcium</h6>
+                  <p class="mb-0">Essential for bone health, especially important for women due to higher risk of osteoporosis after menopause.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Dairy products, fortified plant milks, leafy greens, sardines, tofu</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-sun fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Vitamin D</h6>
+                  <p class="mb-0">Works with calcium for bone health, supports immune function, and may help regulate mood.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Sunlight, fatty fish, fortified foods, egg yolks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-tint fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Iron</h6>
+                  <p class="mb-0">Crucial for women due to monthly blood loss during menstruation; prevents anemia and fatigue.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Red meat, poultry, fish, beans, leafy greens, fortified cereals</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-dna fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Folate (Vitamin B9)</h6>
+                  <p class="mb-0">Critical before and during pregnancy to prevent neural tube defects; supports cell function and tissue growth.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Leafy greens, legumes, citrus fruits, avocados, fortified grains</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-fish fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Omega-3 Fatty Acids</h6>
+                  <p class="mb-0">Support heart health, reduce inflammation, and may help with menstrual pain and mood regulation.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Fatty fish, flaxseeds, chia seeds, walnuts, algae oil</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-capsules fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Magnesium</h6>
+                  <p class="mb-0">May help reduce PMS symptoms, supports bone health, aids sleep, and regulates muscle and nerve function.</p>
+                  <p class="small text-muted mb-0"><strong>Sources:</strong> Nuts, seeds, legumes, leafy greens, whole grains, dark chocolate</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="alert alert-info">
+            <i class="fas fa-lightbulb me-2"></i> <strong>Did you know?</strong> Women need different amounts of certain nutrients throughout their lives. Requirements change during puberty, pregnancy, breastfeeding, and menopause.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Nutrition Through Life Stages</h5>
+          
+          <div class="accordion" id="nutritionAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingYoungAdult">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYoungAdult" aria-expanded="true" aria-controls="collapseYoungAdult">
+                  <i class="fas fa-venus me-2 text-primary"></i> Young Adulthood (18-35)
+                </button>
+              </h2>
+              <div id="collapseYoungAdult" class="accordion-collapse collapse show" aria-labelledby="headingYoungAdult" data-bs-parent="#nutritionAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>This is a critical time to establish healthy eating patterns while also balancing busy lifestyles. Focus on:</p>
+                      
+                      <h6 class="mt-3">Key Nutritional Needs:</h6>
+                      <ul>
+                        <li><strong>Iron:</strong> Particularly important for menstruating women</li>
+                        <li><strong>Calcium and Vitamin D:</strong> To build peak bone mass</li>
+                        <li><strong>Folate:</strong> Essential if planning pregnancy, even in the near future</li>
+                        <li><strong>B Vitamins:</strong> For energy and stress management</li>
+                      </ul>
+                      
+                      <h6 class="mt-3">Eating Strategies:</h6>
+                      <ul>
+                        <li>Develop meal planning and cooking skills</li>
+                        <li>Learn to read food labels and make informed choices</li>
+                        <li>Balance social dining with nutritious options</li>
+                        <li>Stay hydrated, especially if physically active</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h6 class="card-title">Sample Daily Plan</h6>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Breakfast:</strong> Greek yogurt with berries and nuts</li>
+                            <li class="list-group-item"><strong>Lunch:</strong> Spinach salad with grilled chicken, veggies, and quinoa</li>
+                            <li class="list-group-item"><strong>Snack:</strong> Apple with almond butter</li>
+                            <li class="list-group-item"><strong>Dinner:</strong> Salmon with roasted vegetables and brown rice</li>
+                            <li class="list-group-item"><strong>Snack:</strong> Dark chocolate and herbal tea</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPregnancy">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePregnancy" aria-expanded="false" aria-controls="collapsePregnancy">
+                  <i class="fas fa-baby-carriage me-2 text-primary"></i> Pregnancy & Breastfeeding
+                </button>
+              </h2>
+              <div id="collapsePregnancy" class="accordion-collapse collapse" aria-labelledby="headingPregnancy" data-bs-parent="#nutritionAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>Nutritional needs increase significantly during pregnancy and breastfeeding. The foods you eat nourish both you and your baby.</p>
+                      
+                      <h6 class="mt-3">Key Nutritional Needs:</h6>
+                      <ul>
+                        <li><strong>Folate/Folic Acid:</strong> Critical in the first trimester to prevent neural tube defects</li>
+                        <li><strong>Iron:</strong> Needs almost double during pregnancy</li>
+                        <li><strong>Calcium:</strong> Supports developing bones and teeth</li>
+                        <li><strong>Protein:</strong> Important for baby's growth and maternal tissue</li>
+                        <li><strong>DHA (Omega-3):</strong> Supports baby's brain and eye development</li>
+                      </ul>
+                      
+                      <p><strong>During Breastfeeding:</strong> Calorie needs increase even more than during pregnancy. Focus on nutrient-dense foods and staying well-hydrated.</p>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="alert alert-warning mb-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i> <strong>Foods to Avoid:</strong>
+                        <ul class="mb-0">
+                          <li>Raw or undercooked animal products</li>
+                          <li>High-mercury fish</li>
+                          <li>Unpasteurized dairy</li>
+                          <li>Excessive caffeine</li>
+                          <li>Alcohol</li>
+                        </ul>
+                      </div>
+                      <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> <strong>Tip:</strong> A prenatal vitamin is recommended in addition to a healthy diet, not as a replacement for it.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPerimen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerimen" aria-expanded="false" aria-controls="collapsePerimen">
+                  <i class="fas fa-fire me-2 text-primary"></i> Perimenopause & Menopause
+                </button>
+              </h2>
+              <div id="collapsePerimen" class="accordion-collapse collapse" aria-labelledby="headingPerimen" data-bs-parent="#nutritionAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>Hormonal changes during this transition can affect metabolism, bone density, heart health, and body composition. Nutrition plays a key role in managing symptoms and preventing long-term health issues.</p>
+                      
+                      <h6 class="mt-3">Key Nutritional Focuses:</h6>
+                      <ul>
+                        <li><strong>Calcium and Vitamin D:</strong> More critical than ever for bone health</li>
+                        <li><strong>Phytoestrogens:</strong> Plant compounds that may help balance hormones (soy, flaxseed)</li>
+                        <li><strong>Fiber:</strong> Supports heart health and helps manage weight changes</li>
+                        <li><strong>Antioxidants:</strong> Help manage inflammation and support cellular health</li>
+                        <li><strong>Omega-3 Fatty Acids:</strong> May help with mood changes and support heart health</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h6 class="card-title">Dietary Strategies</h6>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Adjust calorie intake to match changing metabolism</li>
+                            <li class="list-group-item">Stay well-hydrated to help with hot flashes</li>
+                            <li class="list-group-item">Limit alcohol, caffeine, and spicy foods that may trigger hot flashes</li>
+                            <li class="list-group-item">Include plant-based proteins like soy, legumes, and seeds</li>
+                            <li class="list-group-item">Focus on nutrient density rather than calorie restriction</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOlderAdult">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOlderAdult" aria-expanded="false" aria-controls="collapseOlderAdult">
+                  <i class="fas fa-heart me-2 text-primary"></i> Older Adulthood (65+)
+                </button>
+              </h2>
+              <div id="collapseOlderAdult" class="accordion-collapse collapse" aria-labelledby="headingOlderAdult" data-bs-parent="#nutritionAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>As women age, calorie needs typically decrease while nutrient needs remain high or even increase. Special attention is needed to maintain muscle mass, bone health, and cognitive function.</p>
+                      
+                      <h6 class="mt-3">Key Nutritional Focuses:</h6>
+                      <ul>
+                        <li><strong>Protein:</strong> Critical for preserving muscle mass; needs often increase</li>
+                        <li><strong>Vitamin B12:</strong> Absorption decreases with age</li>
+                        <li><strong>Calcium and Vitamin D:</strong> Continue to be important for bone health</li>
+                        <li><strong>Fiber:</strong> Helps with digestive changes that come with aging</li>
+                        <li><strong>Hydration:</strong> Sense of thirst diminishes with age</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="alert alert-success h-100">
+                        <h6><i class="fas fa-check-circle me-2"></i> Focus on these foods:</h6>
+                        <ul>
+                          <li>Colorful fruits and vegetables (antioxidants)</li>
+                          <li>Fatty fish and nuts (brain health)</li>
+                          <li>High-quality protein sources (muscle maintenance)</li>
+                          <li>Whole grains and legumes (steady energy)</li>
+                          <li>Probiotic foods like yogurt (gut health)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Nutrition for Common Women's Health Concerns</h5>
+          
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Health Concern</th>
+                  <th>Nutritional Approach</th>
+                  <th>Foods to Include</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PMS</strong></td>
+                  <td>
+                    <ul>
+                      <li>Limit salt, caffeine, alcohol</li>
+                      <li>Regular, balanced meals</li>
+                      <li>Focus on calcium, magnesium, vitamin B6</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Leafy greens, yogurt, seeds</li>
+                      <li>Whole grains</li>
+                      <li>Small, frequent protein sources</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>PCOS</strong><br><small>(Polycystic Ovary Syndrome)</small></td>
+                  <td>
+                    <ul>
+                      <li>Focus on low glycemic index foods</li>
+                      <li>Moderate carbohydrate intake</li>
+                      <li>Include anti-inflammatory foods</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Non-starchy vegetables</li>
+                      <li>Lean proteins</li>
+                      <li>Healthy fats</li>
+                      <li>Berries, nuts, fatty fish</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Endometriosis</strong></td>
+                  <td>
+                    <ul>
+                      <li>Anti-inflammatory approach</li>
+                      <li>Minimize processed foods</li>
+                      <li>Consider limiting gluten and dairy</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Fatty fish, olive oil</li>
+                      <li>Colorful fruits and vegetables</li>
+                      <li>Turmeric, ginger</li>
+                      <li>Legumes, nuts, seeds</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Osteoporosis</strong></td>
+                  <td>
+                    <ul>
+                      <li>Calcium-rich diet</li>
+                      <li>Adequate vitamin D</li>
+                      <li>Vitamin K and magnesium</li>
+                      <li>Weight-bearing exercise complements nutrition</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Dairy or fortified alternatives</li>
+                      <li>Leafy greens</li>
+                      <li>Salmon with bones</li>
+                      <li>Nuts and seeds</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Thyroid Issues</strong></td>
+                  <td>
+                    <ul>
+                      <li>Iodine balance (not too much, not too little)</li>
+                      <li>Selenium-rich foods</li>
+                      <li>Consider limiting goitrogenic foods</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Seafood, iodized salt</li>
+                      <li>Brazil nuts, fish, eggs</li>
+                      <li>Cook cruciferous vegetables if sensitive</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="alert alert-warning mt-3">
+            <i class="fas fa-exclamation-triangle me-2"></i> <strong>Important:</strong> These are general guidelines. Always consult with your healthcare provider about nutritional approaches for specific health conditions, especially before making significant dietary changes.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Building a Balanced Plate</h5>
+          
+          <p>A balanced approach to eating can help ensure you get the nutrients you need while maintaining a healthy weight and energy levels.</p>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h6><i class="fas fa-check-circle text-success me-2"></i> What to Include:</h6>
+              <ul>
+                <li><strong>Vegetables:</strong> Fill half your plate with colorful vegetables</li>
+                <li><strong>Fruits:</strong> Include a variety of whole fruits</li>
+                <li><strong>Whole Grains:</strong> Choose brown rice, quinoa, oats, whole wheat</li>
+                <li><strong>Lean Proteins:</strong> Fish, poultry, beans, tofu, nuts, eggs</li>
+                <li><strong>Healthy Fats:</strong> Avocados, olive oil, nuts, seeds</li>
+                <li><strong>Dairy or Alternatives:</strong> Choose calcium-fortified options if avoiding dairy</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6><i class="fas fa-minus-circle text-danger me-2"></i> What to Limit:</h6>
+              <ul>
+                <li><strong>Added Sugars:</strong> Sodas, sweets, many processed foods</li>
+                <li><strong>Refined Grains:</strong> White bread, white rice, pastries</li>
+                <li><strong>Processed Meats:</strong> Bacon, sausage, deli meats</li>
+                <li><strong>Excess Sodium:</strong> Packaged foods, restaurant meals</li>
+                <li><strong>Trans Fats:</strong> Fried foods, some packaged baked goods</li>
+                <li><strong>Alcohol:</strong> If consumed, limit to moderate amounts</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="alert alert-success">
+            <div class="row align-items-center">
+              <div class="col-md-9">
+                <h5 class="alert-heading">The Mediterranean Diet</h5>
+                <p>This eating pattern is often recommended for women's health because it's rich in nutrients that support hormonal health, heart health, brain function, and longevity. It emphasizes:</p>
+                <ul class="mb-0">
+                  <li>Abundant plant foods (fruits, vegetables, whole grains, legumes, nuts)</li>
+                  <li>Olive oil as the primary fat source</li>
+                  <li>Moderate amounts of fish, poultry, eggs, and dairy</li>
+                  <li>Limited red meat</li>
+                  <li>Optional moderate red wine consumption (if appropriate)</li>
+                </ul>
+              </div>
+              <div class="col-md-3 text-center">
+                <i class="fas fa-utensils fa-4x text-success opacity-75"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Nutrition Tips & Strategies</h5>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="flex-shrink-0 me-3">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="fas fa-clock fa-lg"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-0">Meal Planning</h6>
+              <p class="small mb-0">Set aside time each week to plan meals, create a shopping list, and prep ingredients to make healthy eating easier during busy days.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="flex-shrink-0 me-3">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="fas fa-tint fa-lg"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-0">Stay Hydrated</h6>
+              <p class="small mb-0">Aim for at least 8-10 cups of fluids daily. Water should be your primary beverage, with herbal teas and infused water as flavorful alternatives.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="flex-shrink-0 me-3">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="fas fa-shopping-basket fa-lg"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-0">Grocery Shopping</h6>
+              <p class="small mb-0">Shop the perimeter of the store first, where fresh foods are usually located. Read labels and choose items with shorter ingredient lists.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="flex-shrink-0 me-3">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="fas fa-balance-scale fa-lg"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-0">Portion Awareness</h6>
+              <p class="small mb-0">Use visual cues: a serving of protein is about the size of your palm, a serving of fats is about the size of your thumb.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center">
+            <div class="flex-shrink-0 me-3">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="fas fa-utensils fa-lg"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-0">Mindful Eating</h6>
+              <p class="small mb-0">Eat without distractions, chew thoroughly, and pay attention to hunger and fullness cues to prevent overeating and improve digestion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Meal Tracking</h5>
+          <p>Track your meals to gain awareness of your eating patterns and nutritional intake.</p>
+          
+          <form class="mb-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="mb-3">
+              <label for="meal-date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="meal-date">
+            </div>
+            
+            <div class="mb-3">
+              <label for="meal-type" class="form-label">Meal Type</label>
+              <select class="form-select" id="meal-type">
+                <option selected disabled>Choose...</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="meal-foods" class="form-label">Foods Eaten</label>
+              <textarea class="form-control" id="meal-foods" rows="3" placeholder="List the foods you ate for this meal..."></textarea>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">How did you feel after eating?</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="feeling" id="feeling-energized" value="energized">
+                <label class="form-check-label" for="feeling-energized">
+                  Energized
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="feeling" id="feeling-satisfied" value="satisfied">
+                <label class="form-check-label" for="feeling-satisfied">
+                  Satisfied
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="feeling" id="feeling-tired" value="tired">
+                <label class="form-check-label" for="feeling-tired">
+                  Tired
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="feeling" id="feeling-bloated" value="bloated">
+                <label class="form-check-label" for="feeling-bloated">
+                  Bloated
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="feeling" id="feeling-hungry" value="still-hungry">
+                <label class="form-check-label" for="feeling-hungry">
+                  Still hungry
+                </label>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="meal-notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="meal-notes" rows="2" placeholder="Any other observations?"></textarea>
+            </div>
+            
+            <div class="d-grid">
+              <button type="button" class="btn btn-primary" id="save-meal">
+                <i class="fas fa-save me-2"></i> Save Meal Log
+              </button>
+            </div>
+          </form>
+          
+          <div class="alert alert-info small">
+            <i class="fas fa-info-circle me-2"></i> This is a demo feature. In the future, you'll be able to save and analyze your meal patterns.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Quick & Healthy Meal Ideas</h5>
+          <div class="list-group mb-3">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Mediterranean Grain Bowl</h6>
+                <small>30 min</small>
+              </div>
+              <p class="mb-1">Quinoa, chickpeas, cucumber, tomatoes, feta, olives, and olive oil dressing.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Sheet Pan Salmon & Vegetables</h6>
+                <small>25 min</small>
+              </div>
+              <p class="mb-1">Salmon fillets with broccoli and sweet potatoes, seasoned with lemon and herbs.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Spinach & Berry Smoothie Bowl</h6>
+                <small>10 min</small>
+              </div>
+              <p class="mb-1">Spinach, berries, banana, Greek yogurt, topped with nuts and seeds.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Veggie-Packed Frittata</h6>
+                <small>20 min</small>
+              </div>
+              <p class="mb-1">Eggs with bell peppers, spinach, onions, and a sprinkle of cheese.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Lentil & Vegetable Soup</h6>
+                <small>40 min</small>
+              </div>
+              <p class="mb-1">Hearty soup with lentils, carrots, celery, and leafy greens.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Nutrition Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" target="_blank">Academy of Nutrition and Dietetics</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">Office on Women's Health: Nutrition</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">USDA MyPlate</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">Harvard Nutrition Source</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">Find a Registered Dietitian</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set today's date in the meal tracker
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    
+    const formattedDate = `${year}-${month}-${day}`;
+    document.getElementById('meal-date').value = formattedDate;
+    
+    // Add event listener for save button
+    document.getElementById('save-meal').addEventListener('click', function() {
+      // This is just a placeholder for future functionality
+      alert('This feature will be available soon! Your meal data would be saved.');
+    });
+  });
+</script>
+ <%- body %>

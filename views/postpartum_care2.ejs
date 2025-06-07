@@ -1,0 +1,380 @@
+{% extends "layout.html" %}
+
+{% block title %}Postpartum Care Tracker | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Postpartum Care Tracker</h1>
+      <p class="lead mb-4">Track your recovery, monitor your physical and emotional well-being, and navigate the important fourth trimester after childbirth.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Your Postpartum Timeline</h5>
+          <p>Track your postpartum journey day by day, week by week. Enter your delivery date to begin.</p>
+          
+          <div class="row g-3 align-items-center mb-4">
+            <div class="col-md-6">
+              <label for="delivery-date" class="form-label">Delivery Date</label>
+              <input type="date" class="form-control" id="delivery-date">
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary mt-4">Start Tracking</button>
+            </div>
+          </div>
+          
+          <div class="progress mb-2" style="height: 30px;">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Week 1</div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Week 2-3</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Week 4-6</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Week 7+</div>
+          </div>
+          <small class="text-muted">Typical recovery phases: Immediate recovery (red), Early adjustment (yellow), Physical healing (blue), Emotional adjustment (green)</small>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Postpartum Health Tracker</h5>
+          
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="postpartumDate" class="form-label">Date</label>
+              <input type="date" class="form-control" id="postpartumDate">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="postpartumDay" class="form-label">Days Postpartum</label>
+              <input type="number" class="form-control" id="postpartumDay" placeholder="Example: 10">
+            </div>
+            
+            <div class="col-12">
+              <label class="form-label">Physical Recovery</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bleedingCheck">
+                    <label class="form-check-label" for="bleedingCheck">Vaginal Bleeding</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="breastPainCheck">
+                    <label class="form-check-label" for="breastPainCheck">Breast Pain/Engorgement</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="incisionPainCheck">
+                    <label class="form-check-label" for="incisionPainCheck">Incision Pain (C-section)</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="perinealPainCheck">
+                    <label class="form-check-label" for="perinealPainCheck">Perineal Pain</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hemorrhoidsCheck">
+                    <label class="form-check-label" for="hemorrhoidsCheck">Hemorrhoids</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="constipationCheck">
+                    <label class="form-check-label" for="constipationCheck">Constipation</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="fatigueCheck">
+                    <label class="form-check-label" for="fatigueCheck">Fatigue</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="nightSweatsCheck">
+                    <label class="form-check-label" for="nightSweatsCheck">Night Sweats</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="urinaryIssuesCheck">
+                    <label class="form-check-label" for="urinaryIssuesCheck">Urinary Issues</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12">
+              <label class="form-label">Emotional Wellbeing</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="babyBluesCheck">
+                    <label class="form-check-label" for="babyBluesCheck">Baby Blues</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="anxietyCheck">
+                    <label class="form-check-label" for="anxietyCheck">Anxiety</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="overwhelmedCheck">
+                    <label class="form-check-label" for="overwhelmedCheck">Feeling Overwhelmed</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="irritabilityCheck">
+                    <label class="form-check-label" for="irritabilityCheck">Irritability</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tearfulnessCheck">
+                    <label class="form-check-label" for="tearfulnessCheck">Tearfulness</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bonding">
+                    <label class="form-check-label" for="bonding">Bonding Concerns</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="sleepHours" class="form-label">Hours of Sleep (Last 24 hours)</label>
+              <input type="number" step="0.5" class="form-control" id="sleepHours" placeholder="Example: 4.5">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="waterIntake" class="form-label">Water Intake (glasses)</label>
+              <input type="number" class="form-control" id="waterIntake" placeholder="Example: 6">
+            </div>
+            
+            <div class="col-12">
+              <label for="moodRating" class="form-label">Overall Mood (1-10)</label>
+              <input type="range" class="form-range" min="1" max="10" step="1" id="moodRating">
+              <div class="d-flex justify-content-between">
+                <small>Struggling (1)</small>
+                <small>Okay (5)</small>
+                <small>Great (10)</small>
+              </div>
+            </div>
+            
+            <div class="col-12">
+              <label for="postpartumNotes" class="form-label">Notes & Observations</label>
+              <textarea class="form-control" id="postpartumNotes" rows="3" placeholder="Record how you're feeling, any concerns, or questions for your healthcare provider..."></textarea>
+            </div>
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Save Postpartum Journal Entry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Postpartum Warning Signs</h5>
+          <div class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">When to Call Your Healthcare Provider Immediately:</h6>
+            <ul class="mb-0">
+              <li>Heavy bleeding that soaks through more than one pad per hour</li>
+              <li>Blood clots larger than a golf ball</li>
+              <li>Fever over 100.4°F (38°C)</li>
+              <li>Severe headache that doesn't improve with medication</li>
+              <li>Vision changes (blurry vision, seeing spots)</li>
+              <li>Chest pain or difficulty breathing</li>
+              <li>Severe abdominal pain</li>
+              <li>Swelling, redness, or pain in your legs</li>
+              <li>Foul-smelling vaginal discharge</li>
+              <li>Thoughts of harming yourself or your baby</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Postpartum Checkpoints</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">24-Hour Check</h6>
+                <small class="text-muted">Initial recovery assessment</small>
+              </div>
+              <span class="badge bg-success rounded-pill">Completed</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">2-Week Check</h6>
+                <small class="text-muted">Early healing assessment</small>
+              </div>
+              <span class="badge bg-success rounded-pill">Completed</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">6-Week Check</h6>
+                <small class="text-muted">Comprehensive postpartum visit</small>
+              </div>
+              <span class="badge bg-warning rounded-pill">Upcoming</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0">3-Month Check</h6>
+                <small class="text-muted">Mental health assessment</small>
+              </div>
+              <span class="badge bg-light text-dark rounded-pill">Pending</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <img src="https://pixabay.com/get/g1c0e8a368629ecfcd3e760a7c24f0aee9f99f1cf486b25de91f5c0702e7be69eee21e69ff16375fad01f4e99bdd32b82c77453dd08da4146aa42ca3564c3cb54_1280.jpg" class="card-img-top" alt="Mother and baby postpartum">
+        <div class="card-body">
+          <h5 class="card-title">Postpartum Self-Care Tips</h5>
+          <div class="accordion" id="postpartumTipsAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPhysicalRecovery">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhysicalRecovery" aria-expanded="true" aria-controls="collapsePhysicalRecovery">
+                  Physical Recovery
+                </button>
+              </h2>
+              <div id="collapsePhysicalRecovery" class="accordion-collapse collapse show" aria-labelledby="headingPhysicalRecovery" data-bs-parent="#postpartumTipsAccordion">
+                <div class="accordion-body">
+                  <ul class="mb-0">
+                    <li>Rest whenever possible, especially when baby sleeps</li>
+                    <li>Use ice packs and sitz baths for perineal healing</li>
+                    <li>Stay hydrated, especially if breastfeeding</li>
+                    <li>Eat nutritious, fiber-rich foods to prevent constipation</li>
+                    <li>Avoid heavy lifting (nothing heavier than your baby)</li>
+                    <li>Wear supportive undergarments if needed</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEmotionalWellbeing">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmotionalWellbeing" aria-expanded="false" aria-controls="collapseEmotionalWellbeing">
+                  Emotional Wellbeing
+                </button>
+              </h2>
+              <div id="collapseEmotionalWellbeing" class="accordion-collapse collapse" aria-labelledby="headingEmotionalWellbeing" data-bs-parent="#postpartumTipsAccordion">
+                <div class="accordion-body">
+                  <ul class="mb-0">
+                    <li>Accept help from friends and family</li>
+                    <li>Share your feelings with a trusted person</li>
+                    <li>Remember that baby blues are common in the first two weeks</li>
+                    <li>Connect with other new parents</li>
+                    <li>Carve out at least 15 minutes daily for self-care</li>
+                    <li>If feelings of sadness persist, speak to your healthcare provider about postpartum depression</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingBreastfeeding">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBreastfeeding" aria-expanded="false" aria-controls="collapseBreastfeeding">
+                  Breastfeeding Support
+                </button>
+              </h2>
+              <div id="collapseBreastfeeding" class="accordion-collapse collapse" aria-labelledby="headingBreastfeeding" data-bs-parent="#postpartumTipsAccordion">
+                <div class="accordion-body">
+                  <ul class="mb-0">
+                    <li>Feed baby on demand (typically 8-12 times per day)</li>
+                    <li>Apply warm compresses before feeding for milk flow</li>
+                    <li>Use cold compresses after feeding for pain/engorgement</li>
+                    <li>Ensure proper latch to prevent nipple pain</li>
+                    <li>Consider seeing a lactation consultant for any difficulties</li>
+                    <li>Remember that fed is best - your mental health matters too</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Postpartum Mood Assessment</h5>
+          <p>The Edinburgh Postnatal Depression Scale (EPDS) is a screening tool to identify women who may be experiencing postpartum depression.</p>
+          <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#epdsModal">Take Assessment</a>
+          
+          <!-- EPDS Modal -->
+          <div class="modal fade" id="epdsModal" tabindex="-1" aria-labelledby="epdsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="epdsModalLabel">Edinburgh Postnatal Depression Scale</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Please select the answer that comes closest to how you have felt in the past 7 days, not just how you feel today.</p>
+                  <form>
+                    <!-- Sample EPDS questions - in a real implementation, all 10 questions would be included -->
+                    <div class="mb-3">
+                      <label class="form-label">1. I have been able to laugh and see the funny side of things</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds1" id="epds1a" value="0">
+                        <label class="form-check-label" for="epds1a">As much as I always could</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds1" id="epds1b" value="1">
+                        <label class="form-check-label" for="epds1b">Not quite so much now</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds1" id="epds1c" value="2">
+                        <label class="form-check-label" for="epds1c">Definitely not so much now</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds1" id="epds1d" value="3">
+                        <label class="form-check-label" for="epds1d">Not at all</label>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label class="form-label">2. I have looked forward with enjoyment to things</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds2" id="epds2a" value="0">
+                        <label class="form-check-label" for="epds2a">As much as I ever did</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds2" id="epds2b" value="1">
+                        <label class="form-check-label" for="epds2b">Rather less than I used to</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds2" id="epds2c" value="2">
+                        <label class="form-check-label" for="epds2c">Definitely less than I used to</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="epds2" id="epds2d" value="3">
+                        <label class="form-check-label" for="epds2d">Hardly at all</label>
+                      </div>
+                    </div>
+                    
+                    <!-- Additional questions would be added here in a real implementation -->
+                    
+                    <div class="alert alert-info">
+                      <p class="mb-0"><strong>Note:</strong> This is a screening tool, not a diagnostic test. Please discuss your results with your healthcare provider.</p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Calculate Score</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Related Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="{{ url_for('antenatal_postnatal') }}">Postnatal Care Basics</a></li>
+            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition for New Mothers</a></li>
+            <li class="list-group-item"><a href="{{ url_for('mental_health') }}">Postpartum Mental Health</a></li>
+            <li class="list-group-item"><a href="{{ url_for('stress_management') }}">Stress Management for New Parents</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <%- body %>

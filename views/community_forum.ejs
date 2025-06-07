@@ -1,0 +1,182 @@
+<%- include('layout') %>
+
+<%  title = "Community Forum - Women's Health & Wellness"" %>
+
+<% block extra_css %>
+<style>
+    .category-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        height: 100%;
+    }
+    
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .forum-header {
+        background-color: #f8f9fa;
+        padding: 30px 0;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+    
+    .recent-post {
+        padding: 15px;
+        border-bottom: 1px solid #e1e1e1;
+    }
+    
+    .recent-post:last-child {
+        border-bottom: none;
+    }
+    
+    .post-meta {
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+    
+    .post-title {
+        margin-bottom: 5px;
+    }
+    
+    .category-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #7EBDC2;
+    }
+    
+    .post-counts {
+        display: flex;
+        align-items: center;
+        font-size: 0.85rem;
+        color: #6c757d;
+        margin-top: 5px;
+    }
+    
+    .post-counts span {
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .post-counts i {
+        margin-right: 5px;
+    }
+    
+    .create-post-btn {
+        margin-bottom: 20px;
+    }
+    
+    .community-guidelines {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    
+    .guidelines-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #6a5acd;
+    }
+</style>
+<% endblock %>
+
+
+<div class="container py-5">
+    <div class="row forum-header">
+        <div class="col-md-8">
+            <h1>Community Forum</h1>
+            <p class="lead">Connect with others, share experiences, and find support in our women's health community.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="<%= url_for('new_forum_post') %>" class="btn btn-primary create-post-btn">
+                <i class="fas fa-plus-circle"></i> Create New Post
+            </a>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Forum Categories</h2>
+                <div class="row">
+                    <% categories.forEach(function(category) { %>
+                    <div class="col-md-6 mb-4">
+                        <div class="card category-card">
+                            <div class="card-body text-center">
+                                <div class="category-icon">
+                                    <% if (category.name === "General Discussion") { %>
+                                        <i class="fas fa-comments"></i>
+                                    <% } else if (category.name === "Menstrual Health") { %>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    <% } else if (category.name === "Pregnancy & Childbirth") { %>
+                                        <i class="fas fa-baby"></i>
+                                    <% } else if (category.name === "Fertility & Family Planning") { %>
+                                        <i class="fas fa-heart"></i>
+                                    <% } else if (category.name === "Menopause") { %>
+                                        <i class="fas fa-temperature-high"></i>
+                                    <% } else if (category.name === "Sexual Health") { %>
+                                        <i class="fas fa-heart"></i>
+                                    <% } else if (category.name === "Mental Health") { %>
+                                        <i class="fas fa-brain"></i>
+                                    <% } else if (category.name === "Success Stories") { %>
+                                        <i class="fas fa-star"></i>
+                                    <% } else { %>
+                                        <i class="fas fa-users"></i>
+                                    <% } %>
+                                </div>
+                                <h4 class="card-title"><%= category.name %></h4>
+                                <p class="card-text"><%= category.description %></p>
+                                <a href="<%= url_for('forum_category', { category_id: category.id }) %>" class="btn btn-outline-primary">View Discussions</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+       
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Recent Posts</h5>
+                </div>
+                <div class="card-body p-0">
+                    <% if (recent_posts && recent_posts.length > 0) { %>
+                        <% recent_posts.forEach(function(post) { %>
+                        <div class="recent-post">
+                            <h6 class="post-title">
+                                <a href="<%= url_for('forum_post', { post_id: post.id }) %>"><%= post.title %></a>
+                            </h6>
+                            <div class="post-meta">
+                                Posted by <%= post.author.username %> in <%= post.category.name %>
+                                <br><%= post.created_at.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }) %>
+                            </div>
+                            <div class="post-counts">
+                                <span><i class="fas fa-eye"></i> <%= post.views %></span>
+                                <span><i class="fas fa-comment"></i> <%= post.comments.length %></span>
+                                <span><i class="fas fa-heart"></i> <%= post.likes %></span>
+                            </div>
+                        </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="recent-post">
+                            <p class="text-center py-3">No posts yet. Be the first to create a post!</p>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="community-guidelines">
+                <h5 class="guidelines-title"><i class="fas fa-shield-alt"></i> Community Guidelines</h5>
+                <ul>
+                    <li>Be respectful and supportive of others</li>
+                    <li>Protect your privacy - don't share personal identifiable information</li>
+                    <li>Focus on health education and support</li>
+                    <li>Remember that forum posts do not replace medical advice</li>
+                    <li>Report inappropriate content to moderators</li>
+                </ul>
+            </div>
+        </div>
+       <%body

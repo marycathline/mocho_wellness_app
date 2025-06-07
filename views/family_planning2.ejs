@@ -1,0 +1,893 @@
+<%- include ('layout') %>
+
+{% block title %}Family Planning & Contraception | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Family Planning & Contraception</h1>
+      <p class="lead mb-4">Evidence-based information about contraception options, fertility awareness, and planning for pregnancy on your own terms.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Understanding Contraception Options</h5>
+          
+          <p>Contraception methods vary in effectiveness, duration, hormonal content, and convenience. Finding the right method depends on your health, lifestyle, and family planning goals.</p>
+          
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Effectiveness</th>
+                  <th>Duration</th>
+                  <th>Hormonal</th>
+                  <th>STI Protection</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>IUD (hormonal)</td>
+                  <td>99%+</td>
+                  <td>3-7 years</td>
+                  <td>Yes (localized)</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>IUD (copper)</td>
+                  <td>99%+</td>
+                  <td>10-12 years</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Implant</td>
+                  <td>99%+</td>
+                  <td>3-5 years</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Birth Control Shot</td>
+                  <td>94-99%</td>
+                  <td>3 months</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Birth Control Pills</td>
+                  <td>91-99%</td>
+                  <td>Daily</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Patch</td>
+                  <td>91-99%</td>
+                  <td>Weekly</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Vaginal Ring</td>
+                  <td>91-99%</td>
+                  <td>Monthly</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Male Condom</td>
+                  <td>85-98%</td>
+                  <td>Single use</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Female Condom</td>
+                  <td>79-95%</td>
+                  <td>Single use</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Diaphragm with Spermicide</td>
+                  <td>88-94%</td>
+                  <td>Reusable</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Fertility Awareness</td>
+                  <td>76-88%</td>
+                  <td>Daily tracking</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Withdrawal</td>
+                  <td>78-96%</td>
+                  <td>Each time</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>Sterilization</td>
+                  <td>99%+</td>
+                  <td>Permanent</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p class="mt-3"><small class="text-muted">Note: Effectiveness rates show typical use vs. perfect use. Actual effectiveness varies based on consistent and correct use.</small></p>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Hormonal Contraception Methods</h5>
+          
+          <div class="accordion" id="hormonalAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPills">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePills" aria-expanded="true" aria-controls="collapsePills">
+                  Birth Control Pills
+                </button>
+              </h2>
+              <div id="collapsePills" class="accordion-collapse collapse show" aria-labelledby="headingPills" data-bs-parent="#hormonalAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>Types:</h6>
+                      <ul>
+                        <li><strong>Combination pills:</strong> Contain estrogen and progestin</li>
+                        <li><strong>Progestin-only pills (mini-pills):</strong> Contain only progestin</li>
+                      </ul>
+                      
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Prevent ovulation</li>
+                        <li>Thicken cervical mucus to block sperm</li>
+                        <li>Thin uterine lining</li>
+                      </ul>
+                      
+                      <h6>Benefits beyond contraception:</h6>
+                      <ul>
+                        <li>More regular, lighter periods</li>
+                        <li>Reduced menstrual cramps</li>
+                        <li>Reduced risk of ovarian and endometrial cancers</li>
+                        <li>May improve acne</li>
+                        <li>Treatment for conditions like PCOS and endometriosis</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Must be taken consistently, ideally at the same time each day</li>
+                        <li>No protection against STIs</li>
+                        <li>May have side effects: spotting, breast tenderness, nausea, headaches</li>
+                        <li>Some medical conditions or medications may interfere with effectiveness</li>
+                        <li>Some risk factors may make hormonal methods less appropriate</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>With perfect use: 99%<br>With typical use: 91%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Can remember to take a pill daily</li>
+                          <li>Want a method they can stop easily</li>
+                          <li>Want menstrual benefits</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPatch">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePatch" aria-expanded="false" aria-controls="collapsePatch">
+                  Birth Control Patch
+                </button>
+              </h2>
+              <div id="collapsePatch" class="accordion-collapse collapse" aria-labelledby="headingPatch" data-bs-parent="#hormonalAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How it works:</h6>
+                      <ul>
+                        <li>Adhesive patch worn on the skin (abdomen, buttock, back, or upper arm)</li>
+                        <li>Releases estrogen and progestin through the skin</li>
+                        <li>Changed weekly for three weeks, with one patch-free week</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Only needs changing once a week</li>
+                        <li>Not affected by vomiting or diarrhea</li>
+                        <li>Similar benefits to birth control pills (regular periods, reduced cramps)</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>May be less effective in women weighing over 198 pounds</li>
+                        <li>Can cause skin irritation at application site</li>
+                        <li>Visible on skin</li>
+                        <li>Similar side effects to pills</li>
+                        <li>Slightly higher estrogen exposure than pills</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>With perfect use: 99%<br>With typical use: 91%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Might forget daily pills</li>
+                          <li>Want a method they control</li>
+                          <li>Don't mind a visible method</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingVaginalRing">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVaginalRing" aria-expanded="false" aria-controls="collapseVaginalRing">
+                  Vaginal Ring
+                </button>
+              </h2>
+              <div id="collapseVaginalRing" class="accordion-collapse collapse" aria-labelledby="headingVaginalRing" data-bs-parent="#hormonalAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How it works:</h6>
+                      <ul>
+                        <li>Flexible ring inserted into the vagina</li>
+                        <li>Releases estrogen and progestin</li>
+                        <li>Left in place for three weeks, then removed for one week</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Monthly use - only need to remember twice a month</li>
+                        <li>Not visible when in use</li>
+                        <li>Does not interfere with sex (can be removed for up to 3 hours if desired)</li>
+                        <li>Lower estrogen dose than most pills</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Requires comfort with inserting and removing from vagina</li>
+                        <li>May cause increased vaginal discharge</li>
+                        <li>Can occasionally be felt during intercourse</li>
+                        <li>Similar side effects to other hormonal methods</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>With perfect use: 99%<br>With typical use: 91%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want a low-maintenance method</li>
+                          <li>Are comfortable with their bodies</li>
+                          <li>Want a discreet option</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingInjection">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInjection" aria-expanded="false" aria-controls="collapseInjection">
+                  Birth Control Shot
+                </button>
+              </h2>
+              <div id="collapseInjection" class="accordion-collapse collapse" aria-labelledby="headingInjection" data-bs-parent="#hormonalAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How it works:</h6>
+                      <ul>
+                        <li>Injection of progestin (Depo-Provera)</li>
+                        <li>Given every 12 weeks (3 months)</li>
+                        <li>Prevents pregnancy primarily by stopping ovulation</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Only requires attention 4 times a year</li>
+                        <li>Very private - no visible evidence</li>
+                        <li>Can reduce or eliminate periods over time</li>
+                        <li>Not affected by other medications</li>
+                        <li>Safe for breastfeeding mothers</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Cannot be removed from the body once injected</li>
+                        <li>May cause irregular bleeding, especially initially</li>
+                        <li>Return to fertility may be delayed after stopping (average 10 months)</li>
+                        <li>Potential for weight gain</li>
+                        <li>May affect bone density with long-term use</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>With perfect use: 99%<br>With typical use: 94%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want an effective, private method</li>
+                          <li>Can make regular appointments</li>
+                          <li>Don't mind injections</li>
+                          <li>Aren't planning pregnancy soon</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Long-Acting Reversible Contraception (LARC)</h5>
+          
+          <p>LARCs are the most effective reversible contraceptive methods, with effectiveness rates over 99%.</p>
+          
+          <div class="accordion" id="larcAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingIUD">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIUD" aria-expanded="true" aria-controls="collapseIUD">
+                  Intrauterine Devices (IUDs)
+                </button>
+              </h2>
+              <div id="collapseIUD" class="accordion-collapse collapse show" aria-labelledby="headingIUD" data-bs-parent="#larcAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>Types:</h6>
+                      <ul>
+                        <li><strong>Hormonal IUDs:</strong> Release progestin locally in the uterus (last 3-7 years depending on brand)</li>
+                        <li><strong>Copper IUD:</strong> Non-hormonal, made of plastic wrapped with copper wire (lasts 10-12 years)</li>
+                      </ul>
+                      
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Create an environment in the uterus that's inhospitable to sperm</li>
+                        <li>Hormonal IUDs also thicken cervical mucus and may suppress ovulation</li>
+                        <li>Copper IUDs create a spermicidal environment</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>"Set it and forget it" - no daily, weekly, or monthly action required</li>
+                        <li>Hormonal IUDs often reduce menstrual bleeding and cramps</li>
+                        <li>Copper IUD is completely non-hormonal</li>
+                        <li>Quick return to fertility upon removal</li>
+                        <li>Cost-effective over time</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Requires a healthcare provider for insertion and removal</li>
+                        <li>May cause cramping during and shortly after insertion</li>
+                        <li>Copper IUDs may cause heavier periods and cramping</li>
+                        <li>Rare risk of expulsion, perforation, or infection</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Over 99%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want long-term, highly effective contraception</li>
+                          <li>Prefer to avoid daily/weekly/monthly maintenance</li>
+                          <li>Want reversible contraception</li>
+                          <li>May or may not want reduced periods (depending on type)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingImplant">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImplant" aria-expanded="false" aria-controls="collapseImplant">
+                  Contraceptive Implant
+                </button>
+              </h2>
+              <div id="collapseImplant" class="accordion-collapse collapse" aria-labelledby="headingImplant" data-bs-parent="#larcAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How it works:</h6>
+                      <ul>
+                        <li>Small, flexible rod inserted under the skin of the upper arm</li>
+                        <li>Releases progestin continuously</li>
+                        <li>Lasts for 3-5 years (depending on brand)</li>
+                        <li>Primarily works by preventing ovulation</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Most effective form of reversible contraception</li>
+                        <li>No need to remember daily, weekly, or monthly contraception</li>
+                        <li>Discreet (typically not visible, may be felt under skin)</li>
+                        <li>Quick return to fertility after removal</li>
+                        <li>Can be used while breastfeeding</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Requires a minor procedure for insertion and removal</li>
+                        <li>May cause irregular bleeding patterns, especially in the first 6-12 months</li>
+                        <li>Some women experience regular periods, some have infrequent periods, and others have no periods</li>
+                        <li>Other possible side effects include headaches, breast tenderness, and acne</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Over 99%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want the most effective reversible contraception</li>
+                          <li>Prefer a method they don't have to think about</li>
+                          <li>Are comfortable with potential changes in bleeding patterns</li>
+                          <li>Want a discreet option</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Barrier Methods & Non-Hormonal Options</h5>
+          
+          <div class="accordion" id="barrierAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingCondoms">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCondoms" aria-expanded="true" aria-controls="collapseCondoms">
+                  Condoms (Male & Female)
+                </button>
+              </h2>
+              <div id="collapseCondoms" class="accordion-collapse collapse show" aria-labelledby="headingCondoms" data-bs-parent="#barrierAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>Types:</h6>
+                      <ul>
+                        <li><strong>Male condoms:</strong> Thin sheaths that cover the penis</li>
+                        <li><strong>Female condoms:</strong> Pouches inserted into the vagina</li>
+                      </ul>
+                      
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Create a physical barrier that prevents sperm from entering the vagina/cervix</li>
+                        <li>Most are made of latex, but non-latex options exist (polyurethane, polyisoprene)</li>
+                        <li>Must be used correctly every time</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Only contraceptive method that protects against most STIs</li>
+                        <li>Available without prescription</li>
+                        <li>No hormonal side effects</li>
+                        <li>Can be used as backup with other methods</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Must be used correctly every time to be effective</li>
+                        <li>Must be put on/inserted before any genital contact</li>
+                        <li>Some people may have latex allergies (alternatives available)</li>
+                        <li>May reduce sensation for some people</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Male condom:<br>Perfect use: 98%<br>Typical use: 85%</p>
+                        <p>Female condom:<br>Perfect use: 95%<br>Typical use: 79%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want STI protection</li>
+                          <li>Prefer non-hormonal methods</li>
+                          <li>Need an occasional or backup method</li>
+                          <li>Want a method available immediately</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingDiaphragm">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiaphragm" aria-expanded="false" aria-controls="collapseDiaphragm">
+                  Diaphragm & Cervical Cap
+                </button>
+              </h2>
+              <div id="collapseDiaphragm" class="accordion-collapse collapse" aria-labelledby="headingDiaphragm" data-bs-parent="#barrierAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Shallow cups made of silicone that cover the cervix</li>
+                        <li>Must be used with spermicide</li>
+                        <li>Inserted before sex and left in place for several hours after</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>Can be inserted hours before intercourse</li>
+                        <li>Reusable for 1-2 years with proper care</li>
+                        <li>No hormonal side effects</li>
+                        <li>Can be used while breastfeeding</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Requires fitting by a healthcare provider</li>
+                        <li>Must be comfortable with insertion and removal</li>
+                        <li>Needs to remain in place for 6 hours after intercourse</li>
+                        <li>Less effective than hormonal methods or IUDs</li>
+                        <li>No protection against STIs</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Perfect use: 94%<br>Typical use: 88%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want a non-hormonal option</li>
+                          <li>Are comfortable with their bodies</li>
+                          <li>Can plan ahead for sexual activity</li>
+                          <li>Are in monogamous relationships</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFAM">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAM" aria-expanded="false" aria-controls="collapseFAM">
+                  Fertility Awareness Methods
+                </button>
+              </h2>
+              <div id="collapseFAM" class="accordion-collapse collapse" aria-labelledby="headingFAM" data-bs-parent="#barrierAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Track fertility signs to identify fertile days</li>
+                        <li>Avoid intercourse or use barriers during fertile periods</li>
+                        <li>Methods include calendar tracking, cervical mucus monitoring, basal body temperature, and symptothermal methods</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>No devices or hormones</li>
+                        <li>No cost after initial education</li>
+                        <li>Aligns with certain religious beliefs</li>
+                        <li>Increases body awareness</li>
+                        <li>Can be used to prevent or achieve pregnancy</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Requires consistent daily tracking and record keeping</li>
+                        <li>Needs significant education and practice</li>
+                        <li>Less effective than most other methods</li>
+                        <li>Requires periods of abstinence or backup methods</li>
+                        <li>May be difficult with irregular cycles</li>
+                        <li>No STI protection</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Perfect use: 88-98% (depending on specific method)<br>Typical use: 76-88%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Want a completely natural approach</li>
+                          <li>Have religious or personal objections to other methods</li>
+                          <li>Can maintain consistent daily tracking</li>
+                          <li>Have regular cycles</li>
+                          <li>Have partner support</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPermanent">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePermanent" aria-expanded="false" aria-controls="collapsePermanent">
+                  Permanent Contraception
+                </button>
+              </h2>
+              <div id="collapsePermanent" class="accordion-collapse collapse" aria-labelledby="headingPermanent" data-bs-parent="#barrierAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6>Types:</h6>
+                      <ul>
+                        <li><strong>Female sterilization (tubal ligation):</strong> Cutting, tying, or blocking the fallopian tubes</li>
+                        <li><strong>Male sterilization (vasectomy):</strong> Cutting or blocking the vas deferens</li>
+                      </ul>
+                      
+                      <h6>How they work:</h6>
+                      <ul>
+                        <li>Permanently prevents eggs and sperm from meeting</li>
+                        <li>Tubal ligation requires surgery; vasectomy is an office procedure</li>
+                      </ul>
+                      
+                      <h6>Benefits:</h6>
+                      <ul>
+                        <li>One-time procedure for permanent contraception</li>
+                        <li>No need to think about birth control again</li>
+                        <li>No hormonal side effects</li>
+                        <li>Highly effective</li>
+                      </ul>
+                      
+                      <h6>Considerations:</h6>
+                      <ul>
+                        <li>Should be considered permanent (reversal is expensive, complex, and not always successful)</li>
+                        <li>Surgical risks (though minimal)</li>
+                        <li>No protection against STIs</li>
+                        <li>Requires absolute certainty about not wanting future pregnancies</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="alert alert-info">
+                        <h6>Effectiveness:</h6>
+                        <p>Over 99%</p>
+                        
+                        <h6>Best for those who:</h6>
+                        <ul>
+                          <li>Are certain they don't want future pregnancies</li>
+                          <li>Want a one-time solution</li>
+                          <li>May have medical reasons to avoid pregnancy</li>
+                          <li>Have completed their family size</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Emergency Contraception</h5>
+          
+          <p>Emergency contraception can prevent pregnancy after unprotected sex or contraceptive failure. It's not intended as a regular method of birth control.</p>
+          
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>How it Works</th>
+                  <th>Timeframe</th>
+                  <th>Effectiveness</th>
+                  <th>Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Levonorgestrel Pills<br>(Plan B One-Step, Next Choice)</td>
+                  <td>Delays ovulation; prevents fertilization</td>
+                  <td>Most effective within 72 hours (3 days); can be used up to 5 days</td>
+                  <td>75-89%</td>
+                  <td>Available over-the-counter</td>
+                </tr>
+                <tr>
+                  <td>Ulipristal Acetate<br>(Ella)</td>
+                  <td>Delays ovulation; more effective than progestin pills</td>
+                  <td>Effective up to 5 days (120 hours)</td>
+                  <td>85-95%</td>
+                  <td>Prescription required</td>
+                </tr>
+                <tr>
+                  <td>Copper IUD</td>
+                  <td>Prevents fertilization; may prevent implantation</td>
+                  <td>Most effective when inserted within 5 days</td>
+                  <td>99%+</td>
+                  <td>Requires healthcare provider insertion</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="alert alert-warning mt-3">
+            <p><strong>Important notes:</strong></p>
+            <ul class="mb-0">
+              <li>Emergency contraception is not effective if you're already pregnant</li>
+              <li>It doesn't protect against STIs</li>
+              <li>Higher body weight may reduce effectiveness of pill methods</li>
+              <li>Regular contraception should be continued or started after using emergency contraception</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <img src="https://pixabay.com/get/g980373cf6cb98a3bfe976877ba84dda0bfc13dc10643b095055e189d52659d1c416d9b2e84bbd514ac71b810d0ac6aa5bdb5858cc186de98fa25622a5dba4880_1280.jpg" class="card-img-top" alt="Healthcare consultation">
+        <div class="card-body">
+          <h5 class="card-title">Choosing the Right Contraception</h5>
+          <p>Finding the right contraceptive method is a personal decision based on several factors:</p>
+          
+          <ul>
+            <li><strong>Effectiveness:</strong> How important is it to avoid pregnancy right now?</li>
+            <li><strong>Ease of use:</strong> Will you remember to take a pill daily or prefer a method you don't have to think about?</li>
+            <li><strong>Duration:</strong> Do you want short-term or long-term protection?</li>
+            <li><strong>Hormonal vs. non-hormonal:</strong> Do you prefer or need to avoid hormones?</li>
+            <li><strong>STI protection:</strong> Do you need protection against sexually transmitted infections?</li>
+            <li><strong>Side effects:</strong> How might different methods affect your body?</li>
+            <li><strong>Future fertility plans:</strong> When do you want to be able to get pregnant, if ever?</li>
+            <li><strong>Health factors:</strong> Do you have medical conditions that might affect your options?</li>
+          </ul>
+          
+          <div class="alert alert-info mt-3">
+            <p class="mb-0">Discuss these factors with your healthcare provider to find the method that best fits your needs and lifestyle.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Common Contraception Myths</h5>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: You can't get pregnant the first time you have sex.</p>
+            <p class="fw-bold text-success">Fact: You can get pregnant any time you have unprotected sex, including the first time.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: Birth control pills cause infertility.</p>
+            <p class="fw-bold text-success">Fact: Fertility returns quickly after stopping most contraceptive methods, including the pill.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: IUDs are only for women who have had children.</p>
+            <p class="fw-bold text-success">Fact: IUDs are safe and effective for most women, regardless of whether they've had children.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: Withdrawal ("pulling out") is highly effective.</p>
+            <p class="fw-bold text-success">Fact: Withdrawal has a relatively high failure rate (22% with typical use) and offers no STI protection.</p>
+          </div>
+          
+          <div class="myth-fact">
+            <p class="fw-bold text-danger">Myth: You don't need contraception during breastfeeding.</p>
+            <p class="fw-bold text-success">Fact: While exclusive breastfeeding can provide some protection in the first 6 months postpartum, it's not reliable contraception.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Fertility Awareness</h5>
+          
+          <p>Understanding your fertile window is valuable whether you're trying to prevent or achieve pregnancy. A woman is typically fertile for about 6 days each cycle:</p>
+          
+          <ul>
+            <li>The 5 days before ovulation</li>
+            <li>The day of ovulation itself</li>
+          </ul>
+          
+          <p>Signs of fertility include:</p>
+          
+          <ul>
+            <li><strong>Cervical mucus changes:</strong> Becomes clear, slippery, and stretchy (like egg white) during fertile days</li>
+            <li><strong>Basal body temperature rise:</strong> Slight increase (0.4-1.0°F) after ovulation</li>
+            <li><strong>Ovulation predictor kits:</strong> Detect the luteinizing hormone (LH) surge before ovulation</li>
+            <li><strong>Cycle tracking:</strong> Calendar-based prediction of fertile days</li>
+          </ul>
+          
+          <div class="text-center mt-3">
+            <a href="{{ url_for('ovulation_fertility') }}" class="btn btn-primary">Learn More About Fertility Tracking</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Planning for Pregnancy</h5>
+          
+          <p>If you're considering pregnancy in the future, these steps can help optimize health for both you and your future baby:</p>
+          
+          <h6 class="mt-3">3+ Months Before Conception:</h6>
+          <ul>
+            <li>Begin taking prenatal vitamins with folic acid (400-800 mcg daily)</li>
+            <li>Have a preconception check-up</li>
+            <li>Update vaccinations</li>
+            <li>Review medications with your healthcare provider</li>
+            <li>Manage chronic health conditions</li>
+            <li>Achieve a healthy weight</li>
+            <li>Quit smoking and avoid alcohol</li>
+            <li>Begin tracking your menstrual cycle</li>
+          </ul>
+          
+          <h6 class="mt-3">When You're Ready to Conceive:</h6>
+          <ul>
+            <li>Time intercourse during your fertile window</li>
+            <li>Maintain a healthy lifestyle with balanced nutrition</li>
+            <li>Manage stress</li>
+            <li>Limit caffeine intake</li>
+            <li>Avoid environmental toxins</li>
+          </ul>
+          <div class="text-center mt-3">
+            <a href="<%= url_for('pregnancy_milestones') %>" class="btn btn-outline-primary">Pregnancy Milestone Tracking</a>
+          </div>
+          </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Related Resources</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="<%= url_for('menstrual_cycle') %>">Menstrual Cycle Tracking</a></li>
+                <li class="list-group-item"><a href="<%= url_for('ovulation_fertility') %>">Ovulation & Fertility Tracking</a></li>
+                <li class="list-group-item"><a href="<%= url_for('sexual_reproductive_health') %>">Sexual & Reproductive Health</a></li>
+                <li class="list-group-item"><a href="<%= url_for('gynecological_issues') %>">Common Gynecological Issues</a></li>
+                <li class="list-group-item"><a href="<%= url_for('pregnancy_milestones') %>">Pregnancy Milestones</a></li>
+              </ul>
+            </div>
+          </div>
+      
+    </div>
+  </div>
+</div>
+ <%- body %>

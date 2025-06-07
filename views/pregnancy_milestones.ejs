@@ -1,0 +1,467 @@
+{% extends "layout.html" %}
+
+{% block title %}Pregnancy Milestones | Women's Health & Wellness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h1 class="text-center mb-4">Pregnancy Milestones Tracker</h1>
+    <p class="text-center mb-5">Track your pregnancy journey week by week and stay informed about important milestones.</p>
+    
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <h3>Your Pregnancy Calendar</h3>
+            <p>View your pregnancy journey with important dates and milestones.</p>
+          </div>
+          <div class="calendar-content">
+            <div id="pregnancy-calendar"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="tracking-form">
+          <h3>Set Up Your Pregnancy</h3>
+          <form id="pregnancy-form">
+            <div class="form-group">
+              <label for="due-date" class="form-label">Estimated Due Date</label>
+              <input type="date" class="form-control" id="due-date">
+              <small class="form-text text-muted">If you know your due date from your healthcare provider.</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="last-period" class="form-label">First Day of Last Period</label>
+              <input type="date" class="form-control" id="last-period">
+              <small class="form-text text-muted">If you don't have a due date, we can estimate it from your last period.</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="pregnancy-notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="pregnancy-notes" rows="3" placeholder="Additional information about your pregnancy"></textarea>
+            </div>
+            
+            <button type="button" id="save-pregnancy" class="btn btn-primary w-100">Set Up Pregnancy Tracker</button>
+          </form>
+        </div>
+        
+        <div class="info-card mt-4">
+          <div class="info-card-content">
+            <h4>Currently Tracking</h4>
+            <div id="pregnancy-summary">
+              <p><strong>Current week:</strong> <span id="current-week">Not set</span></p>
+              <p><strong>Trimester:</strong> <span id="current-trimester">Not set</span></p>
+              <p><strong>Due date:</strong> <span id="calculated-due-date">Not set</span></p>
+              <div class="progress mt-3" style="height: 25px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="mb-4">Pregnancy Week by Week</h2>
+    <p>Below is a guide to how your baby develops and what changes you might experience throughout your pregnancy.</p>
+    
+    <ul class="nav nav-pills mb-4" id="pregnancy-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="first-tab" data-bs-toggle="pill" data-bs-target="#first" type="button" role="tab" aria-controls="first" aria-selected="true">First Trimester</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="second-tab" data-bs-toggle="pill" data-bs-target="#second" type="button" role="tab" aria-controls="second" aria-selected="false">Second Trimester</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="third-tab" data-bs-toggle="pill" data-bs-target="#third" type="button" role="tab" aria-controls="third" aria-selected="false">Third Trimester</button>
+      </li>
+    </ul>
+    
+    <div class="tab-content" id="pregnancy-tabContent">
+      <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+        <h3 class="mb-3">First Trimester (Weeks 1-12)</h3>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">4</span>
+                  <h5 class="mb-0">Week 4</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>Your baby is now a blastocyst, about the size of a poppy seed. The embryo begins to implant into your uterine lining.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Missed period</li>
+                  <li>Mild cramping</li>
+                  <li>Spotting (implantation bleeding)</li>
+                  <li>Tender breasts</li>
+                  <li>Fatigue</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">8</span>
+                  <h5 class="mb-0">Week 8</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a raspberry. All major organs are forming, and facial features are developing. Tiny fingers and toes are beginning to form.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Morning sickness</li>
+                  <li>Food aversions or cravings</li>
+                  <li>Frequent urination</li>
+                  <li>Extreme fatigue</li>
+                  <li>Mood swings</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">10</span>
+                  <h5 class="mb-0">Week 10</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a strawberry. The embryo is now officially a fetus. Vital organs continue to develop and function. Tiny nails are forming on fingers and toes.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Visible veins on breasts and abdomen</li>
+                  <li>Slight weight gain</li>
+                  <li>Increased vaginal discharge</li>
+                  <li>Possible reduction in morning sickness</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">12</span>
+                  <h5 class="mb-0">Week 12</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a lime. Reflexes are developing, and the baby can move around. Most major organs are fully formed, though still developing.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Decreased nausea</li>
+                  <li>Increased energy</li>
+                  <li>Possible appearance of a pregnancy "bump"</li>
+                  <li>Darkening of the areolas</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>End of first trimester! Risk of miscarriage significantly decreases after this point.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+        <h3 class="mb-3">Second Trimester (Weeks 13-27)</h3>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">16</span>
+                  <h5 class="mb-0">Week 16</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of an avocado. The baby can make facial expressions, and the eyes are working. The skeleton is visible on ultrasound.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Decreased nausea and fatigue</li>
+                  <li>Increased appetite</li>
+                  <li>Possible backaches</li>
+                  <li>Nasal congestion or nosebleeds</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>You may begin to feel baby movements, especially if this isn't your first pregnancy.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">20</span>
+                  <h5 class="mb-0">Week 20</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a banana. Your baby is developing a regular sleep-wake cycle and can hear sounds from outside the womb.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Definite baby movements (quickening)</li>
+                  <li>Increased appetite</li>
+                  <li>Darkening of skin in certain areas (melasma)</li>
+                  <li>Possible leg cramps</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>Halfway there! Anatomy scan ultrasound to check baby's development and potentially learn baby's sex.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">24</span>
+                  <h5 class="mb-0">Week 24</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of an ear of corn. Taste buds are fully formed, and footprints and fingerprints are developing. The baby has a chance of survival outside the womb.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Braxton Hicks contractions</li>
+                  <li>Stretch marks</li>
+                  <li>Swollen ankles or feet</li>
+                  <li>Trouble sleeping</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>Viability milestone - though still very premature, babies born at this stage have a chance of survival with intensive medical care.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
+        <h3 class="mb-3">Third Trimester (Weeks 28-40+)</h3>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">28</span>
+                  <h5 class="mb-0">Week 28</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of an eggplant. The baby's brain is developing rapidly, and eyes can open and close.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Shortness of breath</li>
+                  <li>Heartburn</li>
+                  <li>Hemorrhoids</li>
+                  <li>Lower back pain</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>Beginning of third trimester. You may be tested for gestational diabetes around this time.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">32</span>
+                  <h5 class="mb-0">Week 32</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a squash. The baby is practicing breathing and can see, though the vision is limited. The bones are fully formed but soft.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Frequent urination</li>
+                  <li>Difficulty finding comfortable sleeping positions</li>
+                  <li>Leaky breasts (colostrum)</li>
+                  <li>Stronger Braxton Hicks contractions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">36</span>
+                  <h5 class="mb-0">Week 36</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a honeydew melon. The baby is getting ready for birth by turning head-down in most cases. Lungs are nearly fully developed.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Pelvic pressure</li>
+                  <li>Drop in the baby's position (lightening)</li>
+                  <li>Increased fatigue</li>
+                  <li>More frequent Braxton Hicks</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>You may begin weekly check-ups with your healthcare provider. Group B strep test is usually performed around this time.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="milestone-week">40</span>
+                  <h5 class="mb-0">Week 40</h5>
+                </div>
+                <h6>Your Baby:</h6>
+                <p>About the size of a small pumpkin. The baby is fully developed and ready to be born.</p>
+                <h6>You Might Experience:</h6>
+                <ul>
+                  <li>Loss of mucus plug</li>
+                  <li>Water breaking</li>
+                  <li>Regular contractions</li>
+                  <li>Bloody show</li>
+                </ul>
+                <h6>Milestone:</h6>
+                <p>Your due date! Only about 5% of babies are born on their actual due date - most come within a week or two before or after.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="text-center mb-4">Preparing for Your New Arrival</h2>
+    
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">First Trimester Checklist</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Start prenatal vitamins if you haven't already</li>
+              <li class="list-group-item">Choose a healthcare provider for your pregnancy</li>
+              <li class="list-group-item">Schedule your first prenatal appointment</li>
+              <li class="list-group-item">Review health insurance coverage</li>
+              <li class="list-group-item">Make dietary and lifestyle adjustments</li>
+              <li class="list-group-item">Research maternity leave options</li>
+              <li class="list-group-item">Begin planning for financial changes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Second Trimester Checklist</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Begin shopping for maternity clothes</li>
+              <li class="list-group-item">Start a baby registry</li>
+              <li class="list-group-item">Research childcare options if needed</li>
+              <li class="list-group-item">Plan nursery and begin gathering essentials</li>
+              <li class="list-group-item">Research childbirth classes</li>
+              <li class="list-group-item">Consider writing a birth plan</li>
+              <li class="list-group-item">Begin interviewing pediatricians</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Third Trimester Checklist</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Attend childbirth classes</li>
+              <li class="list-group-item">Set up nursery with essentials</li>
+              <li class="list-group-item">Install car seat (have it checked)</li>
+              <li class="list-group-item">Pack hospital bag</li>
+              <li class="list-group-item">Create a birth plan</li>
+              <li class="list-group-item">Arrange for help after delivery</li>
+              <li class="list-group-item">Prepare a list of contacts for birth announcements</li>
+              <li class="list-group-item">Stock up on household essentials</li>
+              <li class="list-group-item">Pre-register at your birth facility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const saveButton = document.getElementById('save-pregnancy');
+    const dueDateInput = document.getElementById('due-date');
+    const lastPeriodInput = document.getElementById('last-period');
+    
+    if (saveButton) {
+      saveButton.addEventListener('click', function() {
+        let dueDate = dueDateInput.value ? new Date(dueDateInput.value) : null;
+        const lastPeriod = lastPeriodInput.value ? new Date(lastPeriodInput.value) : null;
+        
+        // Calculate due date if not provided but last period is given
+        if (!dueDate && lastPeriod) {
+          dueDate = new Date(lastPeriod);
+          dueDate.setDate(dueDate.getDate() + 280); // 40 weeks or 280 days
+        }
+        
+        if (dueDate) {
+          // Calculate current week of pregnancy
+          const today = new Date();
+          const startDate = new Date(dueDate);
+          startDate.setDate(startDate.getDate() - 280); // 40 weeks before due date
+          
+          const diffTime = Math.abs(today - startDate);
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          const currentWeek = Math.floor(diffDays / 7) + 1;
+          
+          // Display info on the tracking card
+          document.getElementById('current-week').textContent = currentWeek;
+          document.getElementById('calculated-due-date').textContent = dueDate.toLocaleDateString();
+          
+          // Determine trimester
+          let trimester;
+          if (currentWeek <= 12) {
+            trimester = "First Trimester";
+          } else if (currentWeek <= 27) {
+            trimester = "Second Trimester";
+          } else {
+            trimester = "Third Trimester";
+          }
+          document.getElementById('current-trimester').textContent = trimester;
+          
+          // Update progress bar
+          const progressPercent = Math.min(Math.round((currentWeek / 40) * 100), 100);
+          const progressBar = document.querySelector('.progress-bar');
+          progressBar.style.width = progressPercent + '%';
+          progressBar.setAttribute('aria-valuenow', progressPercent);
+          progressBar.textContent = progressPercent + '%';
+          
+          alert("Pregnancy information saved! Your tracker has been updated.");
+        } else {
+          alert("Please enter either your due date or the first day of your last period.");
+        }
+      });
+    }
+  });
+</script>
+ <%- body %>

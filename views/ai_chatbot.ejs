@@ -1,0 +1,259 @@
+<%- include('layout.ejs') %>
+
+<% block('title') %>AI Health Assistant - Women's Health & Wellness<% endblock %>
+
+<% block('extra_css') %>
+<style>
+    .chat-container {
+        height: 70vh;
+        overflow-y: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #dee2e6;
+    }
+
+    .chat-message {
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 80%;
+        position: relative;
+    }
+
+    .user-message {
+        background-color: #e7f3ff;
+        border: 1px solid #b8daff;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .ai-message {
+        background-color:   #f1f1f1;
+        border: 1px solid #e1e1e1;
+        margin-right: auto;
+    }
+
+    .message-input {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ced4da;
+        margin-top: 15px;
+    }
+
+    .send-button {
+        margin-top: 15px;
+    }
+
+    .typing-indicator {
+        display: none;
+        color: #6c757d;
+        font-style: italic;
+        margin: 10px 0;
+    }
+
+    .ai-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #7EBDC2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .message-with-avatar {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .history-title {
+        font-size: 1.1rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .history-item {
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .history-item:hover {
+        background-color: #f1f1f1;
+    }
+
+    .disclaimer {
+        font-size: 0.85rem;
+        font-style: italic;
+        color: #6c757d;
+        margin-top: 20px;
+    }
+</style>
+<% endblock %>
+
+
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>AI Health Assistant</h1>
+            <p class="lead">Ask our AI assistant any questions about women's health and wellness. Get informative answers based on current medical knowledge.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="chat-container" id="chatContainer">
+                <div class="message-with-avatar">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-message ai-message">
+                        Hello! I'm your women's health assistant. I can answer questions about reproductive health, menstrual cycles, pregnancy, menopause, and general wellness. How can I help you today?
+                    </div>
+                </div>
+                <!-- Chat messages will appear here -->
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">AI is typing...</div>
+
+            <div class="input-group">
+                <input type="text" id="messageInput" class="form-control message-input" placeholder="Type your health question here...">
+                <button id="sendButton" class="btn btn-primary send-button">
+                    <i class="fas fa-paper-plane"></i> Send
+                </button>
+            </div>
+
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> The AI assistant provides general health information and education only. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional for personalized medical advice.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Suggested Topics</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item suggested-question" data-question="What are the common symptoms of menopause?">Common symptoms of menopause</li>
+                        <li class="list-group-item suggested-question" data-question="How can I track my menstrual cycle effectively?">Tracking menstrual cycles</li>
+                        <li class="list-group-item suggested-question" data-question="What are safe exercises during pregnancy?">Safe exercises during pregnancy</li>
+                        <li class="list-group-item suggested-question" data-question="What nutritional needs change during different life stages?">Nutritional needs across life stages</li>
+                        <li class="list-group-item suggested-question" data-question="How can I manage premenstrual syndrome (PMS)?">Managing PMS</li>
+                    </ul>
+
+                    <% if (chat_history && chat_history.length > 0) { %>
+                        <h5 class="history-title">Recent Conversations</h5>
+                        <div class="history-list">
+                            <% chat_history.forEach(chat => { %>
+                                <div class="history-item" data-question="<%= chat.query %>">
+                                    <%= chat.query.length > 50 ? chat.query.substring(0, 50) + '...' : chat.query %>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% endblock %>
+
+<% block('extra_js') %>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const chatContainer = document.getElementById('chatContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+
+            if (isUser) {
+                messageDiv.className = 'chat-message user-message';
+                messageDiv.textContent = message;
+            } else {
+                messageDiv.className = 'message-with-avatar';
+
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = 'ai-avatar';
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-robot';
+                avatarDiv.appendChild(icon);
+
+                const aiMessageDiv = document.createElement('div');
+                aiMessageDiv.className = 'chat-message ai-message';
+                aiMessageDiv.textContent = message;
+
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(aiMessageDiv);
+            }
+
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                messageInput.value = '';
+                typingIndicator.style.display = 'block';
+
+                fetch('/get-ai-response', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `message=${encodeURIComponent(message)}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    typingIndicator.style.display = 'none';
+                    if (data.status === 'success') {
+                        addMessage(data.message);
+                    } else {
+                        addMessage("I'm sorry, I'm having trouble processing your request. Please try again later.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    typingIndicator.style.display = 'none';
+                    addMessage("I'm sorry, there was an error connecting to the server. Please try again later.");
+                });
+            }
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        document.querySelectorAll('.suggested-question').forEach(item => {
+            item.addEventListener('click', function() {
+                const question = this.getAttribute('data-question');
+                messageInput.value = question;
+                sendMessage();
+            });
+        });
+
+        document.querySelectorAll('.history-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const question = this.getAttribute('data-question');
+                messageInput.value = question;
+                sendMessage();
+            });
+        });
+    });
+</script>
+ <%- body %>

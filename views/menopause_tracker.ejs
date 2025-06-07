@@ -1,0 +1,382 @@
+{% extends "layout.html" %}
+
+{% block title %}Menopause Tracker | Women's Health & Wellness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h1 class="text-center mb-4">Menopause Tracker</h1>
+    <p class="text-center mb-5">Monitor your menopause journey and manage symptoms effectively.</p>
+    
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <h3>Your Menopause Calendar</h3>
+            <p>Track changes, symptoms, and patterns throughout your transition.</p>
+          </div>
+          <div class="calendar-content">
+            <div id="menopause-calendar"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="tracking-form">
+          <h3>Track Your Symptoms</h3>
+          <form id="menopause-form">
+            <div class="form-group">
+              <label for="symptom-date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="symptom-date" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Symptoms (select all that apply)</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="hot-flashes" id="hot-flashes">
+                <label class="form-check-label" for="hot-flashes">Hot Flashes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="night-sweats" id="night-sweats">
+                <label class="form-check-label" for="night-sweats">Night Sweats</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="insomnia" id="insomnia">
+                <label class="form-check-label" for="insomnia">Insomnia/Sleep Disturbances</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="mood-changes" id="mood-changes">
+                <label class="form-check-label" for="mood-changes">Mood Changes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="vaginal-dryness" id="vaginal-dryness">
+                <label class="form-check-label" for="vaginal-dryness">Vaginal Dryness</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="fatigue" id="fatigue">
+                <label class="form-check-label" for="fatigue">Fatigue</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="headache" id="headache">
+                <label class="form-check-label" for="headache">Headache</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="joint-pain" id="joint-pain">
+                <label class="form-check-label" for="joint-pain">Joint Pain</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="symptom-severity" class="form-label">Overall Severity</label>
+              <select class="form-control" id="symptom-severity">
+                <option value="mild">Mild - Noticeable but not disruptive</option>
+                <option value="moderate">Moderate - Somewhat disruptive</option>
+                <option value="severe">Severe - Significantly impacts daily life</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="period-status" class="form-label">Menstrual Status</label>
+              <select class="form-control" id="period-status">
+                <option value="regular">Regular Period</option>
+                <option value="irregular">Irregular Period</option>
+                <option value="spotting">Spotting Only</option>
+                <option value="none">No Period</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="menopause-notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="menopause-notes" rows="3" placeholder="Additional notes about your symptoms or well-being"></textarea>
+            </div>
+            
+            <button type="button" id="save-menopause" class="btn btn-primary w-100">Save Symptom Data</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">Understanding Menopause</h2>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">What is Menopause?</h4>
+            <p>Menopause is the natural biological process that marks the end of a woman's menstrual cycles. It's officially diagnosed after you've gone 12 months without a menstrual period. Menopause can happen in your 40s or 50s, but the average age in the United States is 51.</p>
+            <p>The transition to menopause is called perimenopause, which can last several years. During this time, hormonal fluctuations can cause various physical and emotional symptoms before menstruation finally stops.</p>
+          </div>
+        </div>
+        
+        <h4>Stages of Menopause</h4>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Perimenopause</h5>
+            <p><strong>Typical age range:</strong> Late 30s to late 40s/early 50s</p>
+            <p><strong>Duration:</strong> 4-10 years (average 4 years)</p>
+            <p>During perimenopause, your ovaries gradually produce less estrogen. This transition typically begins several years before menopause. Characteristics include:</p>
+            <ul>
+              <li>Irregular periods (longer or shorter cycles, heavier or lighter flow)</li>
+              <li>Beginning of hot flashes for some women</li>
+              <li>Sleep disturbances</li>
+              <li>Mood changes</li>
+              <li>Declining fertility, though pregnancy is still possible</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Menopause</h5>
+            <p><strong>Definition:</strong> The point when you haven't had a menstrual period for 12 consecutive months</p>
+            <p><strong>Average age:</strong> 51 in the United States</p>
+            <p>At this stage, your ovaries have stopped releasing eggs and producing most of their estrogen. Menopause isn't a prolonged state - it's technically just the milestone marking the end of your reproductive years.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Postmenopause</h5>
+            <p><strong>Duration:</strong> The rest of your life after menopause</p>
+            <p>This is the stage after menopause when many symptoms ease for most women, though some effects of low estrogen continue. During this time:</p>
+            <ul>
+              <li>Hot flashes and night sweats typically decrease in frequency and intensity</li>
+              <li>Vaginal dryness and urinary issues may continue or worsen</li>
+              <li>Risk of certain health conditions increases (osteoporosis, heart disease)</li>
+              <li>Protection through healthy lifestyle becomes increasingly important</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h4 class="mt-5">Common Symptoms</h4>
+        <p>Every woman's experience with menopause is unique. Some women have few or no symptoms, while others experience significant changes that affect their quality of life. Common symptoms include:</p>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Hot Flashes & Night Sweats</h5>
+                <p>A sudden feeling of warmth spreading through the upper body, often accompanied by flushed skin and sweating. Night sweats are hot flashes that occur during sleep.</p>
+                <p><strong>Management tips:</strong></p>
+                <ul>
+                  <li>Dress in layers you can remove</li>
+                  <li>Identify triggers (spicy foods, alcohol, caffeine, stress)</li>
+                  <li>Keep your bedroom cool at night</li>
+                  <li>Use cooling products designed for menopause</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Sleep Disturbances</h5>
+                <p>Many women experience insomnia or disrupted sleep during perimenopause and menopause, often due to night sweats but sometimes independently.</p>
+                <p><strong>Management tips:</strong></p>
+                <ul>
+                  <li>Maintain a consistent sleep schedule</li>
+                  <li>Create a cool, dark, comfortable sleep environment</li>
+                  <li>Avoid screens before bedtime</li>
+                  <li>Practice relaxation techniques</li>
+                  <li>Exercise regularly (but not too close to bedtime)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Mood Changes</h5>
+                <p>Hormonal fluctuations can contribute to mood swings, irritability, anxiety, or depression.</p>
+                <p><strong>Management tips:</strong></p>
+                <ul>
+                  <li>Regular exercise</li>
+                  <li>Stress management techniques</li>
+                  <li>Adequate sleep</li>
+                  <li>Social connections and support</li>
+                  <li>Professional support if mood changes are severe</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Vaginal Dryness & Urinary Issues</h5>
+                <p>Decreased estrogen can lead to thinning and drying of vaginal tissues, which may cause discomfort during intercourse and increase urinary symptoms.</p>
+                <p><strong>Management tips:</strong></p>
+                <ul>
+                  <li>Over-the-counter vaginal moisturizers</li>
+                  <li>Water-based lubricants during intercourse</li>
+                  <li>Regular sexual activity to improve blood flow</li>
+                  <li>Pelvic floor exercises</li>
+                  <li>Discuss prescription options with your healthcare provider</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="info-card">
+          <div class="info-card-content">
+            <h4>Treatment Options</h4>
+            <p>Several approaches can help manage menopause symptoms:</p>
+            <h5 class="mt-3">Lifestyle Modifications</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Regular physical activity</li>
+              <li class="list-group-item">Balanced nutrition rich in calcium and vitamin D</li>
+              <li class="list-group-item">Stress management techniques</li>
+              <li class="list-group-item">Avoiding trigger foods and beverages</li>
+              <li class="list-group-item">Maintaining a healthy weight</li>
+              <li class="list-group-item">Quitting smoking</li>
+            </ul>
+            
+            <h5 class="mt-3">Hormone Therapy</h5>
+            <p>For some women, hormone therapy (HT) effectively manages symptoms like hot flashes and vaginal dryness. This involves taking estrogen or a combination of estrogen and progesterone.</p>
+            <div class="alert alert-info">
+              <strong>Note:</strong> Hormone therapy has benefits and risks. Discuss with your healthcare provider to determine if it's appropriate for you.
+            </div>
+            
+            <h5 class="mt-3">Non-Hormonal Medications</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Certain antidepressants for hot flashes</li>
+              <li class="list-group-item">Gabapentin for hot flashes and sleep disturbances</li>
+              <li class="list-group-item">Clonidine for hot flashes</li>
+              <li class="list-group-item">Medications for specific symptoms like vaginal dryness</li>
+            </ul>
+            
+            <h5 class="mt-3">Complementary Approaches</h5>
+            <p>Some women find relief with:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Acupuncture</li>
+              <li class="list-group-item">Mindfulness meditation</li>
+              <li class="list-group-item">Yoga</li>
+              <li class="list-group-item">Tai chi</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="info-card mt-4">
+          <img src="https://pixabay.com/get/g74466375526f1bf790c05fc73edcbf1885a68888a5ce9b296a7dccb37593f3f247983a100f81913e64541c2dec3679efe3288b54a6857c600ef89225c2d6e7a5_1280.jpg" alt="Healthy Aging Woman" class="info-card-img">
+          <div class="info-card-content">
+            <h4>Long-Term Health Considerations</h4>
+            <p>After menopause, certain health risks increase due to lower estrogen levels:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Osteoporosis:</strong> Bone density decreases more rapidly after menopause</li>
+              <li class="list-group-item"><strong>Heart Disease:</strong> Risk increases postmenopause</li>
+              <li class="list-group-item"><strong>Weight Changes:</strong> Metabolism slows and fat distribution changes</li>
+              <li class="list-group-item"><strong>Urinary Health:</strong> Increased risk of urinary tract infections</li>
+            </ul>
+            <p class="mt-3">Regular health screenings and preventive care become increasingly important during this life stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    
+    <div class="accordion" id="menopauseFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How do I know if I'm in perimenopause?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#menopauseFAQ">
+          <div class="accordion-body">
+            The most common sign of perimenopause is irregular periods. You might skip periods, experience shorter or longer cycles, or have heavier or lighter bleeding than usual. Other common signs include hot flashes, sleep disturbances, mood changes, vaginal dryness, and decreased fertility. If you're in your 40s and experiencing these symptoms, you may be in perimenopause. A healthcare provider can perform tests to check hormone levels, though these fluctuate significantly during perimenopause, so diagnosis is often based on symptoms and age.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How long do menopause symptoms last?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menopauseFAQ">
+          <div class="accordion-body">
+            The duration of menopause symptoms varies significantly from woman to woman. On average, women experience symptoms for 4-8 years, but some women have symptoms for just a few months while others have them for more than 10 years. Hot flashes typically peak within the first two years after your final period and then gradually decrease in frequency and intensity. However, some symptoms like vaginal dryness tend to worsen over time without treatment. About 10% of women continue to have hot flashes well into their 70s and beyond.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Is hormone therapy safe?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#menopauseFAQ">
+          <div class="accordion-body">
+            The safety of hormone therapy (HT) depends on many factors, including your age, health history, and how long you've been postmenopausal. Current guidelines suggest that HT is generally safe for healthy women who are experiencing moderate to severe menopause symptoms and are:
+            <ul>
+              <li>Under 60 years old</li>
+              <li>Within 10 years of menopause onset</li>
+              <li>Without a history of certain conditions like breast cancer, heart disease, stroke, or blood clots</li>
+            </ul>
+            The risks increase the longer you use HT and as you age. For most women with significant symptoms, the benefits of short-term HT (less than 5 years) outweigh the risks. It's important to have a detailed discussion with your healthcare provider about your personal risk factors and to reassess the need for HT annually.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            What lifestyle changes can help manage menopause symptoms?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#menopauseFAQ">
+          <div class="accordion-body">
+            Several lifestyle adjustments can help manage menopause symptoms:
+            <ul>
+              <li><strong>Regular exercise:</strong> Aim for at least 150 minutes of moderate activity per week to reduce hot flashes, improve sleep, enhance mood, and maintain bone density.</li>
+              <li><strong>Balanced diet:</strong> Focus on fruits, vegetables, whole grains, lean proteins, and healthy fats. Reduce processed foods, sugar, and salt.</li>
+              <li><strong>Adequate calcium and vitamin D:</strong> These nutrients support bone health. Women over 50 need about 1,200 mg of calcium and 600-800 IU of vitamin D daily.</li>
+              <li><strong>Limit triggers:</strong> Identify and reduce consumption of foods and beverages that trigger hot flashes, such as spicy foods, caffeine, and alcohol.</li>
+              <li><strong>Stress management:</strong> Practice techniques like deep breathing, meditation, yoga, or tai chi to reduce stress, which can worsen menopause symptoms.</li>
+              <li><strong>Quit smoking:</strong> Smoking can trigger hot flashes and increases your risk for heart disease, osteoporosis, and many cancers.</li>
+              <li><strong>Maintain a healthy weight:</strong> Being overweight can increase the frequency and severity of hot flashes.</li>
+              <li><strong>Practice good sleep hygiene:</strong> Keep your bedroom cool, establish a regular sleep schedule, and create a relaxing bedtime routine.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const saveButton = document.getElementById('save-menopause');
+    
+    if (saveButton) {
+      saveButton.addEventListener('click', function() {
+        alert("Your symptom data has been saved. Tracking your symptoms can help identify patterns and improve discussions with your healthcare provider.");
+      });
+    }
+  });
+</script>
+ <%- body %>

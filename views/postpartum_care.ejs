@@ -1,0 +1,416 @@
+{% extends "layout.html" %}
+
+{% block title %}Postpartum Care | Women's Health & Wellness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h1 class="text-center mb-4">Postpartum Care</h1>
+    <p class="text-center mb-5">Supporting your recovery and well-being after childbirth.</p>
+    
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <h3>Your Recovery Calendar</h3>
+            <p>Track your postpartum recovery milestones and appointments.</p>
+          </div>
+          <div class="calendar-content">
+            <div id="postpartum-calendar"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="tracking-form">
+          <h3>Track Your Recovery</h3>
+          <form id="postpartum-form">
+            <div class="form-group">
+              <label for="recovery-date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="recovery-date" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="physical-recovery" class="form-label">Physical Recovery</label>
+              <select class="form-control" id="physical-recovery">
+                <option value="challenging">Challenging</option>
+                <option value="improving">Improving</option>
+                <option value="good">Good</option>
+                <option value="very-good">Very Good</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="emotional-state" class="form-label">Emotional State</label>
+              <select class="form-control" id="emotional-state">
+                <option value="struggling">Struggling</option>
+                <option value="up-and-down">Up and Down</option>
+                <option value="stable">Stable</option>
+                <option value="positive">Positive</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="sleep-hours" class="form-label">Hours of Sleep</label>
+              <input type="number" class="form-control" id="sleep-hours" min="0" max="24" step="0.5">
+            </div>
+            
+            <div class="form-group">
+              <label for="postpartum-symptoms" class="form-label">Symptoms</label>
+              <input type="text" class="form-control" id="postpartum-symptoms" placeholder="e.g., bleeding, soreness, fatigue">
+            </div>
+            
+            <div class="form-group">
+              <label for="postpartum-notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="postpartum-notes" rows="3" placeholder="Additional notes about your recovery"></textarea>
+            </div>
+            
+            <button type="button" id="save-postpartum" class="btn btn-primary w-100">Save Recovery Data</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">Understanding Postpartum Recovery</h2>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">The Fourth Trimester</h4>
+            <p>The first 12 weeks after giving birth are often called the "fourth trimester." This period is crucial for both your recovery and your baby's adjustment to life outside the womb. Your body undergoes significant changes as it begins to heal and adjust to no longer being pregnant.</p>
+            <p>During this time, it's important to prioritize rest, accept help, and be patient with your body's healing process. Remember that every woman's postpartum journey is different, and recovery takes time.</p>
+          </div>
+        </div>
+        
+        <h4>Physical Recovery Timeline</h4>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">First Week After Birth</h5>
+            <p>Your body begins the immediate healing process. You'll experience:</p>
+            <ul>
+              <li>Vaginal discharge (lochia) - heavy bleeding similar to a period</li>
+              <li>Afterpains as your uterus contracts back to pre-pregnancy size</li>
+              <li>Breast changes as your milk comes in (around day 3-5)</li>
+              <li>Perineal pain if you had a vaginal birth</li>
+              <li>Incision pain if you had a C-section</li>
+              <li>Swelling and possible hemorrhoids</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Weeks 1-6</h5>
+            <p>This is the main physical recovery period:</p>
+            <ul>
+              <li>Gradual decrease in bleeding (should lighten over time)</li>
+              <li>Continued uterine contractions and shrinking</li>
+              <li>Breast adjustment to milk production</li>
+              <li>Beginning healing of perineal tissues or C-section incision</li>
+              <li>Possible constipation and urinary issues</li>
+              <li>Hormonal fluctuations affecting mood and physical symptoms</li>
+            </ul>
+            <p><strong>Important:</strong> Most healthcare providers schedule a follow-up visit at 6 weeks to check your recovery.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">6 Weeks to 6 Months</h5>
+            <p>Extended recovery and adjustment:</p>
+            <ul>
+              <li>Return of menstrual cycle (timing varies, especially if breastfeeding)</li>
+              <li>Continued healing of pelvic floor muscles</li>
+              <li>Gradual return to pre-pregnancy weight (varies significantly between women)</li>
+              <li>Hair loss due to hormonal changes</li>
+              <li>Continued emotional adjustment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="info-card">
+          <div class="info-card-content">
+            <h4>Self-Care Essentials</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Rest whenever possible; sleep when your baby sleeps</li>
+              <li class="list-group-item">Stay hydrated, especially if breastfeeding</li>
+              <li class="list-group-item">Eat nutritious foods to support healing</li>
+              <li class="list-group-item">Accept help from family and friends</li>
+              <li class="list-group-item">Move gently; gradually increase activity</li>
+              <li class="list-group-item">Use pain relief as recommended by your provider</li>
+              <li class="list-group-item">Nurture your mental health</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="info-card mt-4">
+          <img src="https://pixabay.com/get/g0301ff45e83dfd0e22cb4999cefef101cfc78fa1c8b191cf8bcb7da2c21cacf25ed8c9d4c864c730ad5cb8a3c78e12590797252575c72bc4917bf3810f81bdfb_1280.jpg" alt="Mother and Baby" class="info-card-img">
+          <div class="info-card-content">
+            <h4>When to Call Your Doctor</h4>
+            <p>Contact your healthcare provider immediately if you experience:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-danger">Heavy bleeding that soaks through a pad in less than an hour</li>
+              <li class="list-group-item text-danger">Blood clots larger than a golf ball</li>
+              <li class="list-group-item text-danger">Fever over 100.4°F (38°C)</li>
+              <li class="list-group-item text-danger">Severe headache or changes in vision</li>
+              <li class="list-group-item text-danger">Severe pain in your abdomen or perineum</li>
+              <li class="list-group-item text-danger">Redness, swelling, or discharge from a C-section incision</li>
+              <li class="list-group-item text-danger">Difficulty breathing or chest pain</li>
+              <li class="list-group-item text-danger">Thoughts of harming yourself or your baby</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="text-center mb-4">Postpartum Mental Health</h2>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">Baby Blues vs. Postpartum Depression</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Baby Blues</th>
+                    <th>Postpartum Depression</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Affects up to 80% of new mothers</td>
+                    <td>Affects about 15% of new mothers</td>
+                  </tr>
+                  <tr>
+                    <td>Begins within days of delivery</td>
+                    <td>Can start anytime in the first year</td>
+                  </tr>
+                  <tr>
+                    <td>Typically resolves within 2 weeks</td>
+                    <td>Lasts longer than 2 weeks</td>
+                  </tr>
+                  <tr>
+                    <td>Mild mood swings, tearfulness</td>
+                    <td>More severe emotions, difficulty functioning</td>
+                  </tr>
+                  <tr>
+                    <td>Usually improves with support and rest</td>
+                    <td>Requires treatment from healthcare providers</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">Signs of Postpartum Depression</h4>
+            <ul>
+              <li>Feeling sad, hopeless, or overwhelmed</li>
+              <li>Crying more often than usual or for no apparent reason</li>
+              <li>Worrying or feeling overly anxious</li>
+              <li>Feeling moody, irritable, or restless</li>
+              <li>Sleeping too little or too much</li>
+              <li>Having trouble concentrating or making decisions</li>
+              <li>Experiencing anger or rage</li>
+              <li>Losing interest in activities you used to enjoy</li>
+              <li>Withdrawing from friends and family</li>
+              <li>Having trouble bonding with your baby</li>
+              <li>Persistently doubting your ability to care for your baby</li>
+              <li>Thinking about harming yourself or your baby</li>
+            </ul>
+            <div class="alert alert-info mt-3">
+              <strong>Help is available.</strong> If you're experiencing these symptoms, talk to your healthcare provider. Postpartum depression is treatable with proper support.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="text-center mb-4">Caring for Your New Baby</h2>
+    
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Feeding Your Baby</h4>
+            <p>Whether you're breastfeeding, formula feeding, or using a combination approach, feeding your newborn is a significant part of your day.</p>
+            <h5>Breastfeeding Tips:</h5>
+            <ul>
+              <li>Feed on demand (typically 8-12 times in 24 hours)</li>
+              <li>Ensure proper latch to prevent nipple pain</li>
+              <li>Allow baby to empty one breast before offering the other</li>
+              <li>Consider meeting with a lactation consultant if you have challenges</li>
+            </ul>
+            <h5>Formula Feeding Tips:</h5>
+            <ul>
+              <li>Follow package instructions for preparation</li>
+              <li>Never microwave formula or breast milk</li>
+              <li>Hold baby semi-upright during feedings</li>
+              <li>Burp regularly throughout feeding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Sleep and Soothing</h4>
+            <p>Newborns sleep about 14-17 hours per day, but only in short stretches of 2-4 hours.</p>
+            <h5>Safe Sleep Guidelines:</h5>
+            <ul>
+              <li>Always place baby on their back to sleep</li>
+              <li>Use a firm sleep surface with no soft objects or loose bedding</li>
+              <li>Share your room but not your bed for at least the first 6 months</li>
+              <li>Consider using a pacifier at naptime and bedtime</li>
+            </ul>
+            <h5>Soothing Techniques:</h5>
+            <ul>
+              <li>Swaddling (until baby shows signs of rolling)</li>
+              <li>Gentle rocking or swinging motion</li>
+              <li>White noise or gentle shushing sounds</li>
+              <li>Gentle bouncing while holding baby securely</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Basic Baby Care</h4>
+            <h5>Diapering:</h5>
+            <ul>
+              <li>Change diapers frequently (8-10 times daily)</li>
+              <li>Clean the area thoroughly with each change</li>
+              <li>Allow some air time to help prevent diaper rash</li>
+            </ul>
+            <h5>Bathing:</h5>
+            <ul>
+              <li>Sponge baths until umbilical cord falls off</li>
+              <li>2-3 baths per week is sufficient</li>
+              <li>Always test water temperature</li>
+              <li>Never leave baby unattended in water</li>
+            </ul>
+            <h5>Umbilical Cord Care:</h5>
+            <ul>
+              <li>Keep the area clean and dry</li>
+              <li>Fold diaper below the stump</li>
+              <li>No submersion in water until it falls off</li>
+              <li>Typically falls off within 1-3 weeks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: var(--light-color);">
+  <div class="container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    
+    <div class="accordion" id="postpartumFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            When can I resume exercise after giving birth?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#postpartumFAQ">
+          <div class="accordion-body">
+            In general, gentle walking can begin as soon as you feel ready. For more strenuous exercise, most healthcare providers recommend waiting until your 6-week postpartum checkup. If you had a C-section or complicated delivery, you may need to wait longer. Always get clearance from your healthcare provider before resuming your exercise routine, and start gradually, listening to your body's signals.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How long will postpartum bleeding last?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#postpartumFAQ">
+          <div class="accordion-body">
+            Postpartum bleeding (lochia) typically lasts 4-6 weeks, but the duration varies among women. It usually starts heavy and bright red, gradually becoming lighter in flow and color (transitioning to pink, then brown, then yellowish-white). If bleeding suddenly increases, contains large clots, or has a foul odor, contact your healthcare provider as these could be signs of infection or complications.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            When can I resume sexual activity?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#postpartumFAQ">
+          <div class="accordion-body">
+            Most healthcare providers recommend waiting 4-6 weeks before resuming sexual intercourse to allow for healing and to reduce the risk of infection. This timeline may be longer if you had complications or a C-section. Even when physically healed, many women experience changes in desire due to hormonal fluctuations, fatigue, and adjusting to parenthood. Communication with your partner about your feelings and needs is important. Also, remember that you can become pregnant even before your period returns, so discuss contraception with your healthcare provider.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            What can I do about postpartum hair loss?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#postpartumFAQ">
+          <div class="accordion-body">
+            Postpartum hair loss (telogen effluvium) is normal and usually begins 2-4 months after delivery. During pregnancy, increased estrogen prevents normal hair shedding, and after delivery, hormone levels drop, causing the overdue hair loss. This is temporary and typically resolves within 6-12 months. To manage it:
+            <ul>
+              <li>Use a volumizing shampoo and lightweight conditioner</li>
+              <li>Consider a shorter hairstyle for more fullness</li>
+              <li>Be gentle with your hair (avoid tight ponytails, heat styling)</li>
+              <li>Continue taking prenatal vitamins if breastfeeding</li>
+              <li>Eat a balanced diet rich in vitamins and proteins</li>
+            </ul>
+            If hair loss seems excessive or continues beyond a year, consult your healthcare provider to rule out other causes like thyroid issues.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const saveButton = document.getElementById('save-postpartum');
+    
+    if (saveButton) {
+      saveButton.addEventListener('click', function() {
+        alert("Your recovery data has been saved. Remember that recovery is a journey - be patient with yourself!");
+      });
+    }
+  });
+</script>
+ <%- body %>

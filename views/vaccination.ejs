@@ -1,0 +1,341 @@
+{% extends "layout.html" %}
+
+{% block title %}Vaccination & Immunization | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Vaccination & Immunization for Women</h1>
+      <p class="lead mb-4">Vaccines are an important part of preventive healthcare for women at all stages of life. Learn about recommended vaccinations, immunization schedules, and why they matter.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Important Vaccines for Women</h5>
+          
+          <div class="accordion" id="vaccineAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingHPV">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHPV" aria-expanded="true" aria-controls="collapseHPV">
+                  Human Papillomavirus (HPV) Vaccine
+                </button>
+              </h2>
+              <div id="collapseHPV" class="accordion-collapse collapse show" aria-labelledby="headingHPV" data-bs-parent="#vaccineAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p><strong>Why it's important:</strong> HPV is the most common sexually transmitted infection and can cause cervical cancer and other cancers. The vaccine protects against the types of HPV that most commonly cause these cancers.</p>
+                      <p><strong>Recommended for:</strong> All people through age 26. For adults age 27 through 45, discuss with your healthcare provider if vaccination might benefit you.</p>
+                      <p><strong>Schedule:</strong> Typically 2-3 doses, depending on age at initial vaccination.</p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <i class="fas fa-shield-virus fa-4x mb-3 text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFlu">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlu" aria-expanded="false" aria-controls="collapseFlu">
+                  Influenza (Flu) Vaccine
+                </button>
+              </h2>
+              <div id="collapseFlu" class="accordion-collapse collapse" aria-labelledby="headingFlu" data-bs-parent="#vaccineAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p><strong>Why it's important:</strong> Annual flu vaccination reduces the risk of flu illness, hospitalization, and death. It's especially important for pregnant women, as it can help protect both mother and baby.</p>
+                      <p><strong>Recommended for:</strong> Everyone 6 months and older, annually.</p>
+                      <p><strong>Schedule:</strong> One dose every flu season (typically fall/winter).</p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <i class="fas fa-virus-slash fa-4x mb-3 text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTdap">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTdap" aria-expanded="false" aria-controls="collapseTdap">
+                  Tdap Vaccine (Tetanus, Diphtheria, Pertussis)
+                </button>
+              </h2>
+              <div id="collapseTdap" class="accordion-collapse collapse" aria-labelledby="headingTdap" data-bs-parent="#vaccineAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p><strong>Why it's important:</strong> Protects against tetanus, diphtheria, and pertussis (whooping cough). Particularly important during pregnancy to protect newborns from pertussis before they can be vaccinated.</p>
+                      <p><strong>Recommended for:</strong> All adults, with a booster every 10 years. Pregnant women should receive one dose during each pregnancy.</p>
+                      <p><strong>Schedule:</strong> One dose during each pregnancy, preferably between 27 and 36 weeks.</p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <i class="fas fa-baby fa-4x mb-3 text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingHepB">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHepB" aria-expanded="false" aria-controls="collapseHepB">
+                  Hepatitis B Vaccine
+                </button>
+              </h2>
+              <div id="collapseHepB" class="accordion-collapse collapse" aria-labelledby="headingHepB" data-bs-parent="#vaccineAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p><strong>Why it's important:</strong> Hepatitis B is a liver infection that can lead to serious health issues, including liver cancer. The vaccine provides long-term protection.</p>
+                      <p><strong>Recommended for:</strong> All infants at birth, children and adults who were not vaccinated previously.</p>
+                      <p><strong>Schedule:</strong> Typically 3 doses over 6 months.</p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <i class="fas fa-liver fa-4x mb-3 text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingMMR">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMMR" aria-expanded="false" aria-controls="collapseMMR">
+                  MMR Vaccine (Measles, Mumps, Rubella)
+                </button>
+              </h2>
+              <div id="collapseMMR" class="accordion-collapse collapse" aria-labelledby="headingMMR" data-bs-parent="#vaccineAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p><strong>Why it's important:</strong> Protects against measles, mumps, and rubella. Particularly important for women of childbearing age, as rubella infection during pregnancy can cause serious birth defects.</p>
+                      <p><strong>Recommended for:</strong> Adults born after 1957 who have not been vaccinated or do not have documented immunity.</p>
+                      <p><strong>Note:</strong> Women should avoid becoming pregnant for at least one month after receiving the MMR vaccine.</p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <i class="fas fa-shield-alt fa-4x mb-3 text-primary"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Vaccines During Pregnancy</h5>
+          <p>Vaccination during pregnancy not only protects the mother but can also protect the baby from certain diseases after birth through the transfer of antibodies.</p>
+          
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>Recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Influenza (Flu)</td>
+                  <td>Recommended during any trimester of each pregnancy</td>
+                </tr>
+                <tr>
+                  <td>Tdap (Whooping Cough)</td>
+                  <td>Recommended during each pregnancy, ideally between 27-36 weeks</td>
+                </tr>
+                <tr>
+                  <td>COVID-19</td>
+                  <td>Recommended for pregnant women based on current public health guidelines</td>
+                </tr>
+                <tr>
+                  <td class="text-danger">MMR</td>
+                  <td class="text-danger">Not recommended during pregnancy</td>
+                </tr>
+                <tr>
+                  <td class="text-danger">Varicella (Chickenpox)</td>
+                  <td class="text-danger">Not recommended during pregnancy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i> Always consult with your healthcare provider about which vaccines are appropriate for you during pregnancy.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Common Questions About Vaccines</h5>
+          
+          <div class="mb-3">
+            <h6><i class="fas fa-question-circle me-2 text-primary"></i> Are vaccines safe?</h6>
+            <p>Vaccines are thoroughly tested for safety before being approved for use. The benefits of vaccination far outweigh the potential risks for most people. Serious side effects are rare.</p>
+          </div>
+          
+          <div class="mb-3">
+            <h6><i class="fas fa-question-circle me-2 text-primary"></i> Can I get vaccinated if I'm breastfeeding?</h6>
+            <p>Most vaccines are safe for breastfeeding mothers. In fact, some antibodies from vaccines may pass through breast milk, providing some protection to the baby.</p>
+          </div>
+          
+          <div class="mb-3">
+            <h6><i class="fas fa-question-circle me-2 text-primary"></i> What if I missed a vaccine as a child?</h6>
+            <p>Many vaccines can be given as "catch-up" vaccines for adults who missed them in childhood. Talk to your healthcare provider about what you might need.</p>
+          </div>
+          
+          <div>
+            <h6><i class="fas fa-question-circle me-2 text-primary"></i> Do I need vaccines if I'm planning to travel?</h6>
+            <p>Depending on your destination, you may need additional vaccines. Some countries require proof of certain vaccinations for entry. Consult with a travel medicine specialist or your healthcare provider at least 4-6 weeks before international travel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Vaccine Checklist by Age</h5>
+          
+          <div class="accordion" id="ageAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading19to26">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19to26" aria-expanded="false" aria-controls="collapse19to26">
+                  Ages 19-26
+                </button>
+              </h2>
+              <div id="collapse19to26" class="accordion-collapse collapse" aria-labelledby="heading19to26" data-bs-parent="#ageAccordion">
+                <div class="accordion-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      HPV Vaccine
+                      <span class="badge bg-primary rounded-pill">Recommended</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Flu Vaccine
+                      <span class="badge bg-primary rounded-pill">Annual</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Td/Tdap Booster
+                      <span class="badge bg-primary rounded-pill">Every 10 years</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      COVID-19 Vaccine
+                      <span class="badge bg-primary rounded-pill">As recommended</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading27to49">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse27to49" aria-expanded="false" aria-controls="collapse27to49">
+                  Ages 27-49
+                </button>
+              </h2>
+              <div id="collapse27to49" class="accordion-collapse collapse" aria-labelledby="heading27to49" data-bs-parent="#ageAccordion">
+                <div class="accordion-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      HPV Vaccine
+                      <span class="badge bg-warning rounded-pill">Discuss with provider</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Flu Vaccine
+                      <span class="badge bg-primary rounded-pill">Annual</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Td/Tdap Booster
+                      <span class="badge bg-primary rounded-pill">Every 10 years</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      COVID-19 Vaccine
+                      <span class="badge bg-primary rounded-pill">As recommended</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading50plus">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse50plus" aria-expanded="false" aria-controls="collapse50plus">
+                  Ages 50+
+                </button>
+              </h2>
+              <div id="collapse50plus" class="accordion-collapse collapse" aria-labelledby="heading50plus" data-bs-parent="#ageAccordion">
+                <div class="accordion-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Flu Vaccine
+                      <span class="badge bg-primary rounded-pill">Annual</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Td/Tdap Booster
+                      <span class="badge bg-primary rounded-pill">Every 10 years</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Shingles Vaccine
+                      <span class="badge bg-primary rounded-pill">Recommended</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Pneumococcal Vaccines
+                      <span class="badge bg-primary rounded-pill">Recommended</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      COVID-19 Vaccine
+                      <span class="badge bg-primary rounded-pill">As recommended</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Where to Get Vaccinated</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fas fa-user-md me-2 text-primary"></i> Primary care provider</li>
+            <li class="list-group-item"><i class="fas fa-prescription me-2 text-primary"></i> Pharmacy</li>
+            <li class="list-group-item"><i class="fas fa-hospital me-2 text-primary"></i> Health department</li>
+            <li class="list-group-item"><i class="fas fa-briefcase-medical me-2 text-primary"></i> Urgent care clinic</li>
+            <li class="list-group-item"><i class="fas fa-building me-2 text-primary"></i> Workplace (for some vaccines)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://www.cdc.gov/vaccines/" target="_blank">CDC Vaccines & Immunizations</a></li>
+            <li class="list-group-item"><a href="https://www.who.int/health-topics/vaccines-and-immunization" target="_blank">WHO Vaccines Information</a></li>
+            <li class="list-group-item"><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/09/maternal-immunization" target="_blank">ACOG Guidelines on Maternal Immunization</a></li>
+            <li class="list-group-item"><a href="#" class="disabled">Find Vaccination Locations Near You</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <%- body %> 

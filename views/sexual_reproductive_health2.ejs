@@ -1,0 +1,449 @@
+{% extends "layout.html" %}
+
+{% block title %}Sexual & Reproductive Health | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Sexual & Reproductive Health</h1>
+      <p class="lead mb-4">Comprehensive information about women's reproductive anatomy, sexual health, and maintaining reproductive wellbeing throughout life.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Female Reproductive Anatomy</h5>
+          
+          <div class="mb-4">
+            <p>Understanding your reproductive anatomy is essential for maintaining good sexual and reproductive health.</p>
+            
+            <h6 class="mt-4">External Anatomy</h6>
+            <ul>
+              <li><strong>Vulva</strong> - The external genital organs, including:</li>
+              <ul>
+                <li><strong>Labia majora</strong> - Outer folds of skin that protect the genital area</li>
+                <li><strong>Labia minora</strong> - Inner folds of skin with many nerve endings</li>
+                <li><strong>Clitoris</strong> - Highly sensitive organ with thousands of nerve endings focused on sexual pleasure</li>
+                <li><strong>Urethral opening</strong> - Small opening where urine exits the body</li>
+                <li><strong>Vaginal opening</strong> - Entrance to the vagina</li>
+              </ul>
+            </ul>
+            
+            <h6 class="mt-3">Internal Anatomy</h6>
+            <ul>
+              <li><strong>Vagina</strong> - Elastic, muscular canal that connects external genitals to the cervix</li>
+              <li><strong>Cervix</strong> - Lower portion of the uterus that opens into the vagina</li>
+              <li><strong>Uterus</strong> - Hollow, pear-shaped organ where a fertilized egg implants and fetal development occurs</li>
+              <li><strong>Fallopian tubes</strong> - Tubes that carry eggs from the ovaries to the uterus</li>
+              <li><strong>Ovaries</strong> - Two almond-shaped glands that produce eggs and hormones (estrogen and progesterone)</li>
+            </ul>
+            
+            <div class="text-center my-4">
+              <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Simple SVG illustration of female reproductive system -->
+                <rect width="600" height="400" fill="#f9f9f9" rx="10" ry="10"/>
+                
+                <!-- Uterus -->
+                <path d="M300,200 C320,160 380,160 400,200 C420,240 340,300 300,300 C260,300 180,240 200,200 C220,160 280,160 300,200 Z" fill="#f8d0d2" stroke="#e5989b" stroke-width="2"/>
+                
+                <!-- Fallopian Tubes -->
+                <path d="M400,200 C420,190 450,180 480,200" fill="none" stroke="#e5989b" stroke-width="4"/>
+                <path d="M200,200 C180,190 150,180 120,200" fill="none" stroke="#e5989b" stroke-width="4"/>
+                
+                <!-- Ovaries -->
+                <ellipse cx="480" cy="200" rx="15" ry="20" fill="#ffdfd3" stroke="#e5989b" stroke-width="2"/>
+                <ellipse cx="120" cy="200" rx="15" ry="20" fill="#ffdfd3" stroke="#e5989b" stroke-width="2"/>
+                
+                <!-- Cervix and Vagina -->
+                <path d="M300,300 L300,350" fill="none" stroke="#e5989b" stroke-width="10"/>
+                
+                <!-- Labels -->
+                <text x="300" y="220" text-anchor="middle" font-size="14" fill="#333">Uterus</text>
+                <text x="480" y="200" text-anchor="middle" font-size="12" fill="#333">Ovary</text>
+                <text x="120" y="200" text-anchor="middle" font-size="12" fill="#333">Ovary</text>
+                <text x="440" y="180" text-anchor="middle" font-size="12" fill="#333">Fallopian Tube</text>
+                <text x="160" y="180" text-anchor="middle" font-size="12" fill="#333">Fallopian Tube</text>
+                <text x="300" y="320" text-anchor="middle" font-size="12" fill="#333">Cervix</text>
+                <text x="300" y="360" text-anchor="middle" font-size="12" fill="#333">Vagina</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Hormones and the Menstrual Cycle</h5>
+          
+          <p>The menstrual cycle is regulated by a complex interplay of hormones that prepare the body for pregnancy each month.</p>
+          
+          <h6 class="mt-3">Key Hormones</h6>
+          <ul>
+            <li><strong>Estrogen</strong> - Primarily produced by the ovaries; responsible for developing and maintaining female sexual characteristics and reproductive system</li>
+            <li><strong>Progesterone</strong> - Produced mainly by the corpus luteum after ovulation; prepares the uterine lining for implantation</li>
+            <li><strong>Follicle-Stimulating Hormone (FSH)</strong> - Produced by the pituitary gland; stimulates the growth of ovarian follicles</li>
+            <li><strong>Luteinizing Hormone (LH)</strong> - Produced by the pituitary gland; triggers ovulation</li>
+          </ul>
+          
+          <h6 class="mt-3">Hormonal Changes Throughout Life</h6>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Life Stage</th>
+                  <th>Hormonal Changes</th>
+                  <th>Effects</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Puberty</td>
+                  <td>Rising estrogen and progesterone</td>
+                  <td>Development of breasts, pubic hair, body fat changes, beginning of menstruation</td>
+                </tr>
+                <tr>
+                  <td>Reproductive Years</td>
+                  <td>Cyclical changes in hormones</td>
+                  <td>Regular menstrual cycles, fertility</td>
+                </tr>
+                <tr>
+                  <td>Perimenopause</td>
+                  <td>Fluctuating hormones, declining estrogen</td>
+                  <td>Irregular periods, hot flashes, mood changes</td>
+                </tr>
+                <tr>
+                  <td>Menopause</td>
+                  <td>Significantly reduced estrogen and progesterone</td>
+                  <td>End of menstruation, changes in bone density, skin, and vaginal tissue</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Sexual Health</h5>
+          
+          <p>Sexual health is an essential part of overall wellbeing and encompasses physical, emotional, mental, and social aspects of sexuality.</p>
+          
+          <h6 class="mt-3">Maintaining Sexual Health</h6>
+          <ul>
+            <li><strong>Regular Gynecological Exams</strong> - Important for early detection of issues and preventive care</li>
+            <li><strong>Safe Sex Practices</strong> - Using barriers (condoms, dental dams) to reduce STI risk</li>
+            <li><strong>Open Communication</strong> - Discussing boundaries, desires, and concerns with partners</li>
+            <li><strong>Regular STI Testing</strong> - Important part of responsible sexual health</li>
+            <li><strong>Understanding Consent</strong> - Ensuring all sexual activity is wanted and consensual</li>
+          </ul>
+          
+          <h6 class="mt-3">Common Sexual Health Concerns</h6>
+          <div class="accordion" id="sexualHealthAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingLibido">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLibido" aria-expanded="false" aria-controls="collapseLibido">
+                  Changes in Libido
+                </button>
+              </h2>
+              <div id="collapseLibido" class="accordion-collapse collapse" aria-labelledby="headingLibido" data-bs-parent="#sexualHealthAccordion">
+                <div class="accordion-body">
+                  <p>Fluctuations in sex drive are normal and can be influenced by many factors:</p>
+                  <ul>
+                    <li>Hormonal changes (menstrual cycle, pregnancy, menopause)</li>
+                    <li>Stress, fatigue, and psychological wellbeing</li>
+                    <li>Relationship factors</li>
+                    <li>Medications (including hormonal contraceptives and antidepressants)</li>
+                    <li>Health conditions</li>
+                  </ul>
+                  <p>If changes in libido cause distress, speaking with a healthcare provider can help identify causes and solutions.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPain">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePain" aria-expanded="false" aria-controls="collapsePain">
+                  Pain During Sex
+                </button>
+              </h2>
+              <div id="collapsePain" class="accordion-collapse collapse" aria-labelledby="headingPain" data-bs-parent="#sexualHealthAccordion">
+                <div class="accordion-body">
+                  <p>Pain during sexual activity (dyspareunia) should not be ignored as it can signal an underlying issue:</p>
+                  <ul>
+                    <li><strong>Insufficient lubrication</strong> - Can occur due to hormonal changes, certain medications, or lack of arousal</li>
+                    <li><strong>Vaginismus</strong> - Involuntary tightening of vaginal muscles</li>
+                    <li><strong>Infections</strong> - Yeast infections, bacterial vaginosis, or STIs</li>
+                    <li><strong>Endometriosis</strong> - Tissue similar to the uterine lining grows outside the uterus</li>
+                    <li><strong>Pelvic inflammatory disease</strong> - Infection of reproductive organs</li>
+                    <li><strong>Vulvodynia</strong> - Chronic pain or discomfort around the vaginal opening</li>
+                  </ul>
+                  <p>Consult with a healthcare provider to determine the cause and appropriate treatment. Don't suffer in silence.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSTIs">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSTIs" aria-expanded="false" aria-controls="collapseSTIs">
+                  Sexually Transmitted Infections (STIs)
+                </button>
+              </h2>
+              <div id="collapseSTIs" class="accordion-collapse collapse" aria-labelledby="headingSTIs" data-bs-parent="#sexualHealthAccordion">
+                <div class="accordion-body">
+                  <p>STIs are infections spread primarily through sexual contact. Many can be asymptomatic, making regular testing important.</p>
+                  <p><strong>Common STIs include:</strong></p>
+                  <ul>
+                    <li>Human Papillomavirus (HPV)</li>
+                    <li>Chlamydia</li>
+                    <li>Gonorrhea</li>
+                    <li>Herpes Simplex Virus (HSV)</li>
+                    <li>Syphilis</li>
+                    <li>Human Immunodeficiency Virus (HIV)</li>
+                    <li>Trichomoniasis</li>
+                  </ul>
+                  <p><strong>Prevention:</strong></p>
+                  <ul>
+                    <li>Consistent and correct use of barriers (condoms, dental dams)</li>
+                    <li>Regular STI testing</li>
+                    <li>Open communication with partners about sexual health</li>
+                    <li>Vaccination (HPV, Hepatitis B)</li>
+                    <li>Limiting number of sexual partners</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Reproductive Health Throughout Life</h5>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="health-info mb-3">
+                <h3>Adolescence & Young Adulthood</h3>
+                <p><strong>Focus areas:</strong></p>
+                <ul>
+                  <li>Understanding menstruation and cycle changes</li>
+                  <li>Contraception education and access</li>
+                  <li>STI prevention and testing</li>
+                  <li>HPV vaccination (ideally before becoming sexually active)</li>
+                  <li>Establishing healthy relationships</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="health-info mb-3">
+                <h3>Reproductive Years</h3>
+                <p><strong>Focus areas:</strong></p>
+                <ul>
+                  <li>Family planning or contraception</li>
+                  <li>Preconception health if planning pregnancy</li>
+                  <li>Regular screenings (Pap tests, breast exams)</li>
+                  <li>STI prevention and testing</li>
+                  <li>Management of reproductive concerns (PCOS, endometriosis, fibroids)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="health-info mb-3">
+                <h3>Perimenopause & Menopause</h3>
+                <p><strong>Focus areas:</strong></p>
+                <ul>
+                  <li>Managing transitional symptoms</li>
+                  <li>Vaginal health and addressing dryness</li>
+                  <li>Bone health and osteoporosis prevention</li>
+                  <li>Heart health</li>
+                  <li>Continued sexual wellbeing</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="health-info">
+                <h3>Post-Menopause</h3>
+                <p><strong>Focus areas:</strong></p>
+                <ul>
+                  <li>Maintaining vaginal health</li>
+                  <li>Pelvic floor strength</li>
+                  <li>Bone density monitoring</li>
+                  <li>Cardiovascular health</li>
+                  <li>Regular screenings for cancer and other conditions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <img src="https://pixabay.com/get/gf935c378cc3d20637debf6f3b5b37ce703ea35314de29a03b039cce5f749971ae4fcc0099cc5ac48dfb38758c136478abef653caf3e487578894774827fc6b87_1280.jpg" class="card-img-top" alt="Healthcare professional">
+        <div class="card-body">
+          <h5 class="card-title">Recommended Screenings</h5>
+          <p>Regular screenings are essential for maintaining reproductive health. Here are the recommended schedules:</p>
+          
+          <h6 class="mt-3">Pap Smear/HPV Test</h6>
+          <ul>
+            <li><strong>Ages 21-29:</strong> Pap test every 3 years</li>
+            <li><strong>Ages 30-65:</strong> Pap test and HPV test every 5 years (preferred) OR Pap test alone every 3 years</li>
+            <li><strong>After age 65:</strong> Can stop screening if history of normal results</li>
+          </ul>
+          
+          <h6 class="mt-3">STI Testing</h6>
+          <ul>
+            <li><strong>All sexually active women:</strong> Annual chlamydia and gonorrhea screening recommended for ages 15-24</li>
+            <li><strong>Higher risk individuals:</strong> More frequent testing for STIs including HIV</li>
+          </ul>
+          
+          <h6 class="mt-3">Breast Health</h6>
+          <ul>
+            <li><strong>Ages 20-39:</strong> Clinical breast exam every 1-3 years</li>
+            <li><strong>Ages 40+:</strong> Annual mammogram and clinical breast exam</li>
+            <li><strong>All ages:</strong> Monthly breast self-awareness</li>
+          </ul>
+          
+          <div class="alert alert-info mt-3">
+            <p class="mb-0"><strong>Note:</strong> These are general guidelines. Your healthcare provider may recommend a different screening schedule based on your personal and family health history.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Sexual Health Myths vs. Facts</h5>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: You can't get pregnant during your period.</p>
+            <p class="fw-bold text-success">Fact: While less likely, pregnancy can occur if you have sex during your period, especially if you have a shorter cycle or irregular periods.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: Birth control pills cause weight gain.</p>
+            <p class="fw-bold text-success">Fact: Research suggests that most modern birth control pills don't cause significant weight gain. Individual responses vary, and some may experience water retention.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: You can't get an STI from oral sex.</p>
+            <p class="fw-bold text-success">Fact: Several STIs, including herpes, gonorrhea, and syphilis, can be transmitted through oral sex.</p>
+          </div>
+          
+          <div class="myth-fact mb-3">
+            <p class="fw-bold text-danger">Myth: Douching helps keep the vagina clean and healthy.</p>
+            <p class="fw-bold text-success">Fact: Douching can disrupt the natural balance of bacteria in the vagina, potentially leading to infections. The vagina is self-cleaning.</p>
+          </div>
+          
+          <div class="myth-fact">
+            <p class="fw-bold text-danger">Myth: Pap smears test for all STIs.</p>
+            <p class="fw-bold text-success">Fact: Pap smears screen primarily for cervical cancer and HPV. Specific STI tests must be requested separately.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Discussion Guide for Healthcare Visits</h5>
+          
+          <p>Use this guide to help prepare for conversations with your healthcare provider about reproductive and sexual health.</p>
+          
+          <div class="accordion" id="discussionGuideAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingMenstrual">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenstrual" aria-expanded="false" aria-controls="collapseMenstrual">
+                  Menstrual Health
+                </button>
+              </h2>
+              <div id="collapseMenstrual" class="accordion-collapse collapse" aria-labelledby="headingMenstrual" data-bs-parent="#discussionGuideAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li>How regular are your periods?</li>
+                    <li>How heavy is your flow?</li>
+                    <li>Do you experience severe pain or other symptoms?</li>
+                    <li>Have you noticed any recent changes in your cycle?</li>
+                    <li>How do your symptoms impact your daily life?</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSexual">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSexual" aria-expanded="false" aria-controls="collapseSexual">
+                  Sexual Health
+                </button>
+              </h2>
+              <div id="collapseSexual" class="accordion-collapse collapse" aria-labelledby="headingSexual" data-bs-parent="#discussionGuideAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Are you experiencing any problems with sexual desire or enjoyment?</li>
+                    <li>Do you have pain during or after sex?</li>
+                    <li>Are you concerned about your risk for STIs?</li>
+                    <li>What protection methods are you using?</li>
+                    <li>Do you have any questions about sexual health that you'd like to discuss?</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFamilyPlanning">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFamilyPlanning" aria-expanded="false" aria-controls="collapseFamilyPlanning">
+                  Contraception & Family Planning
+                </button>
+              </h2>
+              <div id="collapseFamilyPlanning" class="accordion-collapse collapse" aria-labelledby="headingFamilyPlanning" data-bs-parent="#discussionGuideAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Are you satisfied with your current birth control method?</li>
+                    <li>Are you experiencing any side effects?</li>
+                    <li>Are you planning to have children in the future?</li>
+                    <li>Do you have concerns about fertility?</li>
+                    <li>What are your goals for family planning?</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingLifeChanges">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLifeChanges" aria-expanded="false" aria-controls="collapseLifeChanges">
+                  Life Transitions
+                </button>
+              </h2>
+              <div id="collapseLifeChanges" class="accordion-collapse collapse" aria-labelledby="headingLifeChanges" data-bs-parent="#discussionGuideAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Are you experiencing perimenopause or menopause symptoms?</li>
+                    <li>How are you adjusting to pregnancy or postpartum changes?</li>
+                    <li>Do you have concerns about age-related changes to your reproductive health?</li>
+                    <li>Are you experiencing emotional changes related to life transitions?</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Related Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="{{ url_for('menstrual_cycle') }}">Menstrual Cycle Tracking</a></li>
+            <li class="list-group-item"><a href="{{ url_for('family_planning') }}">Family Planning & Contraception</a></li>
+            <li class="list-group-item"><a href="{{ url_for('gynecological_issues') }}">Common Gynecological Issues</a></li>
+            <li class="list-group-item"><a href="{{ url_for('cancer_awareness') }}">Breast & Cervical Cancer Awareness</a></li>
+            <li class="list-group-item"><a href="{{ url_for('menopause_tracker') }}">Menopause Tracking</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <%- body %>

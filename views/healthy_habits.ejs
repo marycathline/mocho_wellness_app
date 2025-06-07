@@ -1,0 +1,451 @@
+{% extends "layout.html" %}
+
+{% block title %}Healthy Habits | Women's Health Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">Healthy Habits for Women</h1>
+      <p class="lead mb-4">Developing and maintaining healthy habits is fundamental to long-term wellness. Learn about key habits that can significantly improve your physical and mental health.</p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Daily Habits for Optimal Health</h5>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-glass-water fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Stay Hydrated</h6>
+                  <p class="mb-0">Aim for at least 8-10 glasses of water daily. Hydration supports every system in your body, from cognition to digestion.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-bed fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Prioritize Sleep</h6>
+                  <p class="mb-0">Aim for 7-9 hours of quality sleep each night. Consistent sleep patterns support hormone balance and cognitive function.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-carrot fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Balanced Nutrition</h6>
+                  <p class="mb-0">Eat a variety of whole foods rich in nutrients. Include plenty of fruits, vegetables, whole grains, lean proteins, and healthy fats.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-heart-pulse fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Regular Physical Activity</h6>
+                  <p class="mb-0">Aim for at least 150 minutes of moderate activity per week. Include both cardio and strength training exercises.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-sun fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Manage Stress</h6>
+                  <p class="mb-0">Practice stress-reduction techniques like meditation, deep breathing, or yoga. Chronic stress impacts hormonal health.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex mb-3">
+                <div class="flex-shrink-0 me-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-calendar-check fa-lg"></i>
+                  </div>
+                </div>
+                <div>
+                  <h6>Preventive Care</h6>
+                  <p class="mb-0">Schedule regular check-ups and screenings. Early detection is key for many women's health issues.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="alert alert-info">
+            <i class="fas fa-lightbulb me-2"></i> <strong>Tip:</strong> Start with small, sustainable changes. Trying to change too many habits at once can be overwhelming and unsustainable.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Building Healthy Habits</h5>
+          
+          <div class="accordion" id="habitAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-seedling me-2"></i> Start Small
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#habitAccordion">
+                <div class="accordion-body">
+                  <p>Begin with tiny, manageable changes that are easy to accomplish. For example, if you want to establish a meditation practice, start with just two minutes daily rather than aiming for 30 minutes.</p>
+                  <p>Small steps build confidence and momentum, making it more likely you'll stick with the habit long-term.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="fas fa-link me-2"></i> Stack Habits
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#habitAccordion">
+                <div class="accordion-body">
+                  <p>Connect new habits to existing ones to make them easier to remember and implement. This technique, called habit stacking, leverages your current routines.</p>
+                  <p><strong>Example:</strong> "After I brush my teeth (existing habit), I will do five minutes of stretching (new habit)."</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <i class="fas fa-clock me-2"></i> Be Consistent
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#habitAccordion">
+                <div class="accordion-body">
+                  <p>Consistency is more important than perfection or intensity. Try to perform your new habit at the same time each day to establish a consistent routine.</p>
+                  <p>Research suggests it takes anywhere from 18 to 254 days to form a new habit, with an average of 66 days. Be patient with yourself during this formation period.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <i class="fas fa-calendar-day me-2"></i> Track Progress
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#habitAccordion">
+                <div class="accordion-body">
+                  <p>Monitoring your habits increases awareness and provides motivation. Use a journal, app, or simple calendar to mark the days you complete your habit.</p>
+                  <p>Visual progress helps maintain motivation and makes it easier to identify patterns or obstacles that might be affecting your consistency.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <i class="fas fa-star me-2"></i> Reward Yourself
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#habitAccordion">
+                <div class="accordion-body">
+                  <p>Create positive associations with your new habits by building in small rewards. This strengthens the habit loop and makes the behavior more likely to stick.</p>
+                  <p>Choose healthy rewards that don't contradict your goals. For example, after a week of consistent exercise, treat yourself to a massage or new workout gear rather than an unhealthy food reward.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Healthy Habits for Different Life Stages</h5>
+          
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Life Stage</th>
+                  <th>Key Focus Areas</th>
+                  <th>Recommended Habits</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>20s & 30s</strong></td>
+                  <td>Establishing foundation for lifelong health</td>
+                  <td>
+                    <ul class="mb-0">
+                      <li>Build bone density through weight-bearing exercise</li>
+                      <li>Develop stress management techniques</li>
+                      <li>Establish regular gynecological check-ups</li>
+                      <li>Practice safe sun exposure</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>40s</strong></td>
+                  <td>Maintaining health while managing increased responsibilities</td>
+                  <td>
+                    <ul class="mb-0">
+                      <li>Prioritize strength training to prevent muscle loss</li>
+                      <li>Monitor heart health</li>
+                      <li>Begin regular mammograms</li>
+                      <li>Prioritize sleep quality</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>50s & Beyond</strong></td>
+                  <td>Supporting health through hormonal changes</td>
+                  <td>
+                    <ul class="mb-0">
+                      <li>Focus on bone health through diet and exercise</li>
+                      <li>Maintain social connections</li>
+                      <li>Keep mind active with cognitive challenges</li>
+                      <li>Practice balance exercises to prevent falls</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>During Pregnancy</strong></td>
+                  <td>Supporting mother and baby health</td>
+                  <td>
+                    <ul class="mb-0">
+                      <li>Take prenatal vitamins</li>
+                      <li>Stay active with pregnancy-appropriate exercise</li>
+                      <li>Prioritize adequate rest</li>
+                      <li>Avoid alcohol and tobacco</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Postpartum</strong></td>
+                  <td>Recovery and adjustment</td>
+                  <td>
+                    <ul class="mb-0">
+                      <li>Accept help from support systems</li>
+                      <li>Gentle postpartum-approved exercise</li>
+                      <li>Prioritize mental health</li>
+                      <li>Establish quality sleep whenever possible</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Breaking Unhealthy Habits</h5>
+          
+          <p>Many of us have habits that don't serve our health. Breaking these habits can be challenging but is possible with the right approach:</p>
+          
+          <ol>
+            <li><strong>Identify triggers:</strong> Notice what situations, emotions, or environments prompt your unhealthy habit.</li>
+            <li><strong>Create obstacles:</strong> Make the unwanted habit more difficult to perform by creating friction.</li>
+            <li><strong>Replace, don't just remove:</strong> Substitute a healthier alternative that satisfies the same underlying need.</li>
+            <li><strong>Enlist support:</strong> Share your goals with friends, family, or a health professional who can provide accountability.</li>
+            <li><strong>Practice self-compassion:</strong> Approach setbacks with kindness rather than criticism. Habit change is rarely linear.</li>
+          </ol>
+          
+          <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle me-2"></i> If you're dealing with an addiction or habit that significantly impacts your health or daily functioning, consider seeking professional support from a healthcare provider or therapist.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Habit Tracker</h5>
+          <p>Use this simple tracker to monitor your progress on key healthy habits.</p>
+          
+          <form class="mb-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="mb-3">
+              <label for="habit-date" class="form-label">Select Date</label>
+              <input type="date" class="form-control" id="habit-date">
+            </div>
+            
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="water-intake">
+              <label class="form-check-label" for="water-intake">
+                8+ glasses of water
+              </label>
+            </div>
+            
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="exercise">
+              <label class="form-check-label" for="exercise">
+                30+ minutes of physical activity
+              </label>
+            </div>
+            
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="vegetables">
+              <label class="form-check-label" for="vegetables">
+                5+ servings of fruits/vegetables
+              </label>
+            </div>
+            
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="sleep">
+              <label class="form-check-label" for="sleep">
+                7+ hours of sleep
+              </label>
+            </div>
+            
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="stress-management">
+              <label class="form-check-label" for="stress-management">
+                Stress management activity
+              </label>
+            </div>
+            
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="screen-time">
+              <label class="form-check-label" for="screen-time">
+                Limited recreational screen time
+              </label>
+            </div>
+            
+            <div class="d-grid">
+              <button type="button" class="btn btn-primary" id="save-habits">
+                <i class="fas fa-save me-2"></i> Save Progress
+              </button>
+            </div>
+          </form>
+          
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i> This is a simple tracker for demonstration. In the future, we'll add the ability to save your progress.
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">30-Day Habit Challenge</h5>
+          <p>Choose one healthy habit to focus on for the next 30 days. Research shows it takes about a month to start forming a habit.</p>
+          
+          <div class="list-group mb-3">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Morning Meditation</h6>
+                <small>5-10 min</small>
+              </div>
+              <p class="mb-1">Start each day with mindfulness to reduce stress and improve focus.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Daily Movement</h6>
+                <small>30 min</small>
+              </div>
+              <p class="mb-1">Commit to 30 minutes of physical activity every day, even if it's just walking.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Hydration Goal</h6>
+                <small>8+ glasses</small>
+              </div>
+              <p class="mb-1">Drink at least 8 glasses of water throughout the day.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Consistent Sleep Schedule</h6>
+                <small>7-9 hours</small>
+              </div>
+              <p class="mb-1">Go to bed and wake up at the same time every day, even on weekends.</p>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Digital Detox</h6>
+                <small>1 hour</small>
+              </div>
+              <p class="mb-1">Disconnect from all screens for at least one hour before bedtime.</p>
+            </a>
+          </div>
+          
+          <div class="d-grid">
+            <button type="button" class="btn btn-outline-primary" disabled>
+              <i class="fas fa-calendar-plus me-2"></i> Join a Challenge
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Helpful Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" target="_blank">American Heart Association</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">Office on Women's Health</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">National Sleep Foundation</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">Academy of Nutrition and Dietetics</a></li>
+            <li class="list-group-item"><a href="#" target="_blank">American Psychological Association</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Set today's date in the habit tracker
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    
+    const formattedDate = `${year}-${month}-${day}`;
+    document.getElementById('habit-date').value = formattedDate;
+    
+    // Add event listener for save button
+    document.getElementById('save-habits').addEventListener('click', function() {
+      // This is just a placeholder for future functionality
+      alert('This feature will be available soon! Your progress would be saved.');
+    });
+  });
+</script>
+ <%- body %>

@@ -1,0 +1,581 @@
+{% extends 'layout.html' %}
+
+{% block title %}Consultation - Doctor Appointment{% endblock %}
+
+{% block extra_css %}
+<style>
+    .consultation-container {
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+    }
+    
+    .video-container {
+        flex-grow: 1;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    
+    .main-video {
+        flex: 2;
+        background-color: #000;
+        border-radius: 10px;
+        margin-right: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .self-video {
+        flex: 1;
+        background-color: #333;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .video-element {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .video-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .controls {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+    
+    .control-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .mic-btn {
+        background-color: #28a745;
+        color: white;
+    }
+    
+    .mic-btn.off {
+        background-color: #6c757d;
+    }
+    
+    .video-btn {
+        background-color: #17a2b8;
+        color: white;
+    }
+    
+    .video-btn.off {
+        background-color: #6c757d;
+    }
+    
+    .end-btn {
+        background-color: #dc3545;
+        color: white;
+    }
+    
+    .chat-container {
+        height: 100%;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .chat-messages {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 15px;
+    }
+    
+    .chat-input {
+        padding: 10px;
+        border-top: 1px solid #dee2e6;
+    }
+    
+    .message {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+    }
+    
+    .message-self {
+        background-color: #e7f3ff;
+        margin-left: auto;
+    }
+    
+    .message-other {
+        background-color: #f1f1f1;
+    }
+    
+    .message-sender {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .waiting-screen {
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .waiting-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #7EBDC2;
+    }
+    
+    .appointment-info {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .consultation-notes {
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    
+    .notes-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="appointment-info mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>
+                        {% if appointment.appointment_type == 'video' %}
+                        <i class="fas fa-video text-primary me-2"></i>
+                        {% elif appointment.appointment_type == 'audio' %}
+                        <i class="fas fa-phone-alt text-success me-2"></i>
+                        {% else %}
+                        <i class="fas fa-comment-medical text-info me-2"></i>
+                        {% endif %}
+                        Consultation in Progress
+                    </h2>
+                    <div>
+                        <span class="badge bg-success">Active</span>
+                        <span class="ms-2" id="consultationTimer">00:00:00</span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <p><strong>Doctor:</strong> Dr. {{ appointment.doctor.username }}</p>
+                        <p><strong>Patient:</strong> {{ appointment.patient.username }}</p>
+                        <p><strong>Appointment Type:</strong> {{ appointment.appointment_type|capitalize }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Date:</strong> {{ appointment.appointment_date.strftime('%B %d, %Y') }}</p>
+                        <p><strong>Time:</strong> {{ appointment.appointment_date.strftime('%I:%M %p') }}</p>
+                        <p><strong>Status:</strong> {{ appointment.status|capitalize }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="consultation-container">
+                {% if appointment.appointment_type == 'video' or appointment.appointment_type == 'audio' %}
+                <div class="video-container">
+                    <div class="main-video" id="remoteVideoContainer">
+                        <div class="waiting-screen" id="waitingScreen">
+                            <div class="waiting-icon">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                            <h3>Waiting for the other participant to join...</h3>
+                            <p>Your camera and microphone are being set up. Please allow access when prompted.</p>
+                        </div>
+                        <video id="remoteVideo" class="video-element" autoplay playsinline style="display: none;"></video>
+                        <div class="video-overlay">
+                            {% if appointment.doctor_id == session['user_id'] %}
+                                Patient: {{ appointment.patient.username }}
+                            {% else %}
+                                Dr. {{ appointment.doctor.username }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {% if appointment.appointment_type == 'video' %}
+                    <div class="self-video">
+                        <video id="localVideo" class="video-element" autoplay muted playsinline></video>
+                        <div class="video-overlay">You</div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="controls">
+                    <button class="control-button mic-btn" id="micButton">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    
+                    {% if appointment.appointment_type == 'video' %}
+                    <button class="control-button video-btn" id="videoButton">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    {% endif %}
+                    
+                    <button class="control-button end-btn" id="endButton">
+                        <i class="fas fa-phone-slash"></i>
+                    </button>
+                </div>
+                {% endif %}
+                
+                {% if appointment.appointment_type == 'text' %}
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message message-other">
+                            <div class="message-sender">System</div>
+                            <div class="message-content">
+                                Welcome to your text consultation. You can start chatting now.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="chatInput" placeholder="Type your message...">
+                            <button class="btn btn-primary" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="consultation-notes">
+                <div class="notes-header">
+                    <h4>Consultation Notes</h4>
+                    <button class="btn btn-sm btn-outline-secondary" id="saveNotesBtn">
+                        <i class="fas fa-save"></i> Save Notes
+                    </button>
+                </div>
+                <textarea class="form-control" id="consultationNotes" rows="5" placeholder="Take notes during your consultation...">{{ appointment.notes }}</textarea>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Consultation Chat</h5>
+                </div>
+                <div class="card-body p-0" style="height: 400px;">
+                    <div class="chat-container h-100">
+                        <div class="chat-messages" id="sidebarChatMessages">
+                            <div class="message message-other">
+                                <div class="message-sender">System</div>
+                                <div class="message-content">
+                                    You can use this chat to communicate during your consultation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="sidebarChatInput" placeholder="Type here...">
+                                <button class="btn btn-primary" id="sendSidebarMessageBtn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5>Helpful Tips</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Speak clearly and stay in a quiet environment</li>
+                        <li>Have your questions prepared</li>
+                        <li>Share any relevant medical history</li>
+                        <li>Take notes during the consultation</li>
+                        <li>If disconnected, try refreshing the page</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let localStream;
+        let remoteStream;
+        let peerConnection;
+        let isAudioMuted = false;
+        let isVideoOff = false;
+        const appointmentType = "{{ appointment.appointment_type }}";
+        let startTime = new Date();
+        
+        // Timer for consultation duration
+        function updateTimer() {
+            const now = new Date();
+            const diff = new Date(now - startTime);
+            const hours = diff.getUTCHours().toString().padStart(2, '0');
+            const minutes = diff.getUTCMinutes().toString().padStart(2, '0');
+            const seconds = diff.getUTCSeconds().toString().padStart(2, '0');
+            document.getElementById('consultationTimer').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+        
+        // WebRTC functionality would normally be implemented here
+        // This is a simplified mockup for demonstration purposes
+        
+        // Setup mock video streams after a delay (simulating connection)
+        if (appointmentType === 'video' || appointmentType === 'audio') {
+            // Mock video setup
+            setTimeout(() => {
+                // Hide waiting screen
+                document.getElementById('waitingScreen').style.display = 'none';
+                
+                if (appointmentType === 'video') {
+                    // Show videos
+                    const remoteVideo = document.getElementById('remoteVideo');
+                    remoteVideo.style.display = 'block';
+                    
+                    // For demo, we're showing a color instead of actual video
+                    const localVideo = document.getElementById('localVideo');
+                    const localCanvas = document.createElement('canvas');
+                    localCanvas.width = 640;
+                    localCanvas.height = 480;
+                    const localCtx = localCanvas.getContext('2d');
+                    localCtx.fillStyle = '#7EBDC2';
+                    localCtx.fillRect(0, 0, 640, 480);
+                    
+                    const remoteCanvas = document.createElement('canvas');
+                    remoteCanvas.width = 640;
+                    remoteCanvas.height = 480;
+                    const remoteCtx = remoteCanvas.getContext('2d');
+                    remoteCtx.fillStyle = '#6aa7c8';
+                    remoteCtx.fillRect(0, 0, 640, 480);
+                    
+                    // Convert canvas to video streams (mock)
+                    localVideo.srcObject = localCanvas.captureStream();
+                    remoteVideo.srcObject = remoteCanvas.captureStream();
+                } else {
+                    // For audio-only, just show an appropriate background
+                    const remoteVideoContainer = document.getElementById('remoteVideoContainer');
+                    remoteVideoContainer.innerHTML = `
+                        <div class="d-flex align-items-center justify-content-center h-100 bg-dark">
+                            <div class="text-center text-white">
+                                <i class="fas fa-phone-alt fa-4x mb-3"></i>
+                                <h4>Audio Call in Progress</h4>
+                                <p>Audio call with 
+                                {% if appointment.doctor_id == session['user_id'] %}
+                                    Patient: {{ appointment.patient.username }}
+                                {% else %}
+                                    Dr. {{ appointment.doctor.username }}
+                                {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                }
+            }, 3000);
+        }
+        
+        // Control buttons functionality
+        const micButton = document.getElementById('micButton');
+        const videoButton = document.getElementById('videoButton');
+        const endButton = document.getElementById('endButton');
+        
+        if (micButton) {
+            micButton.addEventListener('click', function() {
+                isAudioMuted = !isAudioMuted;
+                this.classList.toggle('off');
+                
+                const icon = this.querySelector('i');
+                if (isAudioMuted) {
+                    icon.className = 'fas fa-microphone-slash';
+                } else {
+                    icon.className = 'fas fa-microphone';
+                }
+                
+                // In a real implementation, this would mute the audio track
+                console.log('Microphone ' + (isAudioMuted ? 'muted' : 'unmuted'));
+            });
+        }
+        
+        if (videoButton) {
+            videoButton.addEventListener('click', function() {
+                isVideoOff = !isVideoOff;
+                this.classList.toggle('off');
+                
+                const icon = this.querySelector('i');
+                if (isVideoOff) {
+                    icon.className = 'fas fa-video-slash';
+                    document.getElementById('localVideo').style.display = 'none';
+                } else {
+                    icon.className = 'fas fa-video';
+                    document.getElementById('localVideo').style.display = 'block';
+                }
+                
+                // In a real implementation, this would toggle the video track
+                console.log('Video ' + (isVideoOff ? 'off' : 'on'));
+            });
+        }
+        
+        if (endButton) {
+            endButton.addEventListener('click', function() {
+                if (confirm('Are you sure you want to end this consultation?')) {
+                    // Send request to end consultation
+                    fetch('/doctor-consultation/end/{{ appointment.id }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            window.location.href = '/doctor-consultation';
+                        } else {
+                            alert('Failed to end consultation: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while ending the consultation.');
+                    });
+                }
+            });
+        }
+        
+        // Chat functionality
+        function addMessage(message, isSelf = false, sender = 'You') {
+            const chatMessages = document.getElementById('sidebarChatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isSelf ? 'message message-self' : 'message message-other';
+            
+            if (!isSelf) {
+                const senderDiv = document.createElement('div');
+                senderDiv.className = 'message-sender';
+                senderDiv.textContent = sender;
+                messageDiv.appendChild(senderDiv);
+            }
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = message;
+            messageDiv.appendChild(contentDiv);
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Also add to main chat if it's a text consultation
+            if (appointmentType === 'text') {
+                const mainChatMessages = document.getElementById('chatMessages');
+                const mainMessageDiv = messageDiv.cloneNode(true);
+                mainChatMessages.appendChild(mainMessageDiv);
+                mainChatMessages.scrollTop = mainChatMessages.scrollHeight;
+            }
+        }
+        
+        const sendSidebarMessageBtn = document.getElementById('sendSidebarMessageBtn');
+        const sidebarChatInput = document.getElementById('sidebarChatInput');
+        
+        if (sendSidebarMessageBtn && sidebarChatInput) {
+            sendSidebarMessageBtn.addEventListener('click', function() {
+                const message = sidebarChatInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    sidebarChatInput.value = '';
+                    
+                    // In a real implementation, this would send the message to the other user
+                    // Simulating a response after 2 seconds
+                    setTimeout(() => {
+                        const otherName = {{ appointment.doctor_id }} === {{ session['user_id'] }} ? 
+                            "{{ appointment.patient.username }}" : "Dr. {{ appointment.doctor.username }}";
+                        
+                        addMessage("I received your message: " + message, false, otherName);
+                    }, 2000);
+                }
+            });
+            
+            sidebarChatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendSidebarMessageBtn.click();
+                }
+            });
+        }
+        
+        // Main chat for text consultations
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const chatInput = document.getElementById('chatInput');
+        
+        if (sendMessageBtn && chatInput) {
+            sendMessageBtn.addEventListener('click', function() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatInput.value = '';
+                    
+                    // Simulate response
+                    setTimeout(() => {
+                        const otherName = {{ appointment.doctor_id }} === {{ session['user_id'] }} ? 
+                            "{{ appointment.patient.username }}" : "Dr. {{ appointment.doctor.username }}";
+                        
+                        addMessage("I received your message: " + message, false, otherName);
+                    }, 2000);
+                }
+            });
+            
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessageBtn.click();
+                }
+            });
+        }
+        
+        // Save notes functionality
+        const saveNotesBtn = document.getElementById('saveNotesBtn');
+        const consultationNotes = document.getElementById('consultationNotes');
+        
+        if (saveNotesBtn && consultationNotes) {
+            saveNotesBtn.addEventListener('click', function() {
+                // In a real implementation, this would save the notes to the database
+                alert('Notes saved successfully!');
+            });
+        }
+    });
+</script>
+ <%- body %>

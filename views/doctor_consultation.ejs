@@ -1,0 +1,218 @@
+<%- include('layout') %>
+
+<% title = "Doctor Consultation - Women's Health & Wellness" %>
+
+<% block extra_css %>
+<style>
+    .consultation-header {
+        background-color: #f8f9fa;
+        padding: 30px 0;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+    
+    .doctor-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .doctor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .doctor-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .specialty-badge {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .appointment-card {
+        margin-bottom: 20px;
+        border-left: 4px solid #7EBDC2;
+    }
+    
+    .appointment-upcoming {
+        border-left-color: #28a745;
+    }
+    
+    .appointment-completed {
+        border-left-color: #6c757d;
+    }
+    
+    .appointment-cancelled {
+        border-left-color: #dc3545;
+    }
+    
+    .appointment-type-icon {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+    
+    .consultation-steps {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    
+    .step-number {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #7EBDC2;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        margin-right: 10px;
+    }
+    
+    .video-placeholder {
+        background-color: #e9ecef;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+<% endblock %>
+
+
+<div class="container py-5">
+    <div class="row consultation-header">
+        <div class="col-md-8">
+            <h1>Doctor Consultation</h1>
+            <p class="lead">Connect with healthcare professionals for personalized advice and support through video or audio consultations.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="/book_appointment" class="btn btn-primary">
+                <i class="fas fa-calendar-plus"></i> Book an Appointment
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Available Healthcare Professionals</h2>
+            <div class="row">
+                <% if (doctors && doctors.length) { %>
+                    <% doctors.forEach(function(doctor) { %>
+                    <div class="col-md-6 mb-4">
+                        <div class="card doctor-card">
+                            <% if (doctor.profile_picture) { %>
+                            <img src="<%= doctor.profile_picture %>" class="doctor-img" alt="Dr. <%= doctor.username %>">
+                            <% } else { %>
+                            <div class="doctor-img d-flex align-items-center justify-content-center bg-light">
+                                <i class="fas fa-user-md fa-4x text-secondary"></i>
+                            </div>
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title">Dr. <%= doctor.username %></h5>
+                                <div class="mb-3">
+                                    <% if (doctor_specialties && doctor_specialties[doctor.id]) { %>
+                                        <% doctor_specialties[doctor.id].forEach(function(specialty) { %>
+                                        <span class="badge bg-info specialty-badge"><%= specialty %></span>
+                                        <% }); %>
+                                    <% } %>
+                                </div>
+                                <p class="card-text">Providing professional health consultations through our platform. Book an appointment today!</p>
+                                <a href="/book_appointment?doctor_id=<%= doctor.id %>" class="btn btn-outline-primary">
+                                    Book Consultation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            <p>No healthcare professionals are currently available. Please check back later.</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>My Appointments</h5>
+                </div>
+                <div class="card-body">
+                    <% if (user_appointments && user_appointments.length) { %>
+                        <% user_appointments.forEach(function(appointment) { %>
+                        <div class="card appointment-card 
+                            <% if (appointment.status === 'scheduled') { %>appointment-upcoming<% } else if (appointment.status === 'completed') { %>appointment-completed<% } else { %>appointment-cancelled<% } %> mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="appointment-type-icon">
+                                        <% if (appointment.appointment_type === 'video') { %>
+                                        <i class="fas fa-video text-primary"></i>
+                                        <% } else if (appointment.appointment_type === 'audio') { %>
+                                        <i class="fas fa-phone-alt text-success"></i>
+                                        <% } else { %>
+                                        <i class="fas fa-comment-medical text-info"></i>
+                                        <% } %>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0"><%= appointment.appointment_date.format('MMMM DD, YYYY') %></h6>
+                                        <small class="text-muted"><%= appointment.appointment_date.format('hh:mm A') %></small>
+                                    </div>
+                                </div>
+                                <p>Status: <span class="badge 
+                                    <% if (appointment.status === 'scheduled') { %>bg-success<% } else if (appointment.status === 'completed') { %>bg-secondary<% } else { %>bg-danger<% } %>">
+                                    <%= appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1) %>
+                                </span></p>
+                                
+                                <% if (appointment.status === 'scheduled') { %>
+                                <a href="/join_consultation?appointment_id=<%= appointment.id %>" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-sign-in-alt"></i> Join Consultation
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>You don't have any appointments scheduled. <a href="/book_appointment">Book your first consultation</a>.</p>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="consultation-steps">
+                <h5 class="mb-3">How It Works</h5>
+                <div class="mb-3">
+                    <div class="step-number">1</div>
+                    <strong>Book an appointment</strong>
+                    <p class="text-muted">Choose a healthcare professional and select a convenient time.</p>
+                </div>
+                <div class="mb-3">
+                    <div class="step-number">2</div>
+                    <strong>Receive confirmation</strong>
+                    <p class="text-muted">You'll get a confirmation email with appointment details.</p>
+                </div>
+                <div class="mb-3">
+                    <div class="step-number">3</div>
+                    <strong>Join the consultation</strong>
+                    <p class="text-muted">Connect through video or audio when it's time for your appointment.</p>
+                </div>
+                <div>
+                    <div class="step-number">4</div>
+                    <strong>Follow-up care</strong>
+                    <p class="text-muted">Receive personalized recommendations and follow-up if needed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+ <%- body %>

@@ -1,0 +1,355 @@
+/* Custom styling to supplement Bootstrap */
+
+:root {
+  /* Soothing color palette for women's health */
+  --primary-color: #8e7cc3;    /* Soft purple */
+  --secondary-color: #6aa7c8;  /* Soft blue */
+  --accent-color: #7EBDC2;     /* Teal accent */
+  --light-accent: #d1e6e7;     /* Light teal for backgrounds */
+  --warm-accent: #f0a28b;      /* Warm peach accent */
+  --text-color: #333333;       /* Dark text for readability */
+  --light-text: #f9f9f9;       /* Light text for dark backgrounds */
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Navbar styling */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent-color);
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown button {
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  transition: color 0.3s ease;
+}
+
+.dropdown button:hover {
+  color: var(--accent-color);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 250px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  left: -50px;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--light-accent);
+  color: var(--primary-color);
+}
+
+.show {
+  display: block;
+}
+
+/* Main content styling */
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.hero-section {
+  padding: 3rem 0;
+  background-color: var(--light-accent);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #7269a6;
+  border-color: #7269a6;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: #5c96b6;
+  border-color: #5c96b6;
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: #6aa5a9;
+  border-color: #6aa5a9;
+  color: white;
+}
+
+/* Calendar styling */
+.calendar-container {
+  margin: 2rem 0;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Feature sections */
+.feature-section {
+  padding: 3rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.feature-section img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .nav {
+    padding: 1rem;
+  }
+  
+  .nav ul li {
+    margin-left: 1rem;
+  }
+  
+  .dropdown-content {
+    left: -100px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .nav ul li {
+    margin: 0.5rem 0;
+    margin-left: 0;
+  }
+  
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    min-width: auto;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent-color);
+  }
+  
+  .dropdown-content a {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Tracking forms styling */
+.tracking-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(126, 189, 194, 0.25);
+}
+
+/* Health info sections */
+.health-info {
+  background-color: var(--light-accent);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.health-info h3 {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Wellness specific styles */
+.wellness-tip {
+  background-color: rgba(240, 162, 139, 0.1);
+  border-left: 4px solid var(--warm-accent);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.wellness-tip h4 {
+  color: var(--warm-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Calendar customization */
+.cycle-day {
+  height: 100%;
+  min-height: 80px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cycle-day:hover {
+  background-color: var(--light-accent);
+}
+
+.cycle-day.period-day {
+  background-color: rgba(142, 124, 195, 0.2);
+}
+
+.cycle-day.ovulation-day {
+  background-color: rgba(240, 162, 139, 0.2);
+}
+
+.cycle-day.fertile-day {
+  background-color: rgba(106, 167, 200, 0.2);
+}

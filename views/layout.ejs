@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title><%= typeof title !== 'undefined' ? title : "Women's Health & Wellness" %></title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- FullCalendar CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet'>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <%- typeof extra_css !== 'undefined' ? extra_css : '' %>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <!-- Using SVG instead of PNG -->
+        <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C10 14.5 14.5 10 20 10C25.5 10 30 14.5 30 20C30 25.5 25.5 30 20 30C14.5 30 10 25.5 10 20Z" fill="#8e7cc3"/>
+          <path d="M35 20C35 14.5 39.5 10 45 10C50.5 10 55 14.5 55 20C55 25.5 50.5 30 45 30C39.5 30 35 25.5 35 20Z" fill="#6aa7c8"/>
+          <path d="M60 15H110V25H60V15Z" fill="#7EBDC2"/>
+          <text x="65" y="23" fill="white" font-family="Arial" font-weight="bold" font-size="10">HealthHub</text>
+        </svg>
+      </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/partners">Partners</a></li>
+
+        <!-- TRACKING -->
+        <li class="dropdown">
+          <button onclick="toggleDropdown('tracking-dropdown')">Track Health ▼</button>
+          <div id="tracking-dropdown" class="dropdown-content">
+            <a href="/menstrual_cycle">Menstrual Cycle</a>
+            <a href="/ovulation_fertility">Ovulation & Fertility</a>
+            <a href="/pregnancy_milestones">Pregnancy Milestones</a>
+            <a href="/postpartum_care">Postpartum Care</a>
+            <a href="/menopause_tracker">Menopause Tracker</a>
+          </div>
+        </li>
+
+        <!-- EDUCATION -->
+        <li class="dropdown">
+          <button onclick="toggleDropdown('education-dropdown')">Learn ▼</button>
+          <div id="education-dropdown" class="dropdown-content">
+            <a href="/sexual_reproductive_health">Sexual & Reproductive Health</a>
+            <a href="/family_planning">Family Planning & Contraception</a>
+            <a href="/antenatal_postnatal">Antenatal & Postnatal Care</a>
+            <a href="/gynecological_issues">Common Gynecological Issues</a>
+            <a href="/vaccination">Vaccination & Immunization</a>
+            <a href="/cancer_awareness">Breast & Cervical Cancer Awareness</a>
+          </div>
+        </li>
+
+        <!-- WELLNESS -->
+        <li class="dropdown">
+          <button onclick="toggleDropdown('wellness-dropdown')">Wellness ▼</button>
+          <div id="wellness-dropdown" class="dropdown-content">
+            <a href="/mental_health">Mental Health Support</a>
+            <a href="/nutrition">Nutrition & Diet</a>
+            <a href="/fitness">Physical Fitness</a>
+            <a href="/stress_management">Stress Management</a>
+            <a href="/healthy_habits">Healthy Habits</a>
+          </div>
+        </li>
+
+        <!-- NEW FEATURES -->
+        <li><a href="/ai_chatbot" class="highlight-nav"><i class="fas fa-robot"></i> AI Health Assistant</a></li>
+        <li><a href="/community_forum" class="highlight-nav"><i class="fas fa-users"></i> Community</a></li>
+        <li><a href="/doctor_consultation" class="highlight-nav"><i class="fas fa-user-md"></i> Consultation</a></li>
+        
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container-fluid">
+    <% if (typeof messages !== 'undefined' && messages.length) { %>
+      <% messages.forEach(function(msg) { %>
+        <div class="alert alert-<%= msg.category %> alert-dismissible fade show mt-3" role="alert">
+          <%= msg.message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }); %>
+    <% } %>
+    
+    <%- body %>
+  </main>
+ 
+
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>Women's Health Hub</h5>
+          <p>Empowering women with knowledge, tools, and support for comprehensive health and wellness throughout all life stages.</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Tracking</h5>
+          <ul class="list-unstyled">
+            <li><a href="/menstrual_cycle">Menstrual Cycle</a></li>
+            <li><a href="/ovulation_fertility">Fertility</a></li>
+            <li><a href="/pregnancy_milestones">Pregnancy</a></li>
+            <li><a href="/menopause_tracker">Menopause</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Education</h5>
+          <ul class="list-unstyled">
+            <li><a href="/sexual_reproductive_health">Reproductive Health</a></li>
+            <li><a href="/family_planning">Family Planning</a></li>
+            <li><a href="/gynecological_issues">Gynecological Health</a></li>
+            <li><a href="/cancer_awareness">Cancer Awareness</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Wellness</h5>
+          <ul class="list-unstyled">
+            <li><a href="/mental_health">Mental Health</a></li>
+            <li><a href="/nutrition">Nutrition</a></li>
+            <li><a href="/fitness">Fitness</a></li>
+            <li><a href="/healthy_habits">Healthy Habits</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Connect</h5>
+          <ul class="list-unstyled">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2023 Women's Health Hub. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FullCalendar JS -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+  <!-- Custom JS -->
+  <script src="/static/js/index.js"></script>
+  <%- typeof extra_js !== 'undefined' ? extra_js : '' %>
+</body>
+</html>
+ 
+ 
