@@ -14,7 +14,14 @@ const User = require('../models/User');
 
 // Example: Home page
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    messages: [], // or req.flash('info') if using connect-flash
+    appointment: null // if your layout expects this too
+  });
+});
+
+router.get('/', (req, res) => {
+  res.render('index', { appointment: null });
 });
 
 

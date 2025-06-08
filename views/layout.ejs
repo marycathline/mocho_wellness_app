@@ -19,8 +19,8 @@
   <%- typeof extra_css !== 'undefined' ? extra_css : '' %>
 </head>
 <body 
-  data-appointment-type="<%= appointment?.appointment_type || '' %>" 
-  data-appointment-id="<%= appointment?.id || '' %>"
+  data-appointment-type="<%= typeof appointment !== 'undefined' && appointment ? appointment.appointment_type : '' %>" 
+  data-appointment-id="<%= typeof appointment !== 'undefined' && appointment ? appointment.id : '' %>"
 >
   <!-- Header -->
   <header>
@@ -83,7 +83,7 @@
 
   <!-- Flash Messages -->
   <main class="container-fluid">
-    <% if (messages?.length) { %>
+    <% if (typeof messages !== 'undefined' && messages && messages.length) { %>
       <% messages.forEach(function(msg) { %>
         <div class="alert alert-<%= msg.category %> alert-dismissible fade show mt-3" role="alert">
           <%= msg.message %>

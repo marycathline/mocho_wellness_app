@@ -1,66 +1,44 @@
-<%- include('layout') %> <% title = "Ovulation & Fertility Tracking | Women's
-Health & Wellness" %> <%/* Extra CSS Block */%>
-<link rel="stylesheet" href="/static/css/calendar.css" />
 
-<div class="section" style="background-color: var(--light-color)">
+<% title = "Ovulation & Fertility Tracking | Women's Health & Wellness" %>
+
+<%/* Extra CSS Block */%>
+<link rel="stylesheet" href="/static/css/calendar.css">
+
+<div class="section" style="background-color: var(--light-color);">
   <div class="container">
     <h1 class="text-center mb-4">Ovulation & Fertility Tracking</h1>
-    <p class="text-center mb-5">
-      Monitor your fertile window to optimize your chances of conception or for
-      natural family planning.
-    </p>
-
+    <p class="text-center mb-5">Monitor your fertile window to optimize your chances of conception or for natural family planning.</p>
+    
     <div class="row">
       <div class="col-lg-8">
         <div class="calendar-container">
           <div class="calendar-header">
             <h3>Your Fertility Calendar</h3>
-            <p>
-              Your predicted fertile window and ovulation days will appear on
-              the calendar based on your cycle data.
-            </p>
+            <p>Your predicted fertile window and ovulation days will appear on the calendar based on your cycle data.</p>
           </div>
           <div class="calendar-content">
             <div id="ovulation-calendar"></div>
           </div>
         </div>
       </div>
-
+      
       <div class="col-lg-4">
         <div class="tracking-form">
           <h3>Record Fertility Signs</h3>
           <form id="fertility-form">
             <div class="form-group">
               <label for="cycle-date" class="form-label">Date</label>
-              <input
-                type="date"
-                class="form-control"
-                id="cycle-date"
-                required
-              />
+              <input type="date" class="form-control" id="cycle-date" required>
             </div>
-
+            
             <div class="form-group">
-              <label for="basal-temp" class="form-label"
-                >Basal Body Temperature (°F)</label
-              >
-              <input
-                type="number"
-                step="0.1"
-                class="form-control"
-                id="basal-temp"
-                placeholder="e.g., 97.8"
-              />
-              <small class="form-text text-muted"
-                >Take your temperature first thing in the morning, before
-                getting out of bed.</small
-              >
+              <label for="basal-temp" class="form-label">Basal Body Temperature (°F)</label>
+              <input type="number" step="0.1" class="form-control" id="basal-temp" placeholder="e.g., 97.8">
+              <small class="form-text text-muted">Take your temperature first thing in the morning, before getting out of bed.</small>
             </div>
-
+            
             <div class="form-group">
-              <label for="cervical-mucus" class="form-label"
-                >Cervical Mucus</label
-              >
+              <label for="cervical-mucus" class="form-label">Cervical Mucus</label>
               <select class="form-control" id="cervical-mucus">
                 <option value="dry">Dry/None</option>
                 <option value="sticky">Sticky/Tacky</option>
@@ -69,7 +47,7 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
                 <option value="egg-white">Egg-white (Stretchy/Clear)</option>
               </select>
             </div>
-
+            
             <div class="form-group">
               <label for="lh-test" class="form-label">LH Test Result</label>
               <select class="form-control" id="lh-test">
@@ -77,28 +55,15 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
                 <option value="negative">Negative</option>
                 <option value="positive">Positive</option>
               </select>
-              <small class="form-text text-muted"
-                >Luteinizing Hormone rises just before ovulation.</small
-              >
+              <small class="form-text text-muted">Luteinizing Hormone rises just before ovulation.</small>
             </div>
-
+            
             <div class="form-group">
               <label for="fertility-notes" class="form-label">Notes</label>
-              <textarea
-                class="form-control"
-                id="fertility-notes"
-                rows="3"
-                placeholder="Additional observations or symptoms"
-              ></textarea>
+              <textarea class="form-control" id="fertility-notes" rows="3" placeholder="Additional observations or symptoms"></textarea>
             </div>
-
-            <button
-              type="button"
-              id="save-fertility"
-              class="btn btn-primary w-100"
-            >
-              Save Fertility Data
-            </button>
+            
+            <button type="button" id="save-fertility" class="btn btn-primary w-100">Save Fertility Data</button>
           </form>
         </div>
       </div>
@@ -111,124 +76,60 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
     <div class="row">
       <div class="col-lg-8">
         <h2 class="mb-4">Understanding Ovulation & Fertility</h2>
-
+        
         <h4>The Fertility Window</h4>
-        <p>
-          Your fertility window includes the 5 days before ovulation, the day of
-          ovulation, and possibly the day after. This is when pregnancy is most
-          likely to occur if you have unprotected intercourse.
-        </p>
-
+        <p>Your fertility window includes the 5 days before ovulation, the day of ovulation, and possibly the day after. This is when pregnancy is most likely to occur if you have unprotected intercourse.</p>
+        
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">When Ovulation Occurs</h5>
-            <p class="card-text">
-              Ovulation typically happens around the middle of your menstrual
-              cycle, but can vary significantly from person to person. For a
-              28-day cycle, ovulation usually occurs around day 14, counting
-              from the first day of your period.
-            </p>
-            <p class="card-text">
-              However, many women don't have perfect 28-day cycles. To calculate
-              your likely ovulation date:
-            </p>
+            <p class="card-text">Ovulation typically happens around the middle of your menstrual cycle, but can vary significantly from person to person. For a 28-day cycle, ovulation usually occurs around day 14, counting from the first day of your period.</p>
+            <p class="card-text">However, many women don't have perfect 28-day cycles. To calculate your likely ovulation date:</p>
             <ul>
-              <li>
-                Identify your average cycle length (from the first day of one
-                period to the first day of the next)
-              </li>
+              <li>Identify your average cycle length (from the first day of one period to the first day of the next)</li>
               <li>Subtract 14 days from the end of your cycle</li>
             </ul>
-            <p class="card-text">
-              For example, if your cycle is 30 days long, you might ovulate
-              around day 16.
-            </p>
+            <p class="card-text">For example, if your cycle is 30 days long, you might ovulate around day 16.</p>
           </div>
         </div>
-
+        
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">Signs of Ovulation</h5>
-            <p class="card-text">
-              Your body gives several signs that ovulation is approaching or
-              occurring:
-            </p>
+            <p class="card-text">Your body gives several signs that ovulation is approaching or occurring:</p>
             <ul>
-              <li>
-                <strong>Cervical Mucus Changes:</strong> As you approach
-                ovulation, cervical mucus becomes more abundant, clear,
-                stretchy, and slippery (similar to egg whites).
-              </li>
-              <li>
-                <strong>Basal Body Temperature (BBT) Shift:</strong> After
-                ovulation, your BBT rises slightly (0.2°F to 0.5°F) and stays
-                elevated until your next period.
-              </li>
-              <li>
-                <strong>Mittelschmerz:</strong> Some women feel a mild pain or
-                cramp on one side of the lower abdomen during ovulation.
-              </li>
-              <li>
-                <strong>Increased Sex Drive:</strong> Many women notice an
-                increase in libido around ovulation.
-              </li>
-              <li>
-                <strong>Breast Tenderness:</strong> Hormonal changes may cause
-                breast tenderness or sensitivity.
-              </li>
-              <li>
-                <strong>Spotting:</strong> Light spotting can occur during
-                ovulation.
-              </li>
-              <li>
-                <strong>Changes in Cervical Position:</strong> The cervix
-                becomes higher, softer, and more open during ovulation.
-              </li>
+              <li><strong>Cervical Mucus Changes:</strong> As you approach ovulation, cervical mucus becomes more abundant, clear, stretchy, and slippery (similar to egg whites).</li>
+              <li><strong>Basal Body Temperature (BBT) Shift:</strong> After ovulation, your BBT rises slightly (0.2°F to 0.5°F) and stays elevated until your next period.</li>
+              <li><strong>Mittelschmerz:</strong> Some women feel a mild pain or cramp on one side of the lower abdomen during ovulation.</li>
+              <li><strong>Increased Sex Drive:</strong> Many women notice an increase in libido around ovulation.</li>
+              <li><strong>Breast Tenderness:</strong> Hormonal changes may cause breast tenderness or sensitivity.</li>
+              <li><strong>Spotting:</strong> Light spotting can occur during ovulation.</li>
+              <li><strong>Changes in Cervical Position:</strong> The cervix becomes higher, softer, and more open during ovulation.</li>
             </ul>
           </div>
         </div>
-
+        
         <h4>Tracking Methods for Detecting Ovulation</h4>
-
+        
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">Basal Body Temperature (BBT) Method</h5>
-            <p class="card-text">
-              This involves taking your temperature first thing every morning
-              before getting out of bed using a special basal thermometer. After
-              ovulation, your BBT typically rises by 0.2°F to 0.5°F and remains
-              elevated until your next period starts.
-            </p>
+            <p class="card-text">This involves taking your temperature first thing every morning before getting out of bed using a special basal thermometer. After ovulation, your BBT typically rises by 0.2°F to 0.5°F and remains elevated until your next period starts.</p>
             <p class="card-text"><strong>How to use it:</strong></p>
             <ul>
-              <li>
-                Take your temperature at the same time each morning, before
-                getting out of bed
-              </li>
+              <li>Take your temperature at the same time each morning, before getting out of bed</li>
               <li>Record temperatures daily on a chart or app</li>
-              <li>
-                Look for a sustained temperature rise, which usually indicates
-                ovulation has occurred
-              </li>
+              <li>Look for a sustained temperature rise, which usually indicates ovulation has occurred</li>
             </ul>
-            <p class="card-text">
-              <strong>Limitation:</strong> BBT confirms ovulation after it has
-              happened, so it's most useful for predicting future cycles.
-            </p>
+            <p class="card-text"><strong>Limitation:</strong> BBT confirms ovulation after it has happened, so it's most useful for predicting future cycles.</p>
           </div>
         </div>
-
+        
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">Cervical Mucus Method</h5>
-            <p class="card-text">
-              This involves monitoring changes in your cervical mucus throughout
-              your cycle. As ovulation approaches, mucus becomes more abundant,
-              clear, stretchy, and slippery.
-            </p>
-            <p class="card-text">
-              <strong>Progression of cervical mucus:</strong>
-            </p>
+            <p class="card-text">This involves monitoring changes in your cervical mucus throughout your cycle. As ovulation approaches, mucus becomes more abundant, clear, stretchy, and slippery.</p>
+            <p class="card-text"><strong>Progression of cervical mucus:</strong></p>
             <ul>
               <li>After period: Dry or sticky, small amount</li>
               <li>Approaching ovulation: Creamy, increasing amount</li>
@@ -237,88 +138,52 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
             </ul>
           </div>
         </div>
-
+        
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">Ovulation Predictor Kits (OPKs)</h5>
-            <p class="card-text">
-              These are urine tests that detect the surge in luteinizing hormone
-              (LH) that occurs 24-36 hours before ovulation.
-            </p>
+            <p class="card-text">These are urine tests that detect the surge in luteinizing hormone (LH) that occurs 24-36 hours before ovulation.</p>
             <p class="card-text"><strong>How to use them:</strong></p>
             <ul>
               <li>Begin testing a few days before your expected ovulation</li>
               <li>Test at the same time each day</li>
-              <li>
-                A positive result indicates ovulation will likely occur within
-                24-36 hours
-              </li>
+              <li>A positive result indicates ovulation will likely occur within 24-36 hours</li>
             </ul>
-            <p class="card-text">
-              <strong>Advantage:</strong> OPKs can predict ovulation before it
-              happens, giving you time to plan intercourse for conception.
-            </p>
+            <p class="card-text"><strong>Advantage:</strong> OPKs can predict ovulation before it happens, giving you time to plan intercourse for conception.</p>
           </div>
         </div>
       </div>
-
+      
       <div class="col-lg-4">
         <div class="info-card">
           <div class="info-card-content">
             <h4>Fertility Optimization Tips</h4>
             <p>If you're trying to conceive, consider these strategies:</p>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                Have intercourse every 1-2 days during your fertile window
-              </li>
-              <li class="list-group-item">
-                Maintain a healthy weight (BMI between 18.5-24.9)
-              </li>
-              <li class="list-group-item">
-                Take a prenatal vitamin with folic acid
-              </li>
-              <li class="list-group-item">
-                Limit alcohol and caffeine consumption
-              </li>
-              <li class="list-group-item">
-                Quit smoking and avoid secondhand smoke
-              </li>
-              <li class="list-group-item">
-                Reduce stress through mindfulness, yoga, or other relaxation
-                techniques
-              </li>
+              <li class="list-group-item">Have intercourse every 1-2 days during your fertile window</li>
+              <li class="list-group-item">Maintain a healthy weight (BMI between 18.5-24.9)</li>
+              <li class="list-group-item">Take a prenatal vitamin with folic acid</li>
+              <li class="list-group-item">Limit alcohol and caffeine consumption</li>
+              <li class="list-group-item">Quit smoking and avoid secondhand smoke</li>
+              <li class="list-group-item">Reduce stress through mindfulness, yoga, or other relaxation techniques</li>
               <li class="list-group-item">Get regular, moderate exercise</li>
               <li class="list-group-item">Eat a balanced, nutritious diet</li>
             </ul>
           </div>
         </div>
-
+        
         <div class="info-card mt-4">
           <div class="info-card-content">
             <h4>When to Seek Help</h4>
             <p>Consider consulting a fertility specialist if:</p>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                You're under 35 and have been trying to conceive for one year
-              </li>
-              <li class="list-group-item">
-                You're 35-40 and have been trying for six months
-              </li>
-              <li class="list-group-item">
-                You're over 40 and have been trying for three months
-              </li>
-              <li class="list-group-item">
-                You have irregular or absent periods
-              </li>
-              <li class="list-group-item">
-                You have known fertility issues or conditions like PCOS or
-                endometriosis
-              </li>
+              <li class="list-group-item">You're under 35 and have been trying to conceive for one year</li>
+              <li class="list-group-item">You're 35-40 and have been trying for six months</li>
+              <li class="list-group-item">You're over 40 and have been trying for three months</li>
+              <li class="list-group-item">You have irregular or absent periods</li>
+              <li class="list-group-item">You have known fertility issues or conditions like PCOS or endometriosis</li>
               <li class="list-group-item">You've had multiple miscarriages</li>
-              <li class="list-group-item">
-                You or your partner have a history of STIs or reproductive
-                health issues
-              </li>
+              <li class="list-group-item">You or your partner have a history of STIs or reproductive health issues</li>
             </ul>
           </div>
         </div>
@@ -327,102 +192,50 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
   </div>
 </div>
 
-<div class="section" style="background-color: var(--light-color)">
+<div class="section" style="background-color: var(--light-color);">
   <div class="container">
     <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-
+    
     <div class="accordion" id="faqAccordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             How accurate are fertility tracking methods?
           </button>
         </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingOne"
-          data-bs-parent="#faqAccordion"
-        >
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
             <p>Accuracy varies by method:</p>
             <ul>
-              <li>
-                <strong>Calendar method:</strong> Around 80% accurate when used
-                perfectly
-              </li>
-              <li>
-                <strong>BBT + Cervical mucus:</strong> About 80-90% accurate
-                when used consistently and correctly
-              </li>
-              <li>
-                <strong>OPKs:</strong> About 99% accurate in detecting the LH
-                surge, but this doesn't guarantee ovulation will occur
-              </li>
+              <li><strong>Calendar method:</strong> Around 80% accurate when used perfectly</li>
+              <li><strong>BBT + Cervical mucus:</strong> About 80-90% accurate when used consistently and correctly</li>
+              <li><strong>OPKs:</strong> About 99% accurate in detecting the LH surge, but this doesn't guarantee ovulation will occur</li>
             </ul>
-            <p>
-              For best results, use multiple tracking methods together. However,
-              none are 100% accurate for either achieving or avoiding pregnancy.
-            </p>
+            <p>For best results, use multiple tracking methods together. However, none are 100% accurate for either achieving or avoiding pregnancy.</p>
           </div>
         </div>
       </div>
-
+      
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingTwo">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseTwo"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Can I get pregnant outside my fertile window?
           </button>
         </h2>
-        <div
-          id="collapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingTwo"
-          data-bs-parent="#faqAccordion"
-        >
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            While it's much less likely, it's still possible to get pregnant
-            outside your fertile window. Sperm can survive in the female
-            reproductive tract for up to 5 days, and the timing of ovulation can
-            sometimes be unpredictable. This is why fertility awareness methods
-            aren't 100% effective for preventing pregnancy.
+            While it's much less likely, it's still possible to get pregnant outside your fertile window. Sperm can survive in the female reproductive tract for up to 5 days, and the timing of ovulation can sometimes be unpredictable. This is why fertility awareness methods aren't 100% effective for preventing pregnancy.
           </div>
         </div>
       </div>
-
+      
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             What can cause irregular ovulation?
           </button>
         </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqAccordion"
-        >
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
             Several factors can cause irregular ovulation, including:
             <ul>
@@ -436,55 +249,27 @@ Health & Wellness" %> <%/* Extra CSS Block */%>
               <li>Recent hormonal birth control use</li>
               <li>Breastfeeding</li>
             </ul>
-            If you're experiencing irregular cycles, it's worth discussing with
-            your healthcare provider.
+            If you're experiencing irregular cycles, it's worth discussing with your healthcare provider.
           </div>
         </div>
       </div>
-
+      
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingFour">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseFour"
-            aria-expanded="false"
-            aria-controls="collapseFour"
-          >
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             How soon after stopping hormonal birth control will I ovulate?
           </button>
         </h2>
-        <div
-          id="collapseFour"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingFour"
-          data-bs-parent="#faqAccordion"
-        >
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
           <div class="accordion-body">
-            This varies by individual and by the type of hormonal birth control
-            used:
+            This varies by individual and by the type of hormonal birth control used:
             <ul>
-              <li>
-                <strong>Pill, patch, ring:</strong> Ovulation can return as soon
-                as 2 weeks after stopping
-              </li>
-              <li>
-                <strong>Hormonal IUD:</strong> Ovulation may return within a
-                month of removal
-              </li>
-              <li>
-                <strong>Depo-Provera shot:</strong> Can take 3-18 months for
-                fertility to return
-              </li>
-              <li>
-                <strong>Implant:</strong> Fertility typically returns within a
-                month of removal
-              </li>
+              <li><strong>Pill, patch, ring:</strong> Ovulation can return as soon as 2 weeks after stopping</li>
+              <li><strong>Hormonal IUD:</strong> Ovulation may return within a month of removal</li>
+              <li><strong>Depo-Provera shot:</strong> Can take 3-18 months for fertility to return</li>
+              <li><strong>Implant:</strong> Fertility typically returns within a month of removal</li>
             </ul>
-            Some women experience a temporary period of irregular cycles after
-            stopping hormonal birth control before their natural pattern
-            establishes.
+            Some women experience a temporary period of irregular cycles after stopping hormonal birth control before their natural pattern establishes.
           </div>
         </div>
       </div>
