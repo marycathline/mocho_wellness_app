@@ -1,104 +1,209 @@
-{% extends "layout.html" %}
+<%- include('layout') %> <% title = "Menopause Tracker | Women's Health Hub" %>
 
-{% block title %}Menopause Tracker | Women's Health Hub{% endblock %}
-
-{% block content %}
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
       <h1 class="mb-4">Menopause Tracker</h1>
-      <p class="lead mb-4">Track your menopause journey, monitor symptoms, and find strategies to manage this natural life transition with confidence and comfort.</p>
-      
+      <p class="lead mb-4">
+        Track your menopause journey, monitor symptoms, and find strategies to
+        manage this natural life transition with confidence and comfort.
+      </p>
+
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Symptom Tracking Calendar</h5>
           <div id="menopause-symptom-calendar" class="calendar-container"></div>
-          
+
           <!-- Modal for adding symptoms -->
-          <div class="modal fade" id="symptom-modal" tabindex="-1" aria-labelledby="symptomModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="symptom-modal"
+            tabindex="-1"
+            aria-labelledby="symptomModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="symptomModalLabel">Log Symptoms for <span id="symptom-date"></span></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="symptomModalLabel">
+                    Log Symptoms for <span id="symptom-date"></span>
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form>
-                    <input type="hidden" id="symptom-date-input" name="date">
-                    
+                    <input type="hidden" id="symptom-date-input" name="date" />
                     <div class="mb-3">
-                      <label for="hotFlashCount" class="form-label">Hot Flashes (number in 24 hours)</label>
-                      <input type="number" class="form-control" id="hotFlashCount" name="hotFlashCount" min="0">
+                      <label for="hotFlashCount" class="form-label"
+                        >Hot Flashes (number in 24 hours)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="hotFlashCount"
+                        name="hotFlashCount"
+                        min="0"
+                      />
                     </div>
-                    
                     <div class="mb-3">
-                      <label for="moodRating" class="form-label">Mood Rating (1-10)</label>
-                      <input type="range" class="form-range" min="1" max="10" id="moodRating" name="moodRating">
+                      <label for="moodRating" class="form-label"
+                        >Mood Rating (1-10)</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        min="1"
+                        max="10"
+                        id="moodRating"
+                        name="moodRating"
+                      />
                       <div class="d-flex justify-content-between">
                         <small>Poor (1)</small>
                         <small>Average (5)</small>
                         <small>Excellent (10)</small>
                       </div>
                     </div>
-                    
                     <div class="mb-3">
-                      <label for="sleepQuality" class="form-label">Sleep Quality (1-10)</label>
-                      <input type="range" class="form-range" min="1" max="10" id="sleepQuality" name="sleepQuality">
+                      <label for="sleepQuality" class="form-label"
+                        >Sleep Quality (1-10)</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        min="1"
+                        max="10"
+                        id="sleepQuality"
+                        name="sleepQuality"
+                      />
                       <div class="d-flex justify-content-between">
                         <small>Poor (1)</small>
                         <small>Average (5)</small>
                         <small>Excellent (10)</small>
                       </div>
                     </div>
-                    
                     <div class="mb-3">
                       <label class="form-label">Other Symptoms</label>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="nightSweats" name="symptoms[]" value="nightSweats">
-                            <label class="form-check-label" for="nightSweats">Night Sweats</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="nightSweats"
+                              name="symptoms[]"
+                              value="nightSweats"
+                            />
+                            <label class="form-check-label" for="nightSweats"
+                              >Night Sweats</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="vaginalDryness" name="symptoms[]" value="vaginalDryness">
-                            <label class="form-check-label" for="vaginalDryness">Vaginal Dryness</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="vaginalDryness"
+                              name="symptoms[]"
+                              value="vaginalDryness"
+                            />
+                            <label class="form-check-label" for="vaginalDryness"
+                              >Vaginal Dryness</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="jointPain" name="symptoms[]" value="jointPain">
-                            <label class="form-check-label" for="jointPain">Joint Pain</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="jointPain"
+                              name="symptoms[]"
+                              value="jointPain"
+                            />
+                            <label class="form-check-label" for="jointPain"
+                              >Joint Pain</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="brainFog" name="symptoms[]" value="brainFog">
-                            <label class="form-check-label" for="brainFog">Brain Fog</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="brainFog"
+                              name="symptoms[]"
+                              value="brainFog"
+                            />
+                            <label class="form-check-label" for="brainFog"
+                              >Brain Fog</label
+                            >
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="headaches" name="symptoms[]" value="headaches">
-                            <label class="form-check-label" for="headaches">Headaches</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="headaches"
+                              name="symptoms[]"
+                              value="headaches"
+                            />
+                            <label class="form-check-label" for="headaches"
+                              >Headaches</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="weightGain" name="symptoms[]" value="weightGain">
-                            <label class="form-check-label" for="weightGain">Weight Changes</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="weightGain"
+                              name="symptoms[]"
+                              value="weightGain"
+                            />
+                            <label class="form-check-label" for="weightGain"
+                              >Weight Changes</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="anxiety" name="symptoms[]" value="anxiety">
-                            <label class="form-check-label" for="anxiety">Anxiety</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="anxiety"
+                              name="symptoms[]"
+                              value="anxiety"
+                            />
+                            <label class="form-check-label" for="anxiety"
+                              >Anxiety</label
+                            >
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="periodChanges" name="symptoms[]" value="periodChanges">
-                            <label class="form-check-label" for="periodChanges">Period Changes</label>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="periodChanges"
+                              name="symptoms[]"
+                              value="periodChanges"
+                            />
+                            <label class="form-check-label" for="periodChanges"
+                              >Period Changes</label
+                            >
                           </div>
                         </div>
                       </div>
                     </div>
-                    
                     <div class="mb-3">
                       <label for="symptomNotes" class="form-label">Notes</label>
-                      <textarea class="form-control" id="symptomNotes" name="notes" rows="3" placeholder="Add any additional notes about your symptoms or well-being today..."></textarea>
+                      <textarea
+                        class="form-control"
+                        id="symptomNotes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Add any additional notes about your symptoms or well-being today..."
+                      ></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary w-100">Save Symptoms</button>
+                    <button type="submit" class="btn btn-primary w-100">
+                      Save Symptoms
+                    </button>
                   </form>
                 </div>
               </div>
@@ -106,25 +211,36 @@
           </div>
         </div>
       </div>
-      
+
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Log Period Changes</h5>
-          <p>During perimenopause, tracking your menstrual cycle changes can help you understand where you are in your transition.</p>
-          
+          <p>
+            During perimenopause, tracking your menstrual cycle changes can help
+            you understand where you are in your transition.
+          </p>
           <form class="row g-3">
             <div class="col-md-6">
-              <label for="periodDate" class="form-label">Period Start Date</label>
-              <input type="date" class="form-control" id="periodDate">
+              <label for="periodDate" class="form-label"
+                >Period Start Date</label
+              >
+              <input type="date" class="form-control" id="periodDate" />
             </div>
-            
             <div class="col-md-6">
-              <label for="periodDuration" class="form-label">Duration (days)</label>
-              <input type="number" class="form-control" id="periodDuration" min="1">
+              <label for="periodDuration" class="form-label"
+                >Duration (days)</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="periodDuration"
+                min="1"
+              />
             </div>
-            
             <div class="col-md-6">
-              <label for="flowIntensity" class="form-label">Flow Intensity</label>
+              <label for="flowIntensity" class="form-label"
+                >Flow Intensity</label
+              >
               <select class="form-select" id="flowIntensity">
                 <option selected disabled value="">Choose...</option>
                 <option value="spotting">Spotting</option>
@@ -134,38 +250,66 @@
                 <option value="veryHeavy">Very Heavy</option>
               </select>
             </div>
-            
             <div class="col-md-6">
-              <label for="cycleLength" class="form-label">Days Since Last Period</label>
-              <input type="number" class="form-control" id="cycleLength" min="1">
+              <label for="cycleLength" class="form-label"
+                >Days Since Last Period</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="cycleLength"
+                min="1"
+              />
             </div>
-            
             <div class="col-12">
-              <label for="periodNotes" class="form-label">Notes about Changes</label>
-              <textarea class="form-control" id="periodNotes" rows="2" placeholder="Note any changes from your typical cycle..."></textarea>
+              <label for="periodNotes" class="form-label"
+                >Notes about Changes</label
+              >
+              <textarea
+                class="form-control"
+                id="periodNotes"
+                rows="2"
+                placeholder="Note any changes from your typical cycle..."
+              ></textarea>
             </div>
-            
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Save Period Data</button>
+              <button type="submit" class="btn btn-primary">
+                Save Period Data
+              </button>
             </div>
           </form>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Understanding Menopause Stages</h5>
-          
           <div class="accordion" id="menopauseAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPerimenopause">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerimenopause" aria-expanded="true" aria-controls="collapsePerimenopause">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapsePerimenopause"
+                  aria-expanded="true"
+                  aria-controls="collapsePerimenopause"
+                >
                   Perimenopause
                 </button>
               </h2>
-              <div id="collapsePerimenopause" class="accordion-collapse collapse show" aria-labelledby="headingPerimenopause" data-bs-parent="#menopauseAccordion">
+              <div
+                id="collapsePerimenopause"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingPerimenopause"
+                data-bs-parent="#menopauseAccordion"
+              >
                 <div class="accordion-body">
-                  <p>The transition period before menopause that can last 2-10 years. During this time, your body begins producing less estrogen.</p>
+                  <p>
+                    The transition period before menopause that can last 2-10
+                    years. During this time, your body begins producing less
+                    estrogen.
+                  </p>
                   <h6>Common signs:</h6>
                   <ul>
                     <li>Irregular periods (longer or shorter cycles)</li>
@@ -175,69 +319,135 @@
                     <li>Mood changes</li>
                     <li>Vaginal dryness</li>
                   </ul>
-                  <p>Typically begins in your 40s, but can start in your 30s or earlier.</p>
+                  <p>
+                    Typically begins in your 40s, but can start in your 30s or
+                    earlier.
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingMenopause">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenopause" aria-expanded="false" aria-controls="collapseMenopause">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseMenopause"
+                  aria-expanded="false"
+                  aria-controls="collapseMenopause"
+                >
                   Menopause
                 </button>
               </h2>
-              <div id="collapseMenopause" class="accordion-collapse collapse" aria-labelledby="headingMenopause" data-bs-parent="#menopauseAccordion">
+              <div
+                id="collapseMenopause"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingMenopause"
+                data-bs-parent="#menopauseAccordion"
+              >
                 <div class="accordion-body">
-                  <p>Menopause is officially diagnosed when you've gone 12 consecutive months without a menstrual period. The average age is 51, but it can occur normally between ages 45-55.</p>
+                  <p>
+                    Menopause is officially diagnosed when you've gone 12
+                    consecutive months without a menstrual period. The average
+                    age is 51, but it can occur normally between ages 45-55.
+                  </p>
                   <h6>What's happening:</h6>
                   <ul>
                     <li>Ovaries stop releasing eggs</li>
-                    <li>Estrogen and progesterone production declines significantly</li>
+                    <li>
+                      Estrogen and progesterone production declines
+                      significantly
+                    </li>
                     <li>Reproductive years end</li>
                   </ul>
-                  <p>Symptoms may continue or change during this time, with hot flashes often peaking around this transition.</p>
+                  <p>
+                    Symptoms may continue or change during this time, with hot
+                    flashes often peaking around this transition.
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPostmenopause">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostmenopause" aria-expanded="false" aria-controls="collapsePostmenopause">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapsePostmenopause"
+                  aria-expanded="false"
+                  aria-controls="collapsePostmenopause"
+                >
                   Postmenopause
                 </button>
               </h2>
-              <div id="collapsePostmenopause" class="accordion-collapse collapse" aria-labelledby="headingPostmenopause" data-bs-parent="#menopauseAccordion">
+              <div
+                id="collapsePostmenopause"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingPostmenopause"
+                data-bs-parent="#menopauseAccordion"
+              >
                 <div class="accordion-body">
-                  <p>The years after menopause for the rest of your life. During this stage, menopausal symptoms often ease for many women.</p>
+                  <p>
+                    The years after menopause for the rest of your life. During
+                    this stage, menopausal symptoms often ease for many women.
+                  </p>
                   <h6>Health considerations:</h6>
                   <ul>
                     <li>Increased risk for osteoporosis</li>
                     <li>Changes in cholesterol and cardiovascular risk</li>
                     <li>Continued vaginal and urinary tract changes</li>
                   </ul>
-                  <p>Regular health screenings and lifestyle adjustments become particularly important during this stage to maintain overall health.</p>
+                  <p>
+                    Regular health screenings and lifestyle adjustments become
+                    particularly important during this stage to maintain overall
+                    health.
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingEarlyMenopause">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEarlyMenopause" aria-expanded="false" aria-controls="collapseEarlyMenopause">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseEarlyMenopause"
+                  aria-expanded="false"
+                  aria-controls="collapseEarlyMenopause"
+                >
                   Premature/Early Menopause
                 </button>
               </h2>
-              <div id="collapseEarlyMenopause" class="accordion-collapse collapse" aria-labelledby="headingEarlyMenopause" data-bs-parent="#menopauseAccordion">
+              <div
+                id="collapseEarlyMenopause"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingEarlyMenopause"
+                data-bs-parent="#menopauseAccordion"
+              >
                 <div class="accordion-body">
-                  <p>Menopause that occurs before age 40 is considered premature, while menopause between 40-45 is considered early.</p>
+                  <p>
+                    Menopause that occurs before age 40 is considered premature,
+                    while menopause between 40-45 is considered early.
+                  </p>
                   <h6>Possible causes:</h6>
                   <ul>
                     <li>Genetics/family history</li>
                     <li>Autoimmune disorders</li>
                     <li>Smoking</li>
                     <li>Cancer treatments (chemotherapy/radiation)</li>
-                    <li>Hysterectomy with oophorectomy (surgical removal of uterus and ovaries)</li>
+                    <li>
+                      Hysterectomy with oophorectomy (surgical removal of uterus
+                      and ovaries)
+                    </li>
                   </ul>
-                  <p>If you experience menopausal symptoms at an early age, it's important to consult with your healthcare provider for appropriate management.</p>
+                  <p>
+                    If you experience menopausal symptoms at an early age, it's
+                    important to consult with your healthcare provider for
+                    appropriate management.
+                  </p>
                 </div>
               </div>
             </div>
@@ -245,7 +455,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-lg-4 mt-4 mt-lg-0">
       <div class="card mb-4">
         <div class="card-body">
@@ -268,73 +478,208 @@
               <span class="badge bg-primary">Sleep Issues (65%)</span>
               <span class="badge bg-primary">Mood Changes (55%)</span>
             </div>
-            
             <p class="text-muted mb-2">Symptom Intensity Trend</p>
-            <div class="progress mb-2" style="height: 20px;">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Low</div>
-              <div class="progress-bar bg-warning" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">Moderate</div>
-              <div class="progress-bar bg-danger" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Severe</div>
+            <div class="progress mb-2" style="height: 20px">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 35%"
+                aria-valuenow="35"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                Low
+              </div>
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: 45%"
+                aria-valuenow="45"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                Moderate
+              </div>
+              <div
+                class="progress-bar bg-danger"
+                role="progressbar"
+                style="width: 20%"
+                aria-valuenow="20"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                Severe
+              </div>
             </div>
-            <small class="text-muted">Last 30 days symptom intensity distribution</small>
+            <small class="text-muted"
+              >Last 30 days symptom intensity distribution</small
+            >
           </div>
         </div>
       </div>
-      
+
       <div class="card mb-4">
-        <img src="https://pixabay.com/get/g4f95eeaf9723770d684f860c4d333a42c806873cd68606b9f1e2bb22320b310d8ee331d3827402c1180cca428bc696856f836392242c0bdb8a8b4207440c77b8_1280.jpg" class="card-img-top" alt="Woman managing menopause">
+        <img
+          src="https://pixabay.com/get/g4f95eeaf9723770d684f860c4d333a42c806873cd68606b9f1e2bb22320b310d8ee331d3827402c1180cca428bc696856f836392242c0bdb8a8b4207440c77b8_1280.jpg"
+          class="card-img-top"
+          alt="Woman managing menopause"
+        />
         <div class="card-body">
           <h5 class="card-title">Menopause Management Strategies</h5>
           <ul class="nav nav-tabs" id="managementTabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="lifestyle-tab" data-bs-toggle="tab" data-bs-target="#lifestyle" type="button" role="tab" aria-controls="lifestyle" aria-selected="true">Lifestyle</button>
+              <button
+                class="nav-link active"
+                id="lifestyle-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#lifestyle"
+                type="button"
+                role="tab"
+                aria-controls="lifestyle"
+                aria-selected="true"
+              >
+                Lifestyle
+              </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="natural-tab" data-bs-toggle="tab" data-bs-target="#natural" type="button" role="tab" aria-controls="natural" aria-selected="false">Natural</button>
+              <button
+                class="nav-link"
+                id="natural-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#natural"
+                type="button"
+                role="tab"
+                aria-controls="natural"
+                aria-selected="false"
+              >
+                Natural
+              </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="medical-tab" data-bs-toggle="tab" data-bs-target="#medical" type="button" role="tab" aria-controls="medical" aria-selected="false">Medical</button>
+              <button
+                class="nav-link"
+                id="medical-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#medical"
+                type="button"
+                role="tab"
+                aria-controls="medical"
+                aria-selected="false"
+              >
+                Medical
+              </button>
             </li>
           </ul>
-          
           <div class="tab-content mt-3" id="managementTabContent">
-            <div class="tab-pane fade show active" id="lifestyle" role="tabpanel" aria-labelledby="lifestyle-tab">
+            <div
+              class="tab-pane fade show active"
+              id="lifestyle"
+              role="tabpanel"
+              aria-labelledby="lifestyle-tab"
+            >
               <ul>
-                <li><strong>Exercise regularly:</strong> 30 minutes of moderate activity most days</li>
-                <li><strong>Maintain healthy weight:</strong> Helps with symptom management</li>
-                <li><strong>Layer clothing:</strong> Dress in layers to manage hot flashes</li>
-                <li><strong>Identify triggers:</strong> Note what worsens hot flashes (spicy foods, alcohol, caffeine)</li>
-                <li><strong>Stress management:</strong> Practice yoga, meditation, or deep breathing</li>
-                <li><strong>Improve sleep hygiene:</strong> Consistent schedule, cool bedroom</li>
+                <li>
+                  <strong>Exercise regularly:</strong> 30 minutes of moderate
+                  activity most days
+                </li>
+                <li>
+                  <strong>Maintain healthy weight:</strong> Helps with symptom
+                  management
+                </li>
+                <li>
+                  <strong>Layer clothing:</strong> Dress in layers to manage hot
+                  flashes
+                </li>
+                <li>
+                  <strong>Identify triggers:</strong> Note what worsens hot
+                  flashes (spicy foods, alcohol, caffeine)
+                </li>
+                <li>
+                  <strong>Stress management:</strong> Practice yoga, meditation,
+                  or deep breathing
+                </li>
+                <li>
+                  <strong>Improve sleep hygiene:</strong> Consistent schedule,
+                  cool bedroom
+                </li>
               </ul>
             </div>
-            <div class="tab-pane fade" id="natural" role="tabpanel" aria-labelledby="natural-tab">
+            <div
+              class="tab-pane fade"
+              id="natural"
+              role="tabpanel"
+              aria-labelledby="natural-tab"
+            >
               <ul>
-                <li><strong>Phytoestrogens:</strong> Found in soy, flaxseeds (consult doctor first)</li>
-                <li><strong>Black cohosh:</strong> May help with hot flashes and night sweats</li>
-                <li><strong>Vitamin E:</strong> Possible relief for mild hot flashes</li>
-                <li><strong>Evening primrose oil:</strong> May help with breast tenderness</li>
-                <li><strong>Mind-body practices:</strong> Acupuncture, mindfulness meditation</li>
+                <li>
+                  <strong>Phytoestrogens:</strong> Found in soy, flaxseeds
+                  (consult doctor first)
+                </li>
+                <li>
+                  <strong>Black cohosh:</strong> May help with hot flashes and
+                  night sweats
+                </li>
+                <li>
+                  <strong>Vitamin E:</strong> Possible relief for mild hot
+                  flashes
+                </li>
+                <li>
+                  <strong>Evening primrose oil:</strong> May help with breast
+                  tenderness
+                </li>
+                <li>
+                  <strong>Mind-body practices:</strong> Acupuncture, mindfulness
+                  meditation
+                </li>
               </ul>
               <div class="alert alert-info mt-2">
-                <small><strong>Note:</strong> Always discuss supplements with your healthcare provider before starting them, as they may interact with medications or have contraindications.</small>
+                <small
+                  ><strong>Note:</strong> Always discuss supplements with your
+                  healthcare provider before starting them, as they may interact
+                  with medications or have contraindications.</small
+                >
               </div>
             </div>
-            <div class="tab-pane fade" id="medical" role="tabpanel" aria-labelledby="medical-tab">
+            <div
+              class="tab-pane fade"
+              id="medical"
+              role="tabpanel"
+              aria-labelledby="medical-tab"
+            >
               <ul>
-                <li><strong>Hormone therapy (HT):</strong> Most effective for hot flashes and night sweats</li>
-                <li><strong>Low-dose antidepressants:</strong> Can reduce hot flashes for some women</li>
-                <li><strong>Gabapentin/Pregabalin:</strong> May help with hot flashes and sleep</li>
-                <li><strong>Vaginal estrogen:</strong> For vaginal dryness and certain urinary symptoms</li>
-                <li><strong>Osteoporosis medications:</strong> To prevent or treat bone loss</li>
+                <li>
+                  <strong>Hormone therapy (HT):</strong> Most effective for hot
+                  flashes and night sweats
+                </li>
+                <li>
+                  <strong>Low-dose antidepressants:</strong> Can reduce hot
+                  flashes for some women
+                </li>
+                <li>
+                  <strong>Gabapentin/Pregabalin:</strong> May help with hot
+                  flashes and sleep
+                </li>
+                <li>
+                  <strong>Vaginal estrogen:</strong> For vaginal dryness and
+                  certain urinary symptoms
+                </li>
+                <li>
+                  <strong>Osteoporosis medications:</strong> To prevent or treat
+                  bone loss
+                </li>
               </ul>
               <div class="alert alert-warning mt-2">
-                <small><strong>Note:</strong> Medical treatments have different risks and benefits for each person. Discuss your specific health history and needs with your doctor.</small>
+                <small
+                  ><strong>Note:</strong> Medical treatments have different
+                  risks and benefits for each person. Discuss your specific
+                  health history and needs with your doctor.</small
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">When to See Your Healthcare Provider</h5>
@@ -345,37 +690,53 @@
               <li>You're experiencing menopause symptoms before age 45</li>
               <li>You have concerns about irregular bleeding</li>
               <li>You're interested in discussing treatment options</li>
-              <li>You have questions about long-term health effects of menopause</li>
+              <li>
+                You have questions about long-term health effects of menopause
+              </li>
             </ul>
           </div>
           <div class="alert alert-danger" role="alert">
-            <p class="mb-2"><strong>Seek immediate medical attention if you experience:</strong></p>
+            <p class="mb-2">
+              <strong
+                >Seek immediate medical attention if you experience:</strong
+              >
+            </p>
             <ul class="mb-0">
-              <li>Extremely heavy bleeding (soaking through a pad/tampon every hour)</li>
+              <li>
+                Extremely heavy bleeding (soaking through a pad/tampon every
+                hour)
+              </li>
               <li>Bleeding between periods or after menopause</li>
               <li>Severe mood changes that affect your daily functioning</li>
-              <li>Symptoms of heart problems (chest pain, shortness of breath)</li>
+              <li>
+                Symptoms of heart problems (chest pain, shortness of breath)
+              </li>
             </ul>
           </div>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Related Resources</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="{{ url_for('gynecological_issues') }}">Common Gynecological Issues</a></li>
-            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition During Menopause</a></li>
-            <li class="list-group-item"><a href="{{ url_for('fitness') }}">Exercise for Menopausal Women</a></li>
-            <li class="list-group-item"><a href="{{ url_for('mental_health') }}">Managing Mood Changes</a></li>
+            <li class="list-group-item">
+              <a href="/gynecological_issues">Common Gynecological Issues</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/nutrition">Nutrition During Menopause</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/fitness">Exercise for Menopausal Women</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/mental_health">Managing Mood Changes</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
- <%- body %>
+<script src="/static/js/calendar.js"></script>

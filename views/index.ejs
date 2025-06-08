@@ -1,8 +1,6 @@
-{% extends "layout.html" %}
+<%- include('layout') %>
+<% title = "Women's Health Hub - Comprehensive Health & Wellness" %>
 
-{% block title %}Women's Health Hub - Comprehensive Health & Wellness{% endblock %}
-
-{% block content %}
 <section class="hero-section mb-5">
   <div class="container py-5">
     <div class="row align-items-center">
@@ -10,8 +8,8 @@
         <h1 class="display-4 fw-bold mb-4">Your Complete Women's Health & Wellness Center</h1>
         <p class="lead mb-4">Empowering women with personalized tracking tools, expert educational resources, and holistic wellness guidance for every stage of life.</p>
         <div class="d-flex gap-3">
-          <a href="{{ url_for('menstrual_cycle') }}" class="btn btn-primary btn-lg">Start Tracking</a>
-          <a href="{{ url_for('sexual_reproductive_health') }}" class="btn btn-outline-secondary btn-lg">Learn More</a>
+          <a href="/tracking/menstrual-cycle" class="btn btn-primary btn-lg">Start Tracking</a>
+          <a href="/sexual-reproductive-health" class="btn btn-outline-secondary btn-lg">Learn More</a>
         </div>
       </div>
       <div class="col-lg-6 mt-5 mt-lg-0">
@@ -30,7 +28,7 @@
         <div class="card-body">
           <h5 class="card-title">Menstrual & Fertility Tracking</h5>
           <p class="card-text">Track your menstrual cycle, ovulation patterns, and fertility windows with our comprehensive calendar tools.</p>
-          <a href="{{ url_for('menstrual_cycle') }}" class="btn btn-primary">Track Cycle</a>
+          <a href="/tracking/menstrual-cycle" class="btn btn-primary">Track Cycle</a>
         </div>
       </div>
     </div>
@@ -40,7 +38,7 @@
         <div class="card-body">
           <h5 class="card-title">Pregnancy Milestones</h5>
           <p class="card-text">Follow your pregnancy journey with week-by-week tracking, appointment reminders, and milestone celebrations.</p>
-          <a href="{{ url_for('pregnancy_milestones') }}" class="btn btn-primary">Track Pregnancy</a>
+          <a href="/tracking/pregnancy-milestones" class="btn btn-primary">Track Pregnancy</a>
         </div>
       </div>
     </div>
@@ -50,7 +48,7 @@
         <div class="card-body">
           <h5 class="card-title">Menopause Management</h5>
           <p class="card-text">Monitor menopause symptoms, track changes, and discover effective management strategies for this life transition.</p>
-          <a href="{{ url_for('menopause_tracker') }}" class="btn btn-primary">Track Menopause</a>
+          <a href="/tracking/menopause" class="btn btn-primary">Track Menopause</a>
         </div>
       </div>
     </div>
@@ -69,7 +67,7 @@
             </div>
             <h5 class="card-title">Sexual & Reproductive Health</h5>
             <p class="card-text">Comprehensive information about reproductive anatomy, hormonal health, and sexual wellbeing.</p>
-            <a href="{{ url_for('sexual_reproductive_health') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/sexual-reproductive-health" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -81,7 +79,7 @@
             </div>
             <h5 class="card-title">Family Planning</h5>
             <p class="card-text">Evidence-based information about contraception options, fertility awareness, and pregnancy planning.</p>
-            <a href="{{ url_for('family_planning') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/family-planning" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -93,7 +91,7 @@
             </div>
             <h5 class="card-title">Gynecological Health</h5>
             <p class="card-text">Understanding common gynecological conditions, preventative care, and treatment options.</p>
-            <a href="{{ url_for('gynecological_issues') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/gynecological-issues" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -105,7 +103,7 @@
             </div>
             <h5 class="card-title">Pre & Postnatal Care</h5>
             <p class="card-text">Guidance for healthy pregnancy, labor preparation, and postpartum recovery.</p>
-            <a href="{{ url_for('antenatal_postnatal') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/antenatal-postnatal" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -117,7 +115,7 @@
             </div>
             <h5 class="card-title">Vaccination & Immunization</h5>
             <p class="card-text">Essential vaccines for women's health at different life stages, including HPV and travel vaccines.</p>
-            <a href="{{ url_for('vaccination') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/vaccination" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -129,7 +127,7 @@
             </div>
             <h5 class="card-title">Cancer Awareness</h5>
             <p class="card-text">Information about breast and cervical cancer screening, risk factors, and early detection.</p>
-            <a href="{{ url_for('cancer_awareness') }}" class="btn btn-outline-primary">Learn More</a>
+            <a href="/awareness/cancer" class="btn btn-outline-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -150,7 +148,7 @@
             <div class="card-body">
               <h5 class="card-title">Nutrition & Diet</h5>
               <p class="card-text">Nutritional guidance tailored for women's unique needs at different life stages, from adolescence through menopause.</p>
-              <a href="{{ url_for('nutrition') }}" class="btn btn-outline-primary">Explore Nutrition</a>
+              <a href="/nutrition" class="btn btn-outline-primary">Explore Nutrition</a>
             </div>
           </div>
         </div>
@@ -166,7 +164,7 @@
             <div class="card-body">
               <h5 class="card-title">Physical Fitness</h5>
               <p class="card-text">Exercise recommendations and workout plans designed specifically for women's bodies and health goals.</p>
-              <a href="{{ url_for('fitness') }}" class="btn btn-outline-primary">Explore Fitness</a>
+              <a href="/fitness" class="btn btn-outline-primary">Explore Fitness</a>
             </div>
           </div>
         </div>
@@ -182,7 +180,7 @@
             <div class="card-body">
               <h5 class="card-title">Mental Health</h5>
               <p class="card-text">Resources for emotional wellbeing, stress management, and mental health support specific to women's experiences.</p>
-              <a href="{{ url_for('mental_health') }}" class="btn btn-outline-primary">Explore Mental Health</a>
+              <a href="/mental-health" class="btn btn-outline-primary">Explore Mental Health</a>
             </div>
           </div>
         </div>
@@ -198,7 +196,7 @@
             <div class="card-body">
               <h5 class="card-title">Healthy Habits</h5>
               <p class="card-text">Daily practices and lifestyle changes that support long-term health, preventative care, and wellness.</p>
-              <a href="{{ url_for('healthy_habits') }}" class="btn btn-outline-primary">Explore Healthy Habits</a>
+              <a href="/healthy-habits" class="btn btn-outline-primary">Explore Healthy Habits</a>
             </div>
           </div>
         </div>
@@ -230,4 +228,3 @@
     </div>
   </div>
 </section>
- <%- body %>

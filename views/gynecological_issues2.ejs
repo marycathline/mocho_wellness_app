@@ -1,8 +1,6 @@
-{% extends "layout.html" %}
+<%- include('layout') %>
+<% title = "Common Gynecological Issues | Women's Health Hub" %>
 
-{% block title %}Common Gynecological Issues | Women's Health Hub{% endblock %}
-
-{% block content %}
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
@@ -1241,15 +1239,15 @@
         <div class="card-body">
           <h5 class="card-title">Related Resources</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="{{ url_for('menstrual_cycle') }}">Menstrual Cycle Tracking</a></li>
-            <li class="list-group-item"><a href="{{ url_for('sexual_reproductive_health') }}">Sexual & Reproductive Health</a></li>
-            <li class="list-group-item"><a href="{{ url_for('menopause_tracker') }}">Menopause Tracker</a></li>
-            <li class="list-group-item"><a href="{{ url_for('cancer_awareness') }}">Cancer Awareness</a></li>
-            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition for Reproductive Health</a></li>
+            <li class="list-group-item"><a href="/tracking/menstrual-cycle">Menstrual Cycle Tracking</a></li>
+            <li class="list-group-item"><a href="/sexual-reproductive-health">Sexual & Reproductive Health</a></li>
+            <li class="list-group-item"><a href="/tracking/menopause">Menopause Tracker</a></li>
+            <li class="list-group-item"><a href="/awareness/cancer">Cancer Awareness</a></li>
+            <li class="list-group-item"><a href="/nutrition">Nutrition for Reproductive Health</a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
- <%- body %>
+

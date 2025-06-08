@@ -1,8 +1,5 @@
-{% extends "layout.html" %}
-
-{% block title %}Menstrual Cycle Tracker | Women's Health Hub{% endblock %}
-
-{% block extra_css %}
+<%- include('layout') %> 
+<% title = "Menstrual Cycle Tracker | Women's Health Hub" %>
 <style>
   .symptoms-list {
     display: flex;
@@ -10,7 +7,6 @@
     gap: 10px;
     margin-bottom: 20px;
   }
-  
   .symptom-item {
     padding: 8px 15px;
     background-color: #f0f0f0;
@@ -19,23 +15,19 @@
     cursor: pointer;
     transition: all 0.2s ease;
   }
-  
   .symptom-item:hover {
     background-color: #e0e0e0;
   }
-  
   .symptom-item.selected {
     background-color: var(--primary-color);
     color: white;
   }
-  
   .cycle-stats {
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
   }
-  
   .cycle-tip {
     background-color: rgba(142, 124, 195, 0.1);
     border-left: 4px solid var(--primary-color);
@@ -43,76 +35,172 @@
     margin-bottom: 20px;
   }
 </style>
-{% endblock %}
 
-{% block content %}
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
       <h1 class="mb-4">Menstrual Cycle Tracker</h1>
-      <p class="lead mb-4">Track your menstrual cycle to understand your body better, predict your next period, and identify patterns in your menstrual health.</p>
-      
+      <p class="lead mb-4">
+        Track your menstrual cycle to understand your body better, predict your
+        next period, and identify patterns in your menstrual health.
+      </p>
+
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Your Cycle Calendar</h5>
           <div id="menstrual-cycle-calendar" class="calendar-container"></div>
-          
+
           <!-- Modal for day details -->
-          <div class="modal fade" id="day-detail-modal" tabindex="-1" aria-labelledby="dayDetailModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="day-detail-modal"
+            tabindex="-1"
+            aria-labelledby="dayDetailModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="dayDetailModalLabel">Log for <span id="selected-date"></span></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="dayDetailModalLabel">
+                    Log for <span id="selected-date"></span>
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
-                  <form action="{{ url_for('save_cycle_data') }}" method="post">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                    <input type="hidden" id="day-date-input" name="date">
-                    
+                  <form>
+                    <input type="hidden" id="day-date-input" name="date" />
+
                     <div class="mb-3">
                       <label class="form-label">Period Flow</label>
                       <div class="btn-group w-100" role="group">
-                        <input type="radio" class="btn-check" name="flow_level" id="flow-none" value="none" checked>
-                        <label class="btn btn-outline-secondary" for="flow-none">None</label>
-                        
-                        <input type="radio" class="btn-check" name="flow_level" id="flow-spotting" value="spotting">
-                        <label class="btn btn-outline-secondary" for="flow-spotting">Spotting</label>
-                        
-                        <input type="radio" class="btn-check" name="flow_level" id="flow-light" value="light">
-                        <label class="btn btn-outline-secondary" for="flow-light">Light</label>
-                        
-                        <input type="radio" class="btn-check" name="flow_level" id="flow-medium" value="medium">
-                        <label class="btn btn-outline-secondary" for="flow-medium">Medium</label>
-                        
-                        <input type="radio" class="btn-check" name="flow_level" id="flow-heavy" value="heavy">
-                        <label class="btn btn-outline-secondary" for="flow-heavy">Heavy</label>
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="flow_level"
+                          id="flow-none"
+                          value="none"
+                          checked
+                        />
+                        <label class="btn btn-outline-secondary" for="flow-none"
+                          >None</label
+                        >
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="flow_level"
+                          id="flow-spotting"
+                          value="spotting"
+                        />
+                        <label
+                          class="btn btn-outline-secondary"
+                          for="flow-spotting"
+                          >Spotting</label
+                        >
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="flow_level"
+                          id="flow-light"
+                          value="light"
+                        />
+                        <label
+                          class="btn btn-outline-secondary"
+                          for="flow-light"
+                          >Light</label
+                        >
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="flow_level"
+                          id="flow-medium"
+                          value="medium"
+                        />
+                        <label
+                          class="btn btn-outline-secondary"
+                          for="flow-medium"
+                          >Medium</label
+                        >
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="flow_level"
+                          id="flow-heavy"
+                          value="heavy"
+                        />
+                        <label
+                          class="btn btn-outline-secondary"
+                          for="flow-heavy"
+                          >Heavy</label
+                        >
                       </div>
                     </div>
-                    
+
                     <div class="mb-3">
                       <label class="form-label">Physical Symptoms</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cramping" name="cramping">
-                        <label class="form-check-label" for="cramping">Cramping</label>
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="cramping"
+                          name="cramping"
+                        />
+                        <label class="form-check-label" for="cramping"
+                          >Cramping</label
+                        >
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="headache" name="headache">
-                        <label class="form-check-label" for="headache">Headache</label>
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="headache"
+                          name="headache"
+                        />
+                        <label class="form-check-label" for="headache"
+                          >Headache</label
+                        >
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="breast_tenderness" name="breast_tenderness">
-                        <label class="form-check-label" for="breast_tenderness">Breast Tenderness</label>
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="breast_tenderness"
+                          name="breast_tenderness"
+                        />
+                        <label class="form-check-label" for="breast_tenderness"
+                          >Breast Tenderness</label
+                        >
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="bloating" name="bloating">
-                        <label class="form-check-label" for="bloating">Bloating</label>
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="bloating"
+                          name="bloating"
+                        />
+                        <label class="form-check-label" for="bloating"
+                          >Bloating</label
+                        >
                       </div>
                     </div>
-                    
+
                     <div class="mb-3">
-                      <label for="pain_level" class="form-label">Pain Level (1-10)</label>
-                      <input type="range" class="form-range" min="0" max="10" step="1" id="pain_level" name="pain_level">
+                      <label for="pain_level" class="form-label"
+                        >Pain Level (1-10)</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        min="0"
+                        max="10"
+                        step="1"
+                        id="pain_level"
+                        name="pain_level"
+                      />
                       <div class="d-flex justify-content-between">
                         <small>None</small>
                         <small>Mild</small>
@@ -120,7 +208,7 @@
                         <small>Severe</small>
                       </div>
                     </div>
-                    
+
                     <div class="mb-3">
                       <label for="mood" class="form-label">Mood</label>
                       <select class="form-select" id="mood" name="mood">
@@ -134,33 +222,61 @@
                         <option value="neutral">Neutral</option>
                       </select>
                     </div>
-                    
+
                     <div class="mb-3">
-                      <label for="energy_level" class="form-label">Energy Level (1-10)</label>
-                      <input type="range" class="form-range" min="1" max="10" step="1" id="energy_level" name="energy_level">
+                      <label for="energy_level" class="form-label"
+                        >Energy Level (1-10)</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        min="1"
+                        max="10"
+                        step="1"
+                        id="energy_level"
+                        name="energy_level"
+                      />
                       <div class="d-flex justify-content-between">
                         <small>Low</small>
                         <small>Medium</small>
                         <small>High</small>
                       </div>
                     </div>
-                    
+
                     <div class="mb-3">
-                      <label for="stress_level" class="form-label">Stress Level (1-10)</label>
-                      <input type="range" class="form-range" min="1" max="10" step="1" id="stress_level" name="stress_level">
+                      <label for="stress_level" class="form-label"
+                        >Stress Level (1-10)</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        min="1"
+                        max="10"
+                        step="1"
+                        id="stress_level"
+                        name="stress_level"
+                      />
                       <div class="d-flex justify-content-between">
                         <small>Low</small>
                         <small>Medium</small>
                         <small>High</small>
                       </div>
                     </div>
-                    
+
                     <div class="mb-3">
                       <label for="notes" class="form-label">Notes</label>
-                      <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Add any additional notes about how you're feeling today..."></textarea>
+                      <textarea
+                        class="form-control"
+                        id="notes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Add any additional notes about how you're feeling today..."
+                      ></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary w-100">Save Data</button>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                      Save Data
+                    </button>
                   </form>
                 </div>
               </div>
@@ -168,66 +284,158 @@
           </div>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Understanding Your Cycle</h5>
           <p>The menstrual cycle is typically divided into four phases:</p>
-          
+
           <div class="accordion" id="cycleAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingMenstruation">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenstruation" aria-expanded="true" aria-controls="collapseMenstruation">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseMenstruation"
+                  aria-expanded="true"
+                  aria-controls="collapseMenstruation"
+                >
                   Menstruation (Days 1-5)
                 </button>
               </h2>
-              <div id="collapseMenstruation" class="accordion-collapse collapse show" aria-labelledby="headingMenstruation" data-bs-parent="#cycleAccordion">
+              <div
+                id="collapseMenstruation"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingMenstruation"
+                data-bs-parent="#cycleAccordion"
+              >
                 <div class="accordion-body">
-                  <p>This is when you have your period. The lining of your uterus sheds through the vagina if pregnancy doesn't occur. Bleeding typically lasts 3-7 days.</p>
-                  <p><strong>Common symptoms:</strong> Cramping, fatigue, headaches, lower back pain</p>
-                  <p><strong>Self-care tips:</strong> Use heat therapy for cramps, stay hydrated, gentle exercise like walking or yoga</p>
+                  <p>
+                    This is when you have your period. The lining of your uterus
+                    sheds through the vagina if pregnancy doesn't occur.
+                    Bleeding typically lasts 3-7 days.
+                  </p>
+                  <p>
+                    <strong>Common symptoms:</strong> Cramping, fatigue,
+                    headaches, lower back pain
+                  </p>
+                  <p>
+                    <strong>Self-care tips:</strong> Use heat therapy for
+                    cramps, stay hydrated, gentle exercise like walking or yoga
+                  </p>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFollicular">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFollicular" aria-expanded="false" aria-controls="collapseFollicular">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFollicular"
+                  aria-expanded="false"
+                  aria-controls="collapseFollicular"
+                >
                   Follicular Phase (Days 1-13)
                 </button>
               </h2>
-              <div id="collapseFollicular" class="accordion-collapse collapse" aria-labelledby="headingFollicular" data-bs-parent="#cycleAccordion">
+              <div
+                id="collapseFollicular"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFollicular"
+                data-bs-parent="#cycleAccordion"
+              >
                 <div class="accordion-body">
-                  <p>This phase overlaps with menstruation and continues until ovulation. Your body is preparing to release an egg. Estrogen levels rise, causing the uterine lining to thicken.</p>
-                  <p><strong>Common changes:</strong> Increased energy, improved mood, increased cervical fluid</p>
-                  <p><strong>What's happening:</strong> Follicle-stimulating hormone (FSH) stimulates your ovaries to produce follicles, one of which will release a mature egg.</p>
+                  <p>
+                    This phase overlaps with menstruation and continues until
+                    ovulation. Your body is preparing to release an egg.
+                    Estrogen levels rise, causing the uterine lining to thicken.
+                  </p>
+                  <p>
+                    <strong>Common changes:</strong> Increased energy, improved
+                    mood, increased cervical fluid
+                  </p>
+                  <p>
+                    <strong>What's happening:</strong> Follicle-stimulating
+                    hormone (FSH) stimulates your ovaries to produce follicles,
+                    one of which will release a mature egg.
+                  </p>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOvulation">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOvulation" aria-expanded="false" aria-controls="collapseOvulation">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOvulation"
+                  aria-expanded="false"
+                  aria-controls="collapseOvulation"
+                >
                   Ovulation (Day 14, approximately)
                 </button>
               </h2>
-              <div id="collapseOvulation" class="accordion-collapse collapse" aria-labelledby="headingOvulation" data-bs-parent="#cycleAccordion">
+              <div
+                id="collapseOvulation"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOvulation"
+                data-bs-parent="#cycleAccordion"
+              >
                 <div class="accordion-body">
-                  <p>This is when your ovary releases a mature egg. The egg travels down the fallopian tube where it can be fertilized if sperm is present.</p>
-                  <p><strong>Common signs:</strong> Slight increase in basal body temperature, clear stretchy cervical mucus, mild cramping on one side (mittelschmerz)</p>
-                  <p><strong>Fertility window:</strong> This is your most fertile time, typically 5 days before and the day of ovulation.</p>
+                  <p>
+                    This is when your ovary releases a mature egg. The egg
+                    travels down the fallopian tube where it can be fertilized
+                    if sperm is present.
+                  </p>
+                  <p>
+                    <strong>Common signs:</strong> Slight increase in basal body
+                    temperature, clear stretchy cervical mucus, mild cramping on
+                    one side (mittelschmerz)
+                  </p>
+                  <p>
+                    <strong>Fertility window:</strong> This is your most fertile
+                    time, typically 5 days before and the day of ovulation.
+                  </p>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingLuteal">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLuteal" aria-expanded="false" aria-controls="collapseLuteal">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseLuteal"
+                  aria-expanded="false"
+                  aria-controls="collapseLuteal"
+                >
                   Luteal Phase (Days 15-28)
                 </button>
               </h2>
-              <div id="collapseLuteal" class="accordion-collapse collapse" aria-labelledby="headingLuteal" data-bs-parent="#cycleAccordion">
+              <div
+                id="collapseLuteal"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingLuteal"
+                data-bs-parent="#cycleAccordion"
+              >
                 <div class="accordion-body">
-                  <p>After ovulation, the follicle transforms into the corpus luteum, which produces progesterone. This hormone maintains the uterine lining in preparation for a potential pregnancy.</p>
-                  <p><strong>Common symptoms:</strong> PMS symptoms may appear, including bloating, mood changes, breast tenderness, food cravings</p>
-                  <p><strong>If no pregnancy occurs:</strong> The corpus luteum breaks down, progesterone levels drop, and the uterine lining begins to shed, beginning a new cycle.</p>
+                  <p>
+                    After ovulation, the follicle transforms into the corpus
+                    luteum, which produces progesterone. This hormone maintains
+                    the uterine lining in preparation for a potential pregnancy.
+                  </p>
+                  <p>
+                    <strong>Common symptoms:</strong> PMS symptoms may appear,
+                    including bloating, mood changes, breast tenderness, food
+                    cravings
+                  </p>
+                  <p>
+                    <strong>If no pregnancy occurs:</strong> The corpus luteum
+                    breaks down, progesterone levels drop, and the uterine
+                    lining begins to shed, beginning a new cycle.
+                  </p>
                 </div>
               </div>
             </div>
@@ -235,7 +443,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-lg-4 mt-4 mt-lg-0">
       <div class="card mb-4">
         <div class="card-body">
@@ -262,7 +470,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="mb-4">
             <h6>Common Symptoms</h6>
             <div class="d-flex flex-wrap gap-2">
@@ -273,114 +481,132 @@
               <span class="badge bg-light text-dark">Mood Swings (40%)</span>
             </div>
           </div>
-          
-          <a href="#" class="btn btn-outline-primary w-100">View Full History</a>
+
+          <a href="#" class="btn btn-outline-primary w-100"
+            >View Full History</a
+          >
         </div>
       </div>
-      
+
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Period Health Tips</h5>
-          
+
           <div class="cycle-tip mb-3">
             <h6>Managing Menstrual Cramps</h6>
-            <p>Try using a heating pad on your lower abdomen, gentle yoga stretches, or over-the-counter pain relievers like ibuprofen.</p>
+            <p>
+              Try using a heating pad on your lower abdomen, gentle yoga
+              stretches, or over-the-counter pain relievers like ibuprofen.
+            </p>
           </div>
-          
+
           <div class="cycle-tip mb-3">
             <h6>Nutrition for Period Health</h6>
-            <p>Include iron-rich foods like leafy greens, beans, and lean meats to help replace iron lost during menstruation.</p>
+            <p>
+              Include iron-rich foods like leafy greens, beans, and lean meats
+              to help replace iron lost during menstruation.
+            </p>
           </div>
-          
+
           <div class="cycle-tip">
             <h6>When to See a Doctor</h6>
-            <p>Consult a healthcare provider if you experience extremely heavy bleeding, severe pain, periods lasting more than 7 days, or irregular cycles.</p>
+            <p>
+              Consult a healthcare provider if you experience extremely heavy
+              bleeding, severe pain, periods lasting more than 7 days, or
+              irregular cycles.
+            </p>
           </div>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Related Resources</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="{{ url_for('ovulation_fertility') }}">Ovulation & Fertility Tracking</a></li>
-            <li class="list-group-item"><a href="{{ url_for('sexual_reproductive_health') }}">Understanding Reproductive Health</a></li>
-            <li class="list-group-item"><a href="{{ url_for('gynecological_issues') }}">Common Menstrual Disorders</a></li>
-            <li class="list-group-item"><a href="{{ url_for('nutrition') }}">Nutrition for Menstrual Health</a></li>
+            <li class="list-group-item">
+              <a href="/ovulation_fertility">Ovulation & Fertility Tracking</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/sexual_reproductive_health"
+                >Understanding Reproductive Health</a
+              >
+            </li>
+            <li class="list-group-item">
+              <a href="/gynecological_issues">Common Menstrual Disorders</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/nutrition">Nutrition for Menstrual Health</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+<script src="/static/js/calendar.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     // Initialize the calendar
     initializeMenstrualCalendar();
-    
+
     // Display current date in modal title when opened
-    const dayDetailModal = document.getElementById('day-detail-modal');
-    dayDetailModal.addEventListener('show.bs.modal', function(event) {
+    const dayDetailModal = document.getElementById("day-detail-modal");
+    dayDetailModal.addEventListener("show.bs.modal", function (event) {
       const button = event.relatedTarget;
-      const date = button.getAttribute('data-date');
-      const formattedDate = new Date(date).toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+      const date = button.getAttribute("data-date");
+      const formattedDate = new Date(date).toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       });
-      
+
       // Update modal title and form input
-      document.getElementById('selected-date').textContent = formattedDate;
-      document.getElementById('day-date-input').value = date;
-      
+      document.getElementById("selected-date").textContent = formattedDate;
+      document.getElementById("day-date-input").value = date;
+
       // Reset form
-      const form = dayDetailModal.querySelector('form');
+      const form = dayDetailModal.querySelector("form");
       form.reset();
-      
+
       // You could load existing data for this date here if available
       // For example:
       // loadExistingCycleData(date);
     });
-    
+
     // Set default values for range inputs
-    document.getElementById('pain_level').value = 0;
-    document.getElementById('energy_level').value = 5;
-    document.getElementById('stress_level').value = 5;
-    
+    document.getElementById("pain_level").value = 0;
+    document.getElementById("energy_level").value = 5;
+    document.getElementById("stress_level").value = 5;
+
     // Update display value for range inputs
     const rangeInputs = document.querySelectorAll('input[type="range"]');
-    rangeInputs.forEach(input => {
-      const valueDisplay = document.createElement('div');
-      valueDisplay.className = 'text-center mt-1';
+    rangeInputs.forEach((input) => {
+      const valueDisplay = document.createElement("div");
+      valueDisplay.className = "text-center mt-1";
       valueDisplay.textContent = input.value;
       input.after(valueDisplay);
-      
-      input.addEventListener('input', function() {
+
+      input.addEventListener("input", function () {
         valueDisplay.textContent = this.value;
       });
     });
   });
-  
+
   function initializeMenstrualCalendar() {
     // This would typically be implemented in calendar.js
     // Here's a simplified version for demonstration
-    console.log('Menstrual calendar initialized');
-    
+    console.log("Menstrual calendar initialized");
     // You could load and display the user's cycle data here
     // For example:
     // fetchCycleData().then(data => renderCalendar(data));
   }
-  
+
   function loadExistingCycleData(date) {
     // In a real implementation, this would fetch data from the server
     // For this demo, we'll just log that we would load data
-    console.log('Would load cycle data for', date);
-    
+    console.log("Would load cycle data for", date);
     // Example: Fetch data with AJAX
     /*
     fetch('/api/cycle-data?date=' + date)
@@ -402,4 +628,3 @@
     */
   }
 </script>
- <%- body %>

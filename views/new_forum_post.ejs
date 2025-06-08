@@ -1,8 +1,7 @@
-{% extends 'layout.html' %}
+<%- include('layout') %>
+<% title = "Create New Post - Community Forum" %>
 
-{% block title %}Create New Post - Community Forum{% endblock %}
-
-{% block extra_css %}
+<%/* Extra CSS Block */%>
 <style>
     .post-form-container {
         background-color: #fff;
@@ -37,9 +36,7 @@
         width: 100%;
     }
 </style>
-{% endblock %}
 
-{% block content %}
 <div class="container py-5">
     <div class="row">
         <div class="col-md-9">
@@ -49,7 +46,7 @@
                     <p class="text-muted">Share your experiences, ask questions, or start a discussion with the community.</p>
                 </div>
                 
-                <form action="{{ url_for('new_forum_post') }}" method="post">
+                <form action="/forum/new" method="post">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" placeholder="Enter a descriptive title..." required>
@@ -59,9 +56,9 @@
                         <label for="category_id" class="form-label">Category</label>
                         <select class="category-select" id="category_id" name="category_id" required>
                             <option value="">Select a category</option>
-                            {% for category in categories %}
-                            <option value="{{ category.id }}" {% if request.args.get('category_id')|int == category.id %}selected{% endif %}>{{ category.name }}</option>
-                            {% endfor %}
+                            <% categories.forEach(function(category) { %>
+                                <option value="<%= category.id %>" <%= (typeof selectedCategoryId !== 'undefined' && selectedCategoryId == category.id) ? 'selected' : '' %>><%= category.name %></option>
+                            <% }) %>
                         </select>
                     </div>
                     
@@ -73,7 +70,7 @@
                     
                     <div class="d-flex">
                         <button type="submit" class="btn btn-primary">Publish Post</button>
-                        <a href="{{ url_for('community_forum') }}" class="btn btn-outline-secondary ms-2">Cancel</a>
+                        <a href="/forum" class="btn btn-outline-secondary ms-2">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -101,4 +98,3 @@
         </div>
     </div>
 </div>
- <%- body %>

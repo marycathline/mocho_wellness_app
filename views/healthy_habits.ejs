@@ -1,8 +1,6 @@
-{% extends "layout.html" %}
+<%- include('layout') %>
+<% title = "Healthy Habits | Women's Health Hub" %>
 
-{% block title %}Healthy Habits | Women's Health Hub{% endblock %}
-
-{% block content %}
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
@@ -295,7 +293,6 @@
           <p>Use this simple tracker to monitor your progress on key healthy habits.</p>
           
           <form class="mb-3">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="mb-3">
               <label for="habit-date" class="form-label">Select Date</label>
               <input type="date" class="form-control" id="habit-date">
@@ -427,9 +424,6 @@
   </div>
 </div>
 
-{% endblock %}
-
-{% block scripts %}
 <script>
   // Set today's date in the habit tracker
   document.addEventListener('DOMContentLoaded', function() {
@@ -448,4 +442,3 @@
     });
   });
 </script>
- <%- body %>

@@ -1,8 +1,9 @@
-<%- include ('layout') %>
+<!-- filepath: c:\Users\Admin\Downloads\MochoCareApp\views\family_planning2.ejs -->
+<%- include('layout') %>
 
-{% block title %}Family Planning & Contraception | Women's Health Hub{% endblock %}
+<% block('title', "Family Planning & Contraception | Women's Health Hub") %>
 
-{% block content %}
+<% block('content') %>
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
@@ -131,6 +132,7 @@
           <h5 class="card-title">Hormonal Contraception Methods</h5>
           
           <div class="accordion" id="hormonalAccordion">
+            <!-- Pills -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPills">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePills" aria-expanded="true" aria-controls="collapsePills">
@@ -146,14 +148,12 @@
                         <li><strong>Combination pills:</strong> Contain estrogen and progestin</li>
                         <li><strong>Progestin-only pills (mini-pills):</strong> Contain only progestin</li>
                       </ul>
-                      
                       <h6>How they work:</h6>
                       <ul>
                         <li>Prevent ovulation</li>
                         <li>Thicken cervical mucus to block sperm</li>
                         <li>Thin uterine lining</li>
                       </ul>
-                      
                       <h6>Benefits beyond contraception:</h6>
                       <ul>
                         <li>More regular, lighter periods</li>
@@ -162,7 +162,6 @@
                         <li>May improve acne</li>
                         <li>Treatment for conditions like PCOS and endometriosis</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Must be taken consistently, ideally at the same time each day</li>
@@ -176,7 +175,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>With perfect use: 99%<br>With typical use: 91%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Can remember to take a pill daily</li>
@@ -189,7 +187,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Patch -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPatch">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePatch" aria-expanded="false" aria-controls="collapsePatch">
@@ -206,14 +204,12 @@
                         <li>Releases estrogen and progestin through the skin</li>
                         <li>Changed weekly for three weeks, with one patch-free week</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Only needs changing once a week</li>
                         <li>Not affected by vomiting or diarrhea</li>
                         <li>Similar benefits to birth control pills (regular periods, reduced cramps)</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>May be less effective in women weighing over 198 pounds</li>
@@ -227,7 +223,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>With perfect use: 99%<br>With typical use: 91%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Might forget daily pills</li>
@@ -240,7 +235,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Vaginal Ring -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingVaginalRing">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVaginalRing" aria-expanded="false" aria-controls="collapseVaginalRing">
@@ -257,7 +252,6 @@
                         <li>Releases estrogen and progestin</li>
                         <li>Left in place for three weeks, then removed for one week</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Monthly use - only need to remember twice a month</li>
@@ -265,7 +259,6 @@
                         <li>Does not interfere with sex (can be removed for up to 3 hours if desired)</li>
                         <li>Lower estrogen dose than most pills</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Requires comfort with inserting and removing from vagina</li>
@@ -278,7 +271,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>With perfect use: 99%<br>With typical use: 91%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want a low-maintenance method</li>
@@ -291,7 +283,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Injection -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingInjection">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInjection" aria-expanded="false" aria-controls="collapseInjection">
@@ -308,7 +300,6 @@
                         <li>Given every 12 weeks (3 months)</li>
                         <li>Prevents pregnancy primarily by stopping ovulation</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Only requires attention 4 times a year</li>
@@ -317,7 +308,6 @@
                         <li>Not affected by other medications</li>
                         <li>Safe for breastfeeding mothers</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Cannot be removed from the body once injected</li>
@@ -331,7 +321,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>With perfect use: 99%<br>With typical use: 94%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want an effective, private method</li>
@@ -356,6 +345,7 @@
           <p>LARCs are the most effective reversible contraceptive methods, with effectiveness rates over 99%.</p>
           
           <div class="accordion" id="larcAccordion">
+            <!-- IUDs -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingIUD">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIUD" aria-expanded="true" aria-controls="collapseIUD">
@@ -371,14 +361,12 @@
                         <li><strong>Hormonal IUDs:</strong> Release progestin locally in the uterus (last 3-7 years depending on brand)</li>
                         <li><strong>Copper IUD:</strong> Non-hormonal, made of plastic wrapped with copper wire (lasts 10-12 years)</li>
                       </ul>
-                      
                       <h6>How they work:</h6>
                       <ul>
                         <li>Create an environment in the uterus that's inhospitable to sperm</li>
                         <li>Hormonal IUDs also thicken cervical mucus and may suppress ovulation</li>
                         <li>Copper IUDs create a spermicidal environment</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>"Set it and forget it" - no daily, weekly, or monthly action required</li>
@@ -387,7 +375,6 @@
                         <li>Quick return to fertility upon removal</li>
                         <li>Cost-effective over time</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Requires a healthcare provider for insertion and removal</li>
@@ -400,7 +387,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>Over 99%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want long-term, highly effective contraception</li>
@@ -414,7 +400,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Implant -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingImplant">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImplant" aria-expanded="false" aria-controls="collapseImplant">
@@ -432,7 +418,6 @@
                         <li>Lasts for 3-5 years (depending on brand)</li>
                         <li>Primarily works by preventing ovulation</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Most effective form of reversible contraception</li>
@@ -441,7 +426,6 @@
                         <li>Quick return to fertility after removal</li>
                         <li>Can be used while breastfeeding</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Requires a minor procedure for insertion and removal</li>
@@ -454,7 +438,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>Over 99%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want the most effective reversible contraception</li>
@@ -477,6 +460,7 @@
           <h5 class="card-title">Barrier Methods & Non-Hormonal Options</h5>
           
           <div class="accordion" id="barrierAccordion">
+            <!-- Condoms -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingCondoms">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCondoms" aria-expanded="true" aria-controls="collapseCondoms">
@@ -492,14 +476,12 @@
                         <li><strong>Male condoms:</strong> Thin sheaths that cover the penis</li>
                         <li><strong>Female condoms:</strong> Pouches inserted into the vagina</li>
                       </ul>
-                      
                       <h6>How they work:</h6>
                       <ul>
                         <li>Create a physical barrier that prevents sperm from entering the vagina/cervix</li>
                         <li>Most are made of latex, but non-latex options exist (polyurethane, polyisoprene)</li>
                         <li>Must be used correctly every time</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Only contraceptive method that protects against most STIs</li>
@@ -507,7 +489,6 @@
                         <li>No hormonal side effects</li>
                         <li>Can be used as backup with other methods</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Must be used correctly every time to be effective</li>
@@ -521,7 +502,6 @@
                         <h6>Effectiveness:</h6>
                         <p>Male condom:<br>Perfect use: 98%<br>Typical use: 85%</p>
                         <p>Female condom:<br>Perfect use: 95%<br>Typical use: 79%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want STI protection</li>
@@ -535,7 +515,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Diaphragm & Cervical Cap -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingDiaphragm">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiaphragm" aria-expanded="false" aria-controls="collapseDiaphragm">
@@ -552,7 +532,6 @@
                         <li>Must be used with spermicide</li>
                         <li>Inserted before sex and left in place for several hours after</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>Can be inserted hours before intercourse</li>
@@ -560,7 +539,6 @@
                         <li>No hormonal side effects</li>
                         <li>Can be used while breastfeeding</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Requires fitting by a healthcare provider</li>
@@ -574,7 +552,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>Perfect use: 94%<br>Typical use: 88%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want a non-hormonal option</li>
@@ -588,7 +565,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Fertility Awareness -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFAM">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAM" aria-expanded="false" aria-controls="collapseFAM">
@@ -605,7 +582,6 @@
                         <li>Avoid intercourse or use barriers during fertile periods</li>
                         <li>Methods include calendar tracking, cervical mucus monitoring, basal body temperature, and symptothermal methods</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>No devices or hormones</li>
@@ -614,7 +590,6 @@
                         <li>Increases body awareness</li>
                         <li>Can be used to prevent or achieve pregnancy</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Requires consistent daily tracking and record keeping</li>
@@ -629,7 +604,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>Perfect use: 88-98% (depending on specific method)<br>Typical use: 76-88%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Want a completely natural approach</li>
@@ -644,7 +618,7 @@
                 </div>
               </div>
             </div>
-            
+            <!-- Permanent -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPermanent">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePermanent" aria-expanded="false" aria-controls="collapsePermanent">
@@ -660,13 +634,11 @@
                         <li><strong>Female sterilization (tubal ligation):</strong> Cutting, tying, or blocking the fallopian tubes</li>
                         <li><strong>Male sterilization (vasectomy):</strong> Cutting or blocking the vas deferens</li>
                       </ul>
-                      
                       <h6>How they work:</h6>
                       <ul>
                         <li>Permanently prevents eggs and sperm from meeting</li>
                         <li>Tubal ligation requires surgery; vasectomy is an office procedure</li>
                       </ul>
-                      
                       <h6>Benefits:</h6>
                       <ul>
                         <li>One-time procedure for permanent contraception</li>
@@ -674,7 +646,6 @@
                         <li>No hormonal side effects</li>
                         <li>Highly effective</li>
                       </ul>
-                      
                       <h6>Considerations:</h6>
                       <ul>
                         <li>Should be considered permanent (reversal is expensive, complex, and not always successful)</li>
@@ -687,7 +658,6 @@
                       <div class="alert alert-info">
                         <h6>Effectiveness:</h6>
                         <p>Over 99%</p>
-                        
                         <h6>Best for those who:</h6>
                         <ul>
                           <li>Are certain they don't want future pregnancies</li>
@@ -837,7 +807,7 @@
           </ul>
           
           <div class="text-center mt-3">
-            <a href="{{ url_for('ovulation_fertility') }}" class="btn btn-primary">Learn More About Fertility Tracking</a>
+            <a href="<%= url_for('ovulation_fertility') %>" class="btn btn-primary">Learn More About Fertility Tracking</a>
           </div>
         </div>
       </div>
@@ -871,23 +841,21 @@
           <div class="text-center mt-3">
             <a href="<%= url_for('pregnancy_milestones') %>" class="btn btn-outline-primary">Pregnancy Milestone Tracking</a>
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Related Resources</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="<%= url_for('menstrual_cycle') %>">Menstrual Cycle Tracking</a></li>
-                <li class="list-group-item"><a href="<%= url_for('ovulation_fertility') %>">Ovulation & Fertility Tracking</a></li>
-                <li class="list-group-item"><a href="<%= url_for('sexual_reproductive_health') %>">Sexual & Reproductive Health</a></li>
-                <li class="list-group-item"><a href="<%= url_for('gynecological_issues') %>">Common Gynecological Issues</a></li>
-                <li class="list-group-item"><a href="<%= url_for('pregnancy_milestones') %>">Pregnancy Milestones</a></li>
-              </ul>
-            </div>
-          </div>
-      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Related Resources</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="<%= url_for('menstrual_cycle') %>">Menstrual Cycle Tracking</a></li>
+            <li class="list-group-item"><a href="<%= url_for('ovulation_fertility') %>">Ovulation & Fertility Tracking</a></li>
+            <li class="list-group-item"><a href="<%= url_for('sexual_reproductive_health') %>">Sexual & Reproductive Health</a></li>
+            <li class="list-group-item"><a href="<%= url_for('gynecological_issues') %>">Common Gynecological Issues</a></li>
+            <li class="list-group-item"><a href="<%= url_for('pregnancy_milestones') %>">Pregnancy Milestones</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
- <%- body %>

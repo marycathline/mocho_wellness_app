@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= typeof title !== 'undefined' ? title : "Women's Health & Wellness" %></title>
+
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- FullCalendar CSS -->
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/style.css" />
   <%- typeof extra_css !== 'undefined' ? extra_css : '' %>
 </head>
-<body>
+<body 
+  data-appointment-type="<%= appointment?.appointment_type || '' %>" 
+  data-appointment-id="<%= appointment?.id || '' %>"
+>
+  <!-- Header -->
   <header>
     <nav class="nav">
       <div class="logo">
-        <!-- Using SVG instead of PNG -->
+        <!-- Logo SVG -->
         <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C10 14.5 14.5 10 20 10C25.5 10 30 14.5 30 20C30 25.5 25.5 30 20 30C14.5 30 10 25.5 10 20Z" fill="#8e7cc3"/>
           <path d="M35 20C35 14.5 39.5 10 45 10C50.5 10 55 14.5 55 20C55 25.5 50.5 30 45 30C39.5 30 35 25.5 35 20Z" fill="#6aa7c8"/>
@@ -31,8 +38,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/partners">Partners</a></li>
-
-        <!-- TRACKING -->
+        <!-- Tracking Dropdown -->
         <li class="dropdown">
           <button onclick="toggleDropdown('tracking-dropdown')">Track Health ▼</button>
           <div id="tracking-dropdown" class="dropdown-content">
@@ -43,8 +49,7 @@
             <a href="/menopause_tracker">Menopause Tracker</a>
           </div>
         </li>
-
-        <!-- EDUCATION -->
+        <!-- Education Dropdown -->
         <li class="dropdown">
           <button onclick="toggleDropdown('education-dropdown')">Learn ▼</button>
           <div id="education-dropdown" class="dropdown-content">
@@ -56,8 +61,7 @@
             <a href="/cancer_awareness">Breast & Cervical Cancer Awareness</a>
           </div>
         </li>
-
-        <!-- WELLNESS -->
+        <!-- Wellness Dropdown -->
         <li class="dropdown">
           <button onclick="toggleDropdown('wellness-dropdown')">Wellness ▼</button>
           <div id="wellness-dropdown" class="dropdown-content">
@@ -68,18 +72,18 @@
             <a href="/healthy_habits">Healthy Habits</a>
           </div>
         </li>
-
-        <!-- NEW FEATURES -->
+        <!-- New Features -->
         <li><a href="/ai_chatbot" class="highlight-nav"><i class="fas fa-robot"></i> AI Health Assistant</a></li>
         <li><a href="/community_forum" class="highlight-nav"><i class="fas fa-users"></i> Community</a></li>
-        <li><a href="/doctor_consultation" class="highlight-nav"><i class="fas fa-user-md"></i> Consultation</a></li>
-        
+         <li><a href="/doctor_consultation" class="highlight-nav"><i class="fas fa-user-md"></i> Consultation</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
   </header>
+
+  <!-- Flash Messages -->
   <main class="container-fluid">
-    <% if (typeof messages !== 'undefined' && messages.length) { %>
+    <% if (messages?.length) { %>
       <% messages.forEach(function(msg) { %>
         <div class="alert alert-<%= msg.category %> alert-dismissible fade show mt-3" role="alert">
           <%= msg.message %>
@@ -87,12 +91,12 @@
         </div>
       <% }); %>
     <% } %>
-    
+
+    <!-- Main Page Content -->
     <%- body %>
   </main>
- 
-
-  <footer class="bg-dark text-white py-5">
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5 mt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4">
@@ -135,7 +139,7 @@
           </ul>
         </div>
       </div>
-      <hr>
+      <hr />
       <div class="row">
         <div class="col-md-6">
           <p>&copy; 2023 Women's Health Hub. All rights reserved.</p>
@@ -152,14 +156,10 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- FullCalendar JS -->
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-  <!-- Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
   <script src="/static/js/index.js"></script>
   <%- typeof extra_js !== 'undefined' ? extra_js : '' %>
 </body>
 </html>
- 
- 

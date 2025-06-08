@@ -19,26 +19,26 @@ router.get('/', (req, res) => {
 
 
 // Tracking routes
-router.get('/tracking/menstrual-cycle', (req, res) => res.render('tracking/menstrual_cycle'));
-router.get('/tracking/ovulation-fertility', (req, res) => res.render('tracking/ovulation_fertility'));
-router.get('/tracking/pregnancy-milestones', (req, res) => res.render('tracking/pregnancy_milestones'));
-router.get('/tracking/postpartum-care', (req, res) => res.render('tracking/postpartum_care'));
-router.get('/tracking/menopause-tracker', (req, res) => res.render('tracking/menopause_tracker'));
+router.get('/views/menstrual-cycle', (req, res) => res.render('views/menstrual_cycle'));
+router.get('/views/ovulation-fertility', (req, res) => res.render('views/ovulation_fertility'));
+router.get('/views/pregnancy-milestones', (req, res) => res.render('views/pregnancy_milestones'));
+router.get('/views/postpartum-care', (req, res) => res.render('views/postpartum_care'));
+router.get('/views/menopause-tracker', (req, res) => res.render('views/menopause_tracker'));
 
 // Education routes
-router.get('/education/sexual-reproductive-health', (req, res) => res.render('education/sexual_reproductive_health'));
-router.get('/education/family-planning', (req, res) => res.render('education/family_planning'));
-router.get('/education/antenatal-postnatal', (req, res) => res.render('education/antenatal_postnatal'));
-router.get('/education/gynecological-issues', (req, res) => res.render('education/gynecological_issues'));
-router.get('/education/vaccination', (req, res) => res.render('education/vaccination'));
-router.get('/education/cancer-awareness', (req, res) => res.render('education/cancer_awareness'));
+router.get('/views/sexual-reproductive-health', (req, res) => res.render('views/sexual_reproductive_health'));
+router.get('/views/family-planning', (req, res) => res.render('views/family_planning'));
+router.get('/views/antenatal-postnatal', (req, res) => res.render('views/antenatal_postnatal'));
+router.get('/views/gynecological-issues', (req, res) => res.render('views/gynecological_issues'));
+router.get('/views/vaccination', (req, res) => res.render('views/vaccination'));
+router.get('/views/cancer-awareness', (req, res) => res.render('views/cancer_awareness'));
 
 // Wellness routes
-router.get('/wellness/mental-health', (req, res) => res.render('wellness/mental_health'));
-router.get('/wellness/nutrition', (req, res) => res.render('wellness/nutrition'));
-router.get('/wellness/fitness', (req, res) => res.render('wellness/fitness'));
-router.get('/wellness/stress-management', (req, res) => res.render('wellness/stress_management'));
-router.get('/wellness/healthy-habits', (req, res) => res.render('wellness/healthy_habits'));
+router.get('/views/mental-health', (req, res) => res.render('views/mental_health'));
+router.get('/views/nutrition', (req, res) => res.render('views/nutrition'));
+router.get('/views/fitness', (req, res) => res.render('views/fitness'));
+router.get('/views/stress-management', (req, res) => res.render('views/stress_management'));
+router.get('/views/healthy-habits', (req, res) => res.render('views/healthy_habits'));
 
 // Static pages
 router.get('/about', (req, res) => res.render('about'));
@@ -72,8 +72,8 @@ router.post('/save-chat', async (req, res) => {
 });
 
 // Example: Menstrual cycle tracking page
-router.get('/tracking/menstrual-cycle', (req, res) => {
-  res.render('tracking/menstrual_cycle');
+router.get('/views/menstrual-cycle', (req, res) => {
+  res.render('views/menstrual_cycle');
 });
 
 // Example: Save cycle data
@@ -102,13 +102,29 @@ router.post('/save-cycle-data', async (req, res) => {
     });
 
     req.flash('success', 'Your cycle data has been saved!');
-    res.redirect('/tracking/menstrual-cycle');
+    res.redirect('/views/menstrual-cycle');
   } catch (e) {
     req.flash('danger', 'There was an error saving your data. Please try again.');
-    res.redirect('/tracking/menstrual-cycle');
+    res.redirect('/views/menstrual-cycle');
   }
 });
 
 // Add more routes for forum, appointments, etc. as needed
+
+router.get('/join-consultation/:id', async (req, res) => {
+  try {
+    // your logic here, e.g. fetch appointment info
+    const appointment = await getAppointmentById(req.params.id);
+
+    res.render('join_consultation', {
+      appointment,
+      user_id: req.session.userId, // or however you pass user ID
+      // other data needed by the view
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server error');
+  }
+});
 
 module.exports = router;
