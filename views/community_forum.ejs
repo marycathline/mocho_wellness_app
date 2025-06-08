@@ -1,6 +1,6 @@
 
 
-<%  title = "Community Forum - Women's Health & Wellness"" %>
+<%  title = "Community Forum - Women's Health & Wellness" %>
 
 
 <style>
@@ -81,7 +81,7 @@
         color: #6a5acd;
     }
 </style>
-<% endblock %>
+
 
 
 <div class="container py-5">
@@ -91,9 +91,9 @@
             <p class="lead">Connect with others, share experiences, and find support in our women's health community.</p>
         </div>
         <div class="col-md-4 text-md-end">
-            <a href="<%= url_for('new_forum_post') %>" class="btn btn-primary create-post-btn">
-                <i class="fas fa-plus-circle"></i> Create New Post
-            </a>
+            <a href="/forum/new" class="btn btn-primary create-post-btn">
+    <i class="fas fa-plus-circle"></i> Create New Post
+</a>
         </div>
         </div>
 
@@ -128,7 +128,8 @@
                                 </div>
                                 <h4 class="card-title"><%= category.name %></h4>
                                 <p class="card-text"><%= category.description %></p>
-                                <a href="<%= url_for('forum_category', { category_id: category.id }) %>" class="btn btn-outline-primary">View Discussions</a>
+                                <a href="/forum/category/<%= category.id %>" class="btn btn-outline-primary">View Discussions</a>
+
                             </div>
                         </div>
                     </div>
@@ -147,7 +148,8 @@
                         <% recent_posts.forEach(function(post) { %>
                         <div class="recent-post">
                             <h6 class="post-title">
-                                <a href="<%= url_for('forum_post', { post_id: post.id }) %>"><%= post.title %></a>
+                                <a href="/forum/post/<%= post.id %>"><%= post.title %></a>
+
                             </h6>
                             <div class="post-meta">
                                 Posted by <%= post.author.username %> in <%= post.category.name %>

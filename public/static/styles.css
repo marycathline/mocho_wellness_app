@@ -2,10 +2,10 @@
 
 :root {
   /* Soothing color palette for women's health */
-  --primary-color: #8e7cc3;    /* Soft purple */
+  --primary-color: #e90e74;    /* Soft purple */
   --secondary-color: #6aa7c8;  /* Soft blue */
-  --accent-color: #7EBDC2;     /* Teal accent */
-  --light-accent: #d1e6e7;     /* Light teal for backgrounds */
+  --accent-color: #c53c65;     /* Teal accent */
+  --light-accent: #b9a6b0;     /* Light teal for backgrounds */
   --warm-accent: #f0a28b;      /* Warm peach accent */
   --text-color: #333333;       /* Dark text for readability */
   --light-text: #f9f9f9;       /* Light text for dark backgrounds */
