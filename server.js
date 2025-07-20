@@ -6,14 +6,16 @@ const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const csrf = require('csurf');
 const expressLayouts = require('express-ejs-layouts');
-const openai = require('openai');
+const { OpenAI } = require('openai'); // ✅ Correct OpenAI import
 const mongoose = require('mongoose');
 const http = require('http');
 const { Server } = require('socket.io');
-const mainRoutes = require('./routes/mainroutes'); // ✅ Single import
+const mainRoutes = require('./routes/mainroutes'); // ✅ Or './routes' if you rename to index.js
 
-// ✅ OpenAI API key
-openai.apiKey = process.env.OPENAI_API_KEY;
+// ✅ Initialize OpenAI
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 // ✅ Initialize app and server
 const app = express();
@@ -33,11 +35,10 @@ mongoose.connection.on('error', (err) => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
-app.set('layout', 'layout');
+app.set('layout', 'layout'); // assumes you have views/layout.ejs
 
-// ✅ Serve static files
+// ✅ Serve static files from /public
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'static')));
 
 // ✅ Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,18 +50,9 @@ app.use(session({
 }));
 app.use(flash());
 
-// ✅ CSRF protection (after session and bodyParser)
+// ✅ CSRF protection
 const csrfProtection = csrf();
 app.use(csrfProtection);
-
-// ✅ Routes
-app.use('/', mainRoutes);
-app.get('/consultation', (req, res) => {
-  res.render('consultation');
-});
-app.get('/video_call', (req, res) => {
-  res.render('video_call', { title: 'Live Video Call' });
-});
 
 // ✅ Socket.IO signaling
 io.on('connection', (socket) => {
@@ -80,6 +72,17 @@ io.on('connection', (socket) => {
   socket.on('ice-candidate', ({ appointmentId, candidate }) => {
     socket.to(appointmentId).emit('ice-candidate', { candidate });
   });
+});
+
+// ✅ Use routes
+app.use('/', mainRoutes);
+
+// ✅ Additional routes
+app.get('/consultation', (req, res) => {
+  res.render('consultation');
+});
+app.get('/video_call', (req, res) => {
+  res.render('video_call', { title: 'Live Video Call' });
 });
 
 // ✅ Start server

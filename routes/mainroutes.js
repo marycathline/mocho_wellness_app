@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const OpenAI = require('openai'); // ✅ FIX: Add this
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 // Import models
 const ChatHistory = require('../models/ChatHistory');
@@ -14,7 +18,7 @@ router.get('/', (req, res) => {
     messages: [], 
     appointment: null
   });
-});
+ });
 
 // Views - Health Tracking
 router.get('/menstrual_cycle', (req, res) => res.render('menstrual_cycle'));
@@ -66,6 +70,9 @@ router.get('/doctor_consultation', async (req, res) => {
   }
 });
 
+
+
+
 // GET: Render appointment booking form
 router.get('/book_appointment', async (req, res) => {
   try {
@@ -107,7 +114,7 @@ router.post('/book_appointment', async (req, res) => {
 });
 
 
-// AI Chatbot
+// ✅ AI Chatbot: Show interface with chat history
 router.get('/ai_chatbot', async (req, res) => {
   let chat_history = [];
   if (req.session.user_id) {
@@ -121,6 +128,39 @@ router.get('/ai_chatbot', async (req, res) => {
   });
 });
 
+// ✅ AI Chatbot: Get response from OpenAI
+router.post('/ai_chatbot', async (req, res) => {
+  const { message } = req.body;
+  const user_id = req.session.user_id;
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'system', content: 'You are a helpful health assistant at MochoCare.' },
+        { role: 'user', content: message }
+      ]
+    });
+
+    const aiResponse = completion.choices[0].message.content;
+
+    // Save chat if user is logged in
+    if (user_id) {
+      await ChatHistory.create({ user_id, message, response: aiResponse });
+    }
+
+    res.json({ status: 'success', response: aiResponse });
+
+  } catch (err) {
+    console.error('❌ OpenAI error:', err.response?.data || err.message);
+    res.status(500).json({
+      status: 'error',
+      message: 'AI failed to respond. Please try again later.'
+    });
+  }
+});
+
+// ✅ Optional: Save chat manually (can be removed if saved in above route)
 router.post('/save_chat', async (req, res) => {
   try {
     const { message, response } = req.body;
@@ -230,6 +270,67 @@ router.get('/join-consultation/:id', async (req, res) => {
     console.error(error);
     res.status(500).send('Server error');
   }
+});
+
+
+
+// Health tracking routes
+router.get('/menstrual_cycle', (req, res) => {
+  res.render('menstrual_cycle', { title: 'Menstrual & Fertility Tracking' });
+});
+
+router.get('/antenatal_postnatal', (req, res) => {
+  res.render('antenatal_postnatal', {
+    title: 'Pre & Postnatal Care',
+    pregnancyMilestonesUrl: '/pregnancy_milestones'
+  });
+});
+
+router.get('/menopause_tracker', (req, res) => {
+  res.render('/menopause_tracker', { title: 'Menopause Management' });
+});
+
+// Educational Resources
+router.get('/sexual_reproductive_health', (req, res) => {
+  res.render('sexual_reproductive_health', { title: 'Sexual & Reproductive Health' });
+});
+
+router.get('/family_planning', (req, res) => {
+  res.render('family_planning', { title: 'Family Planning' });
+});
+
+router.get('/gynecological_issues', (req, res) => {
+  res.render('gynecological_issues', { title: 'Gynecological Health' });
+});
+
+router.get('/antenatal_postnatal', (req, res) => {
+  res.render('antenatal_postnatal', { title: 'Pre & Postnatal Care' });
+});
+
+router.get('/vaccination', (req, res) => {
+  res.render('vaccination', { title: 'Vaccination & Immunization' });
+});
+
+router.get('/cancer', (req, res) => {
+  res.render('cancer_awareness', { title: 'Cancer Awareness' });
+});  
+
+// Also support /awareness/cancer for navigation consistency
+router.get('/awareness/cancer', (req, res) => {
+  res.render('cancer_awareness', { title: 'Cancer Awareness' });
+});
+
+// Wellness
+router.get('/nutrition', (req, res) => {
+  res.render('nutrition', { title: 'Nutrition & Diet' });
+});
+
+router.get('/fitness', (req, res) => {
+  res.render('fitness', { title: 'Physical Fitness' });
+});
+
+router.get('/mental_health', (req, res) => {
+  res.render('mental_health', { title: 'Mental Health' });
 });
 
 module.exports = router;

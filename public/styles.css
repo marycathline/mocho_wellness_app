@@ -3,7 +3,7 @@
 :root {
   /* Soothing color palette for women's health */
   --primary-color: #e90e74;    /* Soft purple */
-  --secondary-color: #6aa7c8;  /* Soft blue */
+  --secondary-color: #e6084a;  /* Soft blue */
   --accent-color: #c53c65;     /* Teal accent */
   --light-accent: #b9a6b0;     /* Light teal for backgrounds */
   --warm-accent: #f0a28b;      /* Warm peach accent */
@@ -166,8 +166,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #7269a6;
-  border-color: #7269a6;
+  background-color: #be6ead;
+  border-color: #d12d71;
 }
 
 .btn-secondary {
