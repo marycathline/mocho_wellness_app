@@ -3,12 +3,12 @@
 :root {
   /* Soothing color palette for women's health */
   --primary-color: #e90e74;    /* Soft purple */
-  --secondary-color: #e6084a;  /* Soft blue */
+  --secondary-color: #e7064ae3;  /* Soft blue */
   --accent-color: #c53c65;     /* Teal accent */
   --light-accent: #b9a6b0;     /* Light teal for backgrounds */
   --warm-accent: #f0a28b;      /* Warm peach accent */
-  --text-color: #333333;       /* Dark text for readability */
-  --light-text: #f9f9f9;       /* Light text for dark backgrounds */
+  --text-color: #333333;       
+  --light-text: #f9f9f9;       
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 }
 
 .nav a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -62,7 +62,7 @@ body {
 
 .dropdown button {
   background-color: transparent;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: 500;
   border: none;
   cursor: pointer;
@@ -98,7 +98,7 @@ body {
 
 .dropdown-content a:hover {
   background-color: var(--light-accent);
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .show {
@@ -112,8 +112,8 @@ main {
   margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-color);
+h1, h2, h3, h4, h6 {
+  color: var(--secondary-color);
   margin-bottom: 1rem;
 }
 
@@ -156,41 +156,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-title {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: 600;
 }
 
+/* Primary button */
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.btn-primary:hover {
-  background-color: #be6ead;
-  border-color: #d12d71;
-}
-
-.btn-secondary {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
-}
-
-.btn-secondary:hover {
-  background-color: #5c96b6;
-  border-color: #5c96b6;
-}
-
-.btn-accent {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
   color: white;
 }
 
-.btn-accent:hover {
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #e62857f3; /* slightly darker */
+  border-color: #e63b60;
+}
+
+/* Secondary button (pink) */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #c70542; /* darker version */
+  border-color: #c70542;
+}
+
+/* Accent button (optional custom style) */
+.btn-accent {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
   background-color: #6aa5a9;
   border-color: #6aa5a9;
   color: white;
 }
+
 
 /* Calendar styling */
 .calendar-container {
@@ -213,8 +222,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Footer styling */
+.footer-logo {
+  background-color: white;
+  padding: 10px;            /* Optional: adds spacing around the logo */
+  width: 170px;             /* Controls the square shape */
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;       /* Optional: rounded corners */
+  
+}
+
 footer {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--light-text);
   padding: 3rem 0;
   margin-top: 3rem;
