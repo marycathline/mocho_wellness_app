@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const OpenAI = require('openai'); // ✅ FIX: Add this
+const OpenAI = require('openai');
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -11,14 +11,13 @@ const CycleData = require('../models/CycleData');
 const DoctorAppointment = require('../models/DoctorAppointment');
 const User = require('../models/User'); // Assuming doctors are users with role 'doctor'
 
-
 // Home
 router.get('/', (req, res) => {
   res.render('index', {
     messages: [], 
     appointment: null
   });
- });
+});
 
 // Views - Health Tracking
 router.get('/menstrual_cycle', (req, res) => res.render('menstrual_cycle'));
@@ -31,6 +30,12 @@ router.get('/menopause_tracker', (req, res) => res.render('menopause_tracker'));
 router.get('/sexual_reproductive_health', (req, res) => res.render('sexual_reproductive_health'));
 router.get('/family_planning', (req, res) => res.render('family_planning'));
 router.get('/antenatal_postnatal', (req, res) => res.render('antenatal_postnatal'));
+router.get('/antenatal_postnatal2', (req, res) => {
+  res.render('antenatal_postnatal', {
+    title: 'Pre & Postnatal Care',
+    pregnancyMilestonesUrl: '/pregnancy_milestones'
+  });
+});
 router.get('/gynecological_issues', (req, res) => res.render('gynecological_issues'));
 router.get('/vaccination', (req, res) => res.render('vaccination'));
 router.get('/cancer_awareness', (req, res) => res.render('cancer_awareness'));
@@ -47,18 +52,12 @@ router.get('/about', (req, res) => res.render('about'));
 router.get('/partners', (req, res) => res.render('partners'));
 router.get('/contact', (req, res) => res.render('contact'));
 
-// Route for doctor consultation page
+// Doctor consultation page
 router.get('/doctor_consultation', async (req, res) => {
   try {
-    // Get all users with the 'doctor' role
     const doctors = await User.find({ role: 'doctor' });
-
-    // Get appointments for the current user
     const user_appointments = await DoctorAppointment.find({ user_id: req.session.user_id });
-
-    // Optionally, load doctor specialties here if needed
-    const doctor_specialties = {}; // Example placeholder
-
+    const doctor_specialties = {}; 
     res.render('doctor_consultation', {
       doctors,
       user_appointments,
@@ -70,10 +69,7 @@ router.get('/doctor_consultation', async (req, res) => {
   }
 });
 
-
-
-
-// GET: Render appointment booking form
+// Appointment booking form
 router.get('/book_appointment', async (req, res) => {
   try {
     const doctorId = req.query.doctor_id;
@@ -83,20 +79,16 @@ router.get('/book_appointment', async (req, res) => {
       return res.status(404).send('Doctor not found');
     }
 
-    res.render('book_appointment', {
-      doctor
-    });
+    res.render('book_appointment', { doctor });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
   }
 });
 
-// POST: Handle booking form submission
 router.post('/book_appointment', async (req, res) => {
   try {
     const { doctor_id, appointment_date, appointment_type } = req.body;
-
     const appointment = new DoctorAppointment({
       user_id: req.session.user_id,
       doctor_id,
@@ -104,7 +96,6 @@ router.post('/book_appointment', async (req, res) => {
       appointment_type,
       status: 'scheduled',
     });
-
     await appointment.save();
     res.redirect('/doctor_consultation');
   } catch (err) {
@@ -113,8 +104,7 @@ router.post('/book_appointment', async (req, res) => {
   }
 });
 
-
-// ✅ AI Chatbot: Show interface with chat history
+// AI Chatbot
 router.get('/ai_chatbot', async (req, res) => {
   let chat_history = [];
   if (req.session.user_id) {
@@ -128,7 +118,6 @@ router.get('/ai_chatbot', async (req, res) => {
   });
 });
 
-// ✅ AI Chatbot: Get response from OpenAI
 router.post('/ai_chatbot', async (req, res) => {
   const { message } = req.body;
   const user_id = req.session.user_id;
@@ -144,7 +133,6 @@ router.post('/ai_chatbot', async (req, res) => {
 
     const aiResponse = completion.choices[0].message.content;
 
-    // Save chat if user is logged in
     if (user_id) {
       await ChatHistory.create({ user_id, message, response: aiResponse });
     }
@@ -160,7 +148,6 @@ router.post('/ai_chatbot', async (req, res) => {
   }
 });
 
-// ✅ Optional: Save chat manually (can be removed if saved in above route)
 router.post('/save_chat', async (req, res) => {
   try {
     const { message, response } = req.body;
@@ -272,65 +259,46 @@ router.get('/join-consultation/:id', async (req, res) => {
   }
 });
 
-
-
-// Health tracking routes
-router.get('/menstrual_cycle', (req, res) => {
-  res.render('menstrual_cycle', { title: 'Menstrual & Fertility Tracking' });
-});
-
-router.get('/antenatal_postnatal', (req, res) => {
-  res.render('antenatal_postnatal', {
-    title: 'Pre & Postnatal Care',
-    pregnancyMilestonesUrl: '/pregnancy_milestones'
-  });
-});
-
-router.get('/menopause_tracker', (req, res) => {
-  res.render('/menopause_tracker', { title: 'Menopause Management' });
-});
-
-// Educational Resources
-router.get('/sexual_reproductive_health', (req, res) => {
-  res.render('sexual_reproductive_health', { title: 'Sexual & Reproductive Health' });
-});
-
-router.get('/family_planning', (req, res) => {
-  res.render('family_planning', { title: 'Family Planning' });
-});
-
-router.get('/gynecological_issues', (req, res) => {
-  res.render('gynecological_issues', { title: 'Gynecological Health' });
-});
-
-router.get('/antenatal_postnatal', (req, res) => {
-  res.render('antenatal_postnatal', { title: 'Pre & Postnatal Care' });
-});
-
-router.get('/vaccination', (req, res) => {
-  res.render('vaccination', { title: 'Vaccination & Immunization' });
-});
-
+// Educational Resource Duplication Handling
 router.get('/cancer', (req, res) => {
   res.render('cancer_awareness', { title: 'Cancer Awareness' });
-});  
+});
 
-// Also support /awareness/cancer for navigation consistency
 router.get('/awareness/cancer', (req, res) => {
   res.render('cancer_awareness', { title: 'Cancer Awareness' });
 });
-
-// Wellness
-router.get('/nutrition', (req, res) => {
-  res.render('nutrition', { title: 'Nutrition & Diet' });
+// Alternate or v2 Views
+router.get('/family_planning2', (req, res) => {
+  res.render('family_planning2', { title: 'Family Planning (v2)' });
 });
 
-router.get('/fitness', (req, res) => {
-  res.render('fitness', { title: 'Physical Fitness' });
+router.get('/gynacological_issues2', (req, res) => {
+  res.render('gynacological_issues2', { title: 'Gynecological Health (v2)' });
 });
 
-router.get('/mental_health', (req, res) => {
-  res.render('mental_health', { title: 'Mental Health' });
+router.get('/menopause_tracker2', (req, res) => {
+  res.render('menopause_tracker2', { title: 'Menopause Management (v2)' });
 });
+
+router.get('/menstral_cycle2', (req, res) => {
+  res.render('menstral_cycle2', { title: 'Menstrual Cycle Tracking (v2)' });
+});
+
+router.get('/ovulation_fertility2', (req, res) => {
+  res.render('ovulation_fertility2', { title: 'Ovulation & Fertility (v2)' });
+});
+
+router.get('/postpartum_care2', (req, res) => {
+  res.render('postpartum_care2', { title: 'Postpartum Care (v2)' });
+});
+
+router.get('/pregnancy_milestones2', (req, res) => {
+  res.render('pregnancy_milestones2', { title: 'Pregnancy Milestones (v2)' });
+});
+
+router.get('/sexual_reproductive_health2', (req, res) => {
+  res.render('sexual_reproductive_health2', { title: 'Sexual & Reproductive Health (v2)' });
+});
+
 
 module.exports = router;
