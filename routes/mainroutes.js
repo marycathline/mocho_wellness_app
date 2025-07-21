@@ -29,13 +29,24 @@ router.get('/menopause_tracker', (req, res) => res.render('menopause_tracker'));
 // Views - Education
 router.get('/sexual_reproductive_health', (req, res) => res.render('sexual_reproductive_health'));
 router.get('/family_planning', (req, res) => res.render('family_planning'));
-router.get('/antenatal_postnatal', (req, res) => res.render('antenatal_postnatal'));
+
+// Antenatal and Postnatal Care
 router.get('/antenatal_postnatal2', (req, res) => {
   res.render('antenatal_postnatal', {
     title: 'Pre & Postnatal Care',
     pregnancyMilestonesUrl: '/pregnancy_milestones'
   });
 });
+
+router.get('/antenatal_postnatal', (req, res) => {
+  res.render('antenatal_postnatal', {
+    title: 'Pregnancy Milestones Tracker',
+    pregnancyMilestonesUrl: '/pregnancy_milestones2'
+  });
+});
+
+
+
 router.get('/gynecological_issues', (req, res) => res.render('gynecological_issues'));
 router.get('/vaccination', (req, res) => res.render('vaccination'));
 router.get('/cancer_awareness', (req, res) => res.render('cancer_awareness'));
@@ -264,24 +275,27 @@ router.get('/cancer', (req, res) => {
   res.render('cancer_awareness', { title: 'Cancer Awareness' });
 });
 
-router.get('/awareness/cancer', (req, res) => {
-  res.render('cancer_awareness', { title: 'Cancer Awareness' });
+router.get('/cancer_awareness', (req, res) => {
+  res.render('cancer_awareness', { title: 'Cancer Awareness (v2)' });
 });
 // Alternate or v2 Views
 router.get('/family_planning2', (req, res) => {
   res.render('family_planning2', { title: 'Family Planning (v2)' });
 });
 
-router.get('/gynacological_issues2', (req, res) => {
-  res.render('gynacological_issues2', { title: 'Gynecological Health (v2)' });
+router.get('/gynecological_issues2', (req, res) => {
+  res.render('gynecological_issues2', { title: 'Gynecological Health (v2)' });
+});
+router.get('/gynecological_issues', (req, res) => {
+  res.render('gynecological_issues', { title: 'Gynecological Health' });
 });
 
 router.get('/menopause_tracker2', (req, res) => {
   res.render('menopause_tracker2', { title: 'Menopause Management (v2)' });
 });
 
-router.get('/menstral_cycle2', (req, res) => {
-  res.render('menstral_cycle2', { title: 'Menstrual Cycle Tracking (v2)' });
+router.get('/menstrual_cycle2', (req, res) => {
+  res.render('menstrual_cycle2', { title: 'Menstrual Cycle Tracking (v2)' });
 });
 
 router.get('/ovulation_fertility2', (req, res) => {
@@ -299,6 +313,12 @@ router.get('/pregnancy_milestones2', (req, res) => {
 router.get('/sexual_reproductive_health2', (req, res) => {
   res.render('sexual_reproductive_health2', { title: 'Sexual & Reproductive Health (v2)' });
 });
+router.get('/ovulation_fertility', (req, res) => {
+  res.render('ovulation_fertility');
+});
+
+
+
 
 
 module.exports = router;

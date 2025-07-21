@@ -1,9 +1,9 @@
 <!-- filepath: c:\Users\Admin\Downloads\MochoCareApp\views\family_planning2.ejs -->
 
 
-<% block('title', "Family Planning & Contraception | Women's Health Hub") %>
+<% title= "Family Planning & Contraception | Women's Health Hub" %>
 
-<% block('content') %>
+
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8">
@@ -807,7 +807,8 @@
           </ul>
           
           <div class="text-center mt-3">
-            <a href="<%= url_for('ovulation_fertility') %>" class="btn btn-primary">Learn More About Fertility Tracking</a>
+            <a href="/ovulation_fertility2" class="btn btn-primary">Learn More About Fertility Tracking</a>
+
           </div>
         </div>
       </div>
@@ -839,7 +840,7 @@
             <li>Avoid environmental toxins</li>
           </ul>
           <div class="text-center mt-3">
-            <a href="<%= url_for('pregnancy_milestones') %>" class="btn btn-outline-primary">Pregnancy Milestone Tracking</a>
+            <a href="/pregnancy_milestones" class="btn btn-outline-primary">Pregnancy Milestone Tracking</a>
           </div>
         </div>
       </div>
@@ -848,11 +849,11 @@
         <div class="card-body">
           <h5 class="card-title">Related Resources</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="<%= url_for('menstrual_cycle') %>">Menstrual Cycle Tracking</a></li>
-            <li class="list-group-item"><a href="<%= url_for('ovulation_fertility') %>">Ovulation & Fertility Tracking</a></li>
-            <li class="list-group-item"><a href="<%= url_for('sexual_reproductive_health') %>">Sexual & Reproductive Health</a></li>
-            <li class="list-group-item"><a href="<%= url_for('gynecological_issues') %>">Common Gynecological Issues</a></li>
-            <li class="list-group-item"><a href="<%= url_for('pregnancy_milestones') %>">Pregnancy Milestones</a></li>
+            <li class="list-group-item"><a href="/menstrual_cycle">Menstrual Cycle Tracking</a></li>
+            <li class="list-group-item"><a href="/ovulation_fertility">Ovulation & Fertility Tracking</a></li>
+            <li class="list-group-item"><a href="/sexual_reproductive_health">Sexual & Reproductive Health</a></li>
+            <li class="list-group-item"><a href="/gynecological_issues">Common Gynecological Issues</a></li>
+            <li class="list-group-item"><a href="/pregnancy_milestones">Pregnancy Milestones</a></li>
           </ul>
         </div>
       </div>
